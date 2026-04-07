@@ -10,8 +10,8 @@ from rba.prerba.fasta_parser import RbaFastaParser
 
 
 class UserMachinery(object):
-    def __init__(self, filename, uniprot_data):
-        parser = RbaFastaParser(filename, uniprot_data)
+    def __init__(self, filename, protein_data,location_separator,metabolic_species=[]):
+        parser = RbaFastaParser(filename,location_separator=location_separator, protein_data=protein_data,metabolic_species=metabolic_species)
         self.proteins = parser.proteins
         self.rnas = parser.rnas
 
@@ -24,3 +24,9 @@ class UserMachinery(object):
     def composition(self):
         return {m.id: m.stoichiometry
                 for m in itertools.chain(self.proteins, self.rnas)}
+    
+    def has_nonempty_composition(self):
+        if len(self.protein_ids())+len(self.rna_ids())>0:
+            return(True)
+        else:
+            return(False)

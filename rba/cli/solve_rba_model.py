@@ -10,6 +10,7 @@ import sys
 
 # package imports
 import rba
+import time
 
 
 def main():
@@ -33,6 +34,8 @@ def main():
                         help='Directory to save the results; defaut: the directory for the model.')
     parser.add_argument('--verbose', action='store_true',
                         help='Directory to save the results; defaut: the directory for the model.')
+    parser.add_argument('--solve-grid', action='store_true',
+                        help='Directory to save the results; defaut: the directory for the model.')
 
     args = parser.parse_args()
 
@@ -46,18 +49,22 @@ def main():
 
     if args.verbose:
         print('Solving RBA model ...')
+    t0=time.time()
     results = model.solve(lp_solver=args.lp_solver,
                           mu_min=args.mu_min,
                           mu_max=args.mu_max,
                           bissection_tol=args.bissection_tol,
                           max_bissection_iters=args.max_bissection_iters,
-                          verbose=args.verbose)
+                          verbose=args.verbose,
+                          solve_grid=args.solve_grid)
     if args.verbose:
         print('done')
 
+    print("Solving time: {} s".format(time.time()-t0))
     print('Optimal growth rate is {}.'.format(results.mu_opt))
     results.write(args.output_dir or args.model_dir)
-
+    results.write_proteins(output_dir=args.model_dir, file_type='csv')
+    results.write_fluxes(output_dir=args.model_dir, file_type='json', merge_isozyme_reactions=True,only_nonzero=True, remove_prefix=False)
 
 if __name__ == '__main__':
     main()

@@ -1,1 +1,1 @@
-'RBApy was conceived and implemented originally by INRAE (Stephan Fischer, Ana Bulovic, Anne Goelzer and Marc Dinh), and updated regularly by several contributors (Oliver Bodeit, Jonathan Karr, Michael Jahn)'
+'RBApy was conceived and implemented originally by INRAE (Oliver Bodeit, Stephan Fischer, Ana Bulovic, Anne Goelzer), and updated regularly by several contributors (Marc Dinh, Jonathan Karr, Michael Jahn)'

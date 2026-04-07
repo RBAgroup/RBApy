@@ -33,8 +33,11 @@ class UniprotData(object):
 
         """
         # open UniProt data
-        self.data = pandas.read_csv(os.path.join(input_dir, 'uniprot.csv'),
-                                    sep='\t')
+        try:
+            #low memory to prevent mixed datatypes pandas warning
+            self.data = pandas.read_csv(os.path.join(input_dir, 'proteome_annotation.tsv'), sep='\t',low_memory=False)
+        except:
+            self.data = pandas.read_csv(os.path.join(input_dir, 'proteome_annotation.tsv'), sep='\t')
         self.data.set_index('Entry', inplace=True)
         # create mapping from gene ids to UniProt ids
         self._gene_to_entry = {}
@@ -64,7 +67,8 @@ class UniprotData(object):
                     self._gene_to_entry[gene] = entry
                     self._gene_annotation_score[gene] = int(annotation_score[0])
         # create parsers
-        self._location_parser = LocationParser()
+        #self._location_parser = LocationParser()
+        self._location_list_parser = LocationListParser()
         self._cofactor_parser = CofactorParser()
         self._subunit_parser = SubunitParser()
 
@@ -85,9 +89,26 @@ class UniprotData(object):
         """
         return self.data.loc[uniprot_id]
 
-    def find_location(self, uniprot_line):
+#    def find_location(self, uniprot_line):
+#        """
+#        Parse location of protein.
+#
+#        Parameters
+#        ----------
+#        uniprot_line : pandas.Series
+#            Protein data.#
+#
+#        Returns
+#        -------
+#        str
+#            Standardized location of protein.
+#
+#        """
+#        return self._location_parser.parse(uniprot_line['Subcellular location [CC]'])
+
+    def find_location_list(self, uniprot_line):
         """
-        Parse location of protein.
+        Parse location of protein in annotation. Returns list of annotated locations.
 
         Parameters
         ----------
@@ -100,9 +121,7 @@ class UniprotData(object):
             Standardized location of protein.
 
         """
-        return self._location_parser.parse(
-            uniprot_line['Subcellular location [CC]']
-            )
+        return(self._location_list_parser.parse(uniprot_line['Subcellular location [CC]']))
 
     def find_cofactors(self, uniprot_line):
         """
@@ -178,11 +197,53 @@ class UniprotData(object):
         return dict(composition)
 
 
-class LocationParser(object):
-    """Class parsing 'Subcellular location' field of UniProt."""
+#class LocationParser(object):
+#    """Class parsing 'Subcellular location' field of UniProt."""
+#
+#    #_location_reader = re.compile(r'SUBCELLULAR LOCATION:\s([\w\s]+\w)')
+#    _location_reader = re.compile(r'\s+([\w\s]+\w)')
+#
+#    def parse(self, field):
+#        """
+#        Parse 'Subcellular location' field in UniProt.
+#
+#        Parameters
+#        ----------
+#        field : str
+#            Subcellular location field from UniProt.
+#
+#        Returns
+#        -------
+#        str
+#            Compartment read.
+#
+#        """
+#
+#        # Remove all fields such as {ECO:XX|Pubmed:ggg}
+#        # location_remove_ECO = re.compile(r'\{(\w|:|\||-|,|\s)+\}(.|;|\s)');
+#        # Remove all fields such as [Isoform 1]
+#        location_remove_ISO = re.compile(r'\[.*\]:');
+#
+#        if pandas.isnull(field):
+#            return None
+#        try:
+#            # split subcellular localisation
+#            # take the second elements, 1st is ''
+#            fieldSplit = re.split('SUBCELLULAR LOCATION:',field)
+#            # now remove [XXXX]:
+#            fieldWithoutIso = location_remove_ISO.sub("",fieldSplit[1])
+#            return self._location_reader.match(fieldWithoutIso).group(1)
+#            #return self._location_reader.match(field).group(1)
+#        except AttributeError:
+#            print(field)
+#            raise
+
+class LocationListParser(object):
+    """Class parsing 'Subcellular location' field of UniProt as list."""
 
     #_location_reader = re.compile(r'SUBCELLULAR LOCATION:\s([\w\s]+\w)')
-    _location_reader = re.compile(r'\s+([\w\s]+\w)')
+    _location_reader = re.compile(r'\b[\w\-\=\(\)]+(?: [\w\-\=\(\)]+)*\b')
+
     def parse(self, field):
         """
         Parse 'Subcellular location' field in UniProt.
@@ -204,7 +265,6 @@ class LocationParser(object):
         # Remove all fields such as [Isoform 1]
         location_remove_ISO = re.compile(r'\[.*\]:');
 
-
         if pandas.isnull(field):
             return None
         try:
@@ -213,7 +273,8 @@ class LocationParser(object):
             fieldSplit = re.split('SUBCELLULAR LOCATION:',field)
             # now remove [XXXX]:
             fieldWithoutIso = location_remove_ISO.sub("",fieldSplit[1])
-            return self._location_reader.match(fieldWithoutIso).group(1)
+
+            return ([i.capitalize() for i in self._location_reader.findall(re.sub(r'\{.*?\}', '', fieldWithoutIso.split("Note=")[0])) if ('protein' not in i)and('=' not in i)and(i.isnumeric()==False)])
             #return self._location_reader.match(field).group(1)
         except AttributeError:
             print(field)

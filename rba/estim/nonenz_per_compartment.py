@@ -1,5 +1,5 @@
 from collections import defaultdict
-import ConfigParser
+import configparser
 
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
@@ -51,7 +51,7 @@ def visualize_solution(exp_data, ratio_data, sol):
     plt.show()
 
 if __name__ == '__main__':
-    config = ConfigParser.ConfigParser()
+    config = configparser.ConfigParser()
     config.read('nonenz_per_compartment.cfg')
 
     experiment_data = load_experiment_data(config)
@@ -69,22 +69,20 @@ if __name__ == '__main__':
     all_proteins = set(location_data.index) & set(category_data.index)
     cat_column = config.get('CategoryData', 'cat_column')
     is_enzymatic_col = config.get('IsEnzymaticData', 'is_enzymatic_column')
-    
+
     access_array = []
     for prot in protein_data.index:
         if prot not in all_proteins:
             access_array.append(False)
             continue
         _cat = category_data.loc[prot][cat_column]
-        if type(_cat) != unicode:
-            _cat = _cat[0]
+
         if not is_enzymatic_data.loc[_cat][is_enzymatic_col]:
             access_array.append(True)
         else:
             access_array.append(False)
-
+    # Pg prot
     ne_protein_data = protein_data[access_array]
-
     total_comp_data = compute_compartment_data(experiment_data, protein_data, 
                                                location_data, comp_map_data, config)
     ne_comp_data = compute_compartment_data(experiment_data, ne_protein_data, 
@@ -95,7 +93,12 @@ if __name__ == '__main__':
         for exp in total_comp_data.columns:
             ratio_data.loc[loc, exp] = ne_comp_data.loc[loc, exp] / total_comp_data.loc[loc, exp]
 
-    linear_fits = compute_linear_fits(experiment_data, ratio_data)
+    if ratio_data.shape[1]>1:
+        linear_fits = compute_linear_fits(experiment_data, ratio_data)
+    else:
+        linear_fits=pd.DataFrame(index=ratio_data.index, columns=['slope', 'intercept'])
+        linear_fits['slope']=[0.0]*ratio_data.shape[0]
+        linear_fits['intercept']=list(ratio_data.iloc[:,0])         
 
     export_solution(ne_comp_data, linear_fits, config)
 

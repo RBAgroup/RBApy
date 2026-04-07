@@ -11,16 +11,20 @@ import requests
 
 def create_uniprot_if_absent(input_file, organism_id):
     if not os.path.isfile(input_file):
-        print('Could not find UniProt file. Downloading most recent'
-              ' version ...', end='')
+        print('Could not find proteome_annotation.tsv file. Downloading most recent'
+              ' version ... from Uniprot', end='')
         sys.stdout.flush()
         raw_data = UniprotImporter(organism_id).data
         if len(raw_data) == 0:
+            print("")
             raise UserWarning('Invalid organism, could not retrieve '
                               'UniProt data.')
         with open(input_file, 'wb') as f:
             f.write(raw_data)
         print(' done')
+        return(True)
+    else:
+        return(False)
 
 
 class UniprotImporter(object):

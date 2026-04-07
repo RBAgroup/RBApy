@@ -1,0 +1,10 @@
+SBML_COMPARTMENT	RBA_COMPARTMENT
+c	Cytoplasm
+p	Periplasm
+e	Secreted
+c,e	Cell_inner_membrane
+c,p	Cell_inner_membrane
+p,e	Cell_outer_membrane
+u	Thylakoid_lumen
+c,u	Thylakoid_membrane
+DEFAULT	Cytoplasm

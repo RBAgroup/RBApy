@@ -1,0 +1,12 @@
+
+#########################
+# Default information on PROKARYOTE #
+#########################
+		
+DEFAULT_GENOME_LOCATION = Cytoplasm 
+
+GENOME_LOCATIONS = Cytoplasm
+
+AVERAGE_GENE_ID = average_protein
+
+MACROMOLECULE_LOCATION_SEPARATOR = _loc_

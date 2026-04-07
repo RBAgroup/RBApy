@@ -7,10 +7,17 @@ from __future__ import division, print_function, absolute_import
 from lxml import etree
 
 # local imports
-from rba.xml.common import get_unique_child, ListOf, TargetValue
+from rba.xml.common import get_unique_child, ListOf, TargetValue, xml_input_tag_error
 
 __all__ = ['RbaDensity', 'TargetDensity', 'ListOfTargetDensities']
 
+
+"""
+PLEASE NOTE:
+The density xml file is obsolete, since replaced by compartments.xml 
+in RBApy version 3+. This file/classes can only not be removed to ensure 
+older models can be still loaded and converted into the new format.
+"""
 
 class RbaDensity(object):
     """
@@ -22,12 +29,12 @@ class RbaDensity(object):
         List of density constraints.
 
     """
-
+    tag='RBADensity'
     def __init__(self):
         """Constructor."""
         self.target_densities = ListOfTargetDensities()
 
-    def write(self, output_stream, doc_name='RBADensity'):
+    def write(self, output_stream):
         """
         Write information as an XML structure.
 
@@ -35,11 +42,8 @@ class RbaDensity(object):
         ----------
         output_stream : file or buffer
             Location where XML structure should be written.
-        doc_name : str, optional
-            Name of XML document.
-
         """
-        root = etree.Element(doc_name)
+        root = etree.Element(self.tag)
         root.extend([self.target_densities.to_xml_node()])
         etree.ElementTree(root).write(output_stream, pretty_print=True)
 
@@ -55,6 +59,9 @@ class RbaDensity(object):
 
         """
         node = etree.ElementTree(file=input_stream).getroot()
+        # Verify that root tag in file is the one specified by class RBADensity
+        if node.tag != cls.tag:
+            raise xml_input_tag_error(file=input_stream.name,file_tag=node.tag,requested_tag=cls.tag)
         result = cls()
         n = get_unique_child(node, ListOfTargetDensities.tag)
         result.target_densities = ListOfTargetDensities.from_xml_node(n)

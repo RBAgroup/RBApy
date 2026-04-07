@@ -1,0 +1,12 @@
+
+#########################
+# Default information on PLANT #
+#########################
+		
+DEFAULT_GENOME_LOCATION = Nucleus 
+
+GENOME_LOCATIONS = Nucleus,Mitochondrion_matrix,Plastid
+
+AVERAGE_GENE_ID = average_protein
+
+MACROMOLECULE_LOCATION_SEPARATOR = _loc_

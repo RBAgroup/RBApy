@@ -43,40 +43,44 @@ class Enzymes(object):
         """
         # check that all reactions are found and keep only enzymes
         # that have a machinery
-        reactions_left = reactions[:]
-        nonzero_enzymes = []
+        #reactions_left = reactions[:]
+        self.enzymes = []
         self.reaction_catalyzed = []
         for enzyme in enzymes.enzymes:
             reaction = enzyme.reaction
-            reactions_left.remove(reaction)
+            #reactions_left.remove(reaction)
             if not (enzyme.zero_cost or
                     enzyme.machinery_composition.is_empty()):
-                nonzero_enzymes.append(enzyme)
+                self.enzymes.append(enzyme)
                 self.reaction_catalyzed.append(reaction)
-        self.ids = [e.id for e in nonzero_enzymes]
-        if reactions_left:
-            print('Warning: did not find enzymes for following reactions: '
-                  + ', '.join(reactions_left))
+        self.ids = [e.id for e in self.enzymes]
+        #if reactions_left:
+        #    print('Warning: did not find enzymes for following reactions: '
+        #          + ', '.join(reactions_left))
 
-        # extract machinery information
-        machinery = [e.machinery_composition for e in nonzero_enzymes]
-        self.machinery = species.create_machinery(machinery)
+        self.construct_machinery(species,parameters)
 
         # extract efficiency information
         self._forward = [parameters[e.forward_efficiency]
-                         for e in nonzero_enzymes]
+                         for e in self.enzymes]
         self._backward = [parameters[e.backward_efficiency]
-                          for e in nonzero_enzymes]
+                          for e in self.enzymes]
 
         # bounds
         self.ub = default_ub.value * numpy.ones(len(self.ids))
         self.lb = numpy.zeros(len(self.ids))
         self.f = numpy.ones(len(self.ids))
 
+
+    def construct_machinery(self,species,parameters):
+        # extract machinery information
+        machinery = [e.machinery_composition for e in self.enzymes]
+        self.machinery = species.create_machinery(machinery,parameters=parameters)
+
+
     def efficiencies(self):
         """Compute efficiency for current parameter values."""
-        forward = numpy.fromiter((fn.value for fn in self._forward),
-                                 'float', len(self._forward))
-        backward = numpy.fromiter((fn.value for fn in self._backward),
-                                  'float', len(self._backward))
+        forward = numpy.fromiter((fn.value for fn in self._forward),'float', len(self._forward))
+        backward = numpy.fromiter((fn.value for fn in self._backward),'float', len(self._backward))
         return forward, backward
+

@@ -7,9 +7,11 @@ from __future__ import division, print_function, absolute_import
 from lxml import etree
 
 # local imports
+from rba.xml._rbaml_version import __rbaml_version__ as rbaml_version
 from rba.xml.common import (get_unique_child, ListOf, SpeciesReference,
                             TargetValue, MachineryComposition,
-                            ListOfReactants, ListOfProducts)
+                            ListOfReactants, ListOfProducts, 
+                            xml_input_tag_error)
 
 __all__ = ['RbaProcesses', 'Process', 'ListOfProcesses',
            'Machinery', 'Capacity', 'Processing', 'Processings',
@@ -32,12 +34,13 @@ class RbaProcesses(object):
 
     """
 
+    tag='RBAProcesses'
     def __init__(self):
         """Constructor."""
         self.processes = ListOfProcesses()
         self.processing_maps = ListOfProcessingMaps()
 
-    def write(self, output_stream, doc_name='RBAProcesses'):
+    def write(self, output_stream,meta_data={}):
         """
         Write information as an XML structure.
 
@@ -45,14 +48,20 @@ class RbaProcesses(object):
         ----------
         output_stream : file or buffer
             Location where XML structure should be written.
-        doc_name : str, optional
-            Name of XML document.
-
         """
-        root = etree.Element(doc_name)
+        root = etree.Element(self.tag)
         root.extend([self.processes.to_xml_node(),
                      self.processing_maps.to_xml_node()])
-        etree.ElementTree(root).write(output_stream, pretty_print=True)
+        tree=etree.ElementTree(root)
+        root.addprevious(etree.Comment(" Created by RBApy version {} with RBAML version {}".format(meta_data.get("RBApy_version_model_generation",None),rbaml_version)))
+        root.addprevious(etree.Comment("Model: {}, Organism/Tissue: {}, Taxon-ID: {}".format(meta_data.get("Model",""),
+                                                                                             meta_data.get("Organism/Tissue",""),
+                                                                                             meta_data.get("Taxon_ID",""))))
+        root.addprevious(etree.Comment("Authored by: {}".format(meta_data.get("Author(s)",""))))
+        root.addprevious(etree.Comment("Copyright of: {}".format(meta_data.get("Copyright_holder",""))))
+        root.addprevious(etree.Comment("License: {}".format(meta_data.get("License",""))))
+        root.addprevious(etree.ProcessingInstruction("rbaml", 'version="{}"'.format(rbaml_version)))
+        tree.write(output_stream, xml_declaration=True, encoding="UTF-8", pretty_print=True)
 
     @classmethod
     def from_file(cls, input_stream):
@@ -66,6 +75,9 @@ class RbaProcesses(object):
 
         """
         node = etree.ElementTree(file=input_stream).getroot()
+        # Verify that root tag in file is the one specified by class RBAProcesses
+        if node.tag != cls.tag:
+            raise xml_input_tag_error(file=input_stream.name,file_tag=node.tag,requested_tag=cls.tag)
         result = cls()
         n = get_unique_child(node, ListOfProcesses.tag)
         result.processes = ListOfProcesses.from_xml_node(n)
@@ -177,8 +189,7 @@ class Machinery(object):
         """Build object from xml node."""
         result = cls()
         machinery_node = get_unique_child(node, MachineryComposition.tag)
-        result.machinery_composition \
-            = MachineryComposition.from_xml_node(machinery_node)
+        result.machinery_composition = MachineryComposition.from_xml_node(machinery_node)
         capacity_node = get_unique_child(node, Capacity.tag)
         result.capacity = Capacity.from_xml_node(capacity_node)
         return result
@@ -267,7 +278,7 @@ class Processing(object):
 
     tag = 'processing'
 
-    def __init__(self, map_, set_):
+    def __init__(self, map_, set_, input_fraction_=None):
         """
         Constructor.
 
@@ -282,6 +293,7 @@ class Processing(object):
         """
         self.processing_map = map_
         self.set = set_
+        self.input_fraction = input_fraction_
         self.inputs = ListOfInputs()
 
     def to_xml_node(self):
@@ -289,13 +301,15 @@ class Processing(object):
         result = etree.Element(self.tag)
         result.set('processingMap', self.processing_map)
         result.set('set', self.set)
+        if self.input_fraction is not None:
+            result.set('input_fraction', self.input_fraction)
         result.extend([self.inputs.to_xml_node()])
         return result
 
     @classmethod
     def from_xml_node(cls, node):
         """Build object from xml node."""
-        result = cls(node.get('processingMap'), node.get('set'))
+        result = cls(map_=node.get('processingMap'), set_=node.get('set'), input_fraction_=node.get('input_fraction'))
         n = get_unique_child(node, ListOfInputs.tag)
         result.inputs = ListOfInputs.from_xml_node(n)
         return result

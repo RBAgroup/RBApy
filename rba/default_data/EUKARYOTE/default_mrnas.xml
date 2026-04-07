@@ -1,0 +1,13 @@
+<RBARnas>
+  <listOfComponents/>
+  <listOfMacromolecules>
+    <macromolecule id="mrna__DEFAULT" compartment="DEFAULT">
+      <composition>
+        <componentReference component="A" stoichiometry="0.2841"/>
+        <componentReference component="C" stoichiometry="0.2294"/>
+        <componentReference component="G" stoichiometry="0.2026"/>
+        <componentReference component="U" stoichiometry="0.2839"/>
+      </composition>
+    </macromolecule>
+  </listOfMacromolecules>
+</RBARnas>

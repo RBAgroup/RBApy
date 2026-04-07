@@ -1,0 +1,172 @@
+<RBAParameters>
+  <listOfFunctions>
+	<function id="chaperone_efficiency_CM" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="345600"/>
+      </listOfParameters>
+    </function>
+    	<function id="translocation_efficiency_CM" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="345600"/>
+      </listOfParameters>
+    </function>
+	<function id="DNApol_efficiency_CM" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="4176000"/>
+      </listOfParameters>
+    </function>
+	<function id="RNApol_efficiency_CM" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="4320000"/>
+      </listOfParameters>
+    </function>
+    <function id="fraction_non_enzymatic_protein__DEFAULT" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="0.35"/>
+      </listOfParameters>
+    </function>
+    <function id="fraction_non_enzymatic_protein_Secreted" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="1.0"/>
+      </listOfParameters>
+    </function>
+    <function id="fraction_non_enzymatic_protein_Cytoplasm" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="0.35"/>
+      </listOfParameters>
+    </function>
+    <function id="fraction_protein_Cytoplasm" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="0.12"/>
+      </listOfParameters>
+    </function>
+    <function id="fraction_protein_Secreted" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="0.014"/>
+      </listOfParameters>
+    </function>
+    <function id="fraction_protein_Plastid" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="0.44"/>
+      </listOfParameters>
+    </function> 
+    <function id="fraction_protein_Thylakoid_membrane" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="0.20"/>
+      </listOfParameters>
+    </function>        
+    <function id="default_enzyme_efficiency" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="1296000.0"/>
+      </listOfParameters>
+    </function>
+    <function id="default_transporter_efficiency" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="1296000.0"/>
+      </listOfParameters>
+    </function>
+    <function id="amino_acid_concentration" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="2.2327"/>
+      </listOfParameters>
+    </function>
+    <function id="maintenance_atp" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="7.2667"/>
+      </listOfParameters>
+    </function>
+    <function id="zero" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="0.0"/>
+      </listOfParameters>
+    </function>
+    <function id="ribosome_efficiency_CM" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="259200"/>
+      </listOfParameters>
+    </function>
+    <function id="dna_loc_Nucleus_concentration" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="0.0031"/>
+      </listOfParameters>
+    </function>
+    <function id="dna_loc_Mitochondrion_matrix_concentration" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="9.4162e-06"/>
+      </listOfParameters>
+    </function>
+    <function id="dna_loc_Plastid_concentration" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="3.9548e-06"/>
+      </listOfParameters>
+    </function>
+    <function id="mrna_loc_Nucleus_concentration" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="0.0018"/>
+      </listOfParameters>
+    </function>
+    <function id="mrna_loc_Mitochondrion_matrix_concentration" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="5.4614e-06"/>
+      </listOfParameters>
+    </function>
+    <function id="mrna_loc_Plastid_concentration" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="2.2938e-06"/>
+      </listOfParameters>
+    </function>
+    <function id="default_protein_half_life" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="inf"/>
+      </listOfParameters>
+    </function>
+    <function id="default_rna_half_life" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="inf"/>
+      </listOfParameters>
+    </function>
+    <function id="default_dna_half_life" type="constant" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="CONSTANT" value="inf"/>
+      </listOfParameters>
+    </function>
+    <function id="ribosome_efficiency_MM" type="michaelisMenten" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="kmax" value="864000"/>
+        <parameter id="Km" value="0.5"/>
+        <parameter id="Y_MIN" value="86400"/>
+      </listOfParameters>
+    </function>
+    <function id="fraction_active_ribosomes" type="exponential" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="RATE" value="-0.083333"/>
+      </listOfParameters>
+    </function>
+    <function id="keff_Rubisco_Oxy" type="rubiscoOxygenase" variable="M_co2_e,M_o2_e,Temperature,M_hnu_e">
+      <listOfParameters>
+      </listOfParameters>
+    </function>
+    <function id="keff_Rubisco_Carboxy" type="rubiscoCarboxygenase" variable="M_co2_e,M_o2_e,Temperature,M_hnu_e">
+      <listOfParameters>
+      </listOfParameters>
+    </function>
+    <function id="keff_Rubisco_psi2" type="psi2" variable="M_co2_e,M_o2_e,Temperature,M_hnu_e">
+      <listOfParameters>
+      </listOfParameters>
+    </function>
+    <function id="transport_factor__DEFAULT" type="michaelisMenten" variable="growth_rate">
+      <listOfParameters>
+        <parameter id="kmax" value="1.0"/>
+        <parameter id="Km" value="0.8"/>
+      </listOfParameters>
+	</function>
+  </listOfFunctions>            
+  <listOfAggregates>
+    <aggregate id="ribosome_capacity" type="multiplication">
+      <listOfFunctionReferences>
+        <functionReference function="ribosome_efficiency_MM" exponent="1.0"/>
+        <functionReference function="fraction_active_ribosomes" exponent="1.0"/>
+      </listOfFunctionReferences>
+    </aggregate>
+  </listOfAggregates>
+</RBAParameters>

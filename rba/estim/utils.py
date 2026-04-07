@@ -1,3 +1,6 @@
+# python 2/3 compatibility
+from __future__ import division, print_function, absolute_import
+
 from collections import defaultdict, MutableMapping
 import numpy as np
 import pandas as pd
@@ -38,7 +41,7 @@ def read_data(config, category):
                          index_col=0,
                          delimiter=delimiter)
     else:
-        raise Exception('%s file type (%s) not allows. Use csv or excel.' % (category, exp_file_type))
+        raise Exception('%s file type (%s) not allows. Use csv or excel.' % (category, _file_type))
     return df
 
 def load_experiment_data(config):
@@ -88,7 +91,10 @@ def compute_compartment_data(exp_df, prot_df, loc_df, cm_df, config):
     locs = set(total[loc_col])
 
     cm_col = config.get('CompartmentMap', 'cm_column')
-    
+    cm_df.index=cm_df.index.str.lower()
+    cm_df[cm_col]=cm_df[cm_col].str.lower()
+
+
     import collections
     comp2comp = defaultdict(list)
     for c in cm_df.index:
@@ -98,16 +104,24 @@ def compute_compartment_data(exp_df, prot_df, loc_df, cm_df, config):
     comp_data = pd.DataFrame(columns=exp_df.index, index=comp2comp.keys())
     for loc in locs:
         try:
-            true_loc = cm_df.loc[loc][cm_col]
-        except Exception, e:
-            import pdb
-            pdb.set_trace()
+            true_locs = [cm_df.loc[loc][cm_col]]
+        except:
+            if "," in loc:
+                multilocs=loc.split(",")
+                true_locs=[cm_df.loc[i][cm_col] for i in multilocs if i in cm_df.index]
+                x=[i for i in multilocs if i not in cm_df.index]
+                if len(x)>0:
+                    for j in x:
+                        print("WARNING: location {} not found in location map. Please add.".format(j))
+            #import pdb
+            #pdb.set_trace()
         for exp in comp_data.columns:
-            prot_w = sum(total[total[loc_col] == loc][exp])
-            if np.isnan(comp_data[exp][true_loc]):
-                comp_data[exp][true_loc] = prot_w
-            else:
-                comp_data[exp][true_loc] = comp_data[exp][true_loc] + prot_w
+            for true_loc in true_locs:
+                prot_w = sum(total[total[loc_col] == loc][exp])/len(true_locs)
+                if np.isnan(comp_data[exp][true_loc]):
+                    comp_data[exp][true_loc] = prot_w
+                else:
+                    comp_data[exp][true_loc] = comp_data[exp][true_loc] + prot_w
     return comp_data
 
 
@@ -125,12 +139,13 @@ def compute_linear_fits(exp_df, data_df, normalize=False, sums_to_one=False):
         else:
             vals = data_df.loc[comp]
         slope, intercept, rval, pval, stderr = linregress(list(growth_rates), list(vals))
+        print(comp,slope,intercept,rval,pval)
         if pval < 0.05:
             comp2linfit[comp] = True
         else:
             comp2linfit[comp] = False
-
-    num_linfits = comp2linfit.values().count(True)
+            
+    num_linfits = list(comp2linfit.values()).count(True)
     num_constant = len(comp2linfit) - num_linfits
     # we don't fix the 'constant' compartments
     num_cols2 = 2 * len(comp2linfit)
@@ -182,10 +197,11 @@ def compute_linear_fits(exp_df, data_df, normalize=False, sums_to_one=False):
     sol = solvers.qp(A2.T * A2, -(b2.T * A2).T, -A2, b_zero2)
 
     x, residuals, rank, s = lstsq(A, b)
-    r, p = pearsonr(b, np.dot(A, x))
-    r2, p2 = pearsonr(b2, np.dot(A2, sol['x']))
-    print 'R^2 = ', r2[0]
-    print 'p-value = ', p2[0]
+    r, p = pearsonr(np.squeeze(b), np.squeeze(np.dot(A, x)))
+    r2, p2 = pearsonr(np.squeeze(b2), np.squeeze(np.dot(A2, sol['x'])))
+    print('R^2 = {}'.format(r2))
+    print('p-value = {}'.format(p2))
+   
 
     solution = pd.DataFrame(index=data_df.index, columns=['slope', 'intercept'])
     idx = 0
@@ -225,12 +241,106 @@ def is_enz_cytosolic(enz_id, rba_model):
     protein_compartments = defaultdict(int)
     enz = rba_model.enzymes.enzymes.get_by_id('R_%s_enzyme' % enz_id)
     for sp in enz.machinery_composition.reactants:
-        prot = rba_model.proteins.macromolecules.get_by_id(sp.species)
-        protein_compartments[prot.compartment] = protein_compartments[prot.compartment] + 1
+        try:
+            prot = rba_model.proteins.macromolecules.get_by_id(sp.species)
+            protein_compartments[prot.compartment] = protein_compartments[prot.compartment] + 1
+        except:
+            pass
     if len(protein_compartments) == 1 and protein_compartments.keys()[0] == 'Cytoplasm':
         return True
     else:
         return False
+
+def create_parsimonious_fba_problem(sbml_file, biomass_reaction,biomass_reaction_flux):
+    # load model
+    document = libsbml.readSBML(sbml_file)
+    sbml_model = document.getModel()
+    if sbml_model is None:
+        raise Exception('Unable to load model from provided file path.')
+    # load species and reactions
+    reactions = {r[1].getId(): r[0] for r in enumerate(sbml_model.getListOfReactions())}
+    if biomass_reaction not in reactions:
+        raise Exception('Provided biomass reaction {} not in model {}.'.format(
+            biomass_reaction,
+            sbml_model.getName()
+        ))
+    species = {s[1].getId(): s[0] for s in enumerate(sbml_model.getListOfSpecies()) if not s[1].getBoundaryCondition()}
+    species_ids = sorted(species, key=species.get, reverse=False)
+    N_spec = len(species)
+    # create necessary matrices and vectors:
+    # - stoichiometric matrix S
+    # - upper / lower bound vectors: UB / LB
+    # - right hand side vector: RHS
+    # - objective function vector
+    reaction_ids = []
+    UB = []
+    LB = []
+    obj_fun_vec=[]
+    RHS = list(np.zeros((N_spec,)))
+    rows = defaultdict(list)
+    values = defaultdict(list)
+    parsimonious_fba_rxn_index=0
+    for r_idx, reaction in enumerate(sbml_model.getListOfReactions()):
+        rxn_id=reaction.getId()
+        reactants = {r.getSpecies(): r.getStoichiometry() for r in reaction.getListOfReactants()}
+        products = {p.getSpecies(): p.getStoichiometry() for p in reaction.getListOfProducts()}
+        rk = list(reactants.keys())
+        pk = list(products.keys())
+        reaction_species = set(rk + pk)
+        stoichiometries = []
+        for s in reaction_species:
+            stoich = products.get(s, 0) - reactants.get(s, 0)
+            stoichiometries.append(stoich)
+        for sp, stoich in zip(reaction_species,stoichiometries):
+            try:
+                sp_idx = species[sp]
+                rows[sp_idx].append(parsimonious_fba_rxn_index)
+                values[sp_idx].append(stoich)
+            except:
+                continue
+        if rxn_id != biomass_reaction:
+            if str("{}__FW".format(rxn_id)) not in reaction_ids:
+                reaction_ids.append(str("{}__FW".format(rxn_id)))
+                obj_fun_vec.append(1.0)
+                UB.append(1e9)
+                LB.append(0.0)
+        else:
+            if str(rxn_id) not in reaction_ids:
+                reaction_ids.append(rxn_id)
+                obj_fun_vec.append(0.0)
+                UB.append(biomass_reaction_flux)
+                LB.append(biomass_reaction_flux)
+        parsimonious_fba_rxn_index+=1
+        if sbml_model.reactions[r_idx].getReversible():
+            for sp, stoich in zip(reaction_species,stoichiometries):
+                try:
+                    sp_idx = species[sp]
+                    rows[sp_idx].append(parsimonious_fba_rxn_index)
+                    values[sp_idx].append(-stoich)
+                except:
+                    continue
+            if rxn_id != biomass_reaction:
+                if str("{}__BW".format(rxn_id)) not in reaction_ids:
+                    reaction_ids.append(str("{}__BW".format(rxn_id)))
+                    obj_fun_vec.append(1.0)
+                    UB.append(1e9)
+                    LB.append(0.0)
+
+            parsimonious_fba_rxn_index+=1
+
+    # create CPLEX objects
+    lp_problem = cplex.Cplex()
+    cplex_rows = []
+    for sp_idx in sorted(species.values()):
+        cplex_rows.append(cplex.SparsePair(rows[sp_idx], values[sp_idx]))
+
+    lp_problem.objective.set_sense(lp_problem.objective.sense.minimize)
+    lp_problem.variables.add(names=list(reaction_ids), obj=list(obj_fun_vec),ub=list(UB), lb=list(LB))
+    lp_problem.linear_constraints.add(names=list(species_ids), rhs=list(RHS),
+                                      senses=list(['E'] * len(species)),
+                                      lin_expr=cplex_rows)
+    lp_problem.set_results_stream(None)
+    return lp_problem
 
 def create_fba_problem(sbml_file, biomass_reaction):
     # load model
@@ -245,7 +355,7 @@ def create_fba_problem(sbml_file, biomass_reaction):
             biomass_reaction,
             sbml_model.getName()
         ))
-    species = {s[1].getId(): s[0] for s in enumerate(sbml_model.getListOfSpecies())}
+    species = {s[1].getId(): s[0] for s in enumerate(sbml_model.getListOfSpecies()) if not s[1].getBoundaryCondition()}
     reaction_ids = sorted(reactions, key=reactions.get, reverse=False)
     species_ids = sorted(species, key=species.get, reverse=False)
     N_reac = len(reactions)
@@ -255,33 +365,35 @@ def create_fba_problem(sbml_file, biomass_reaction):
     # - upper / lower bound vectors: UB / LB
     # - right hand side vector: RHS
     # - objective function vector
-    UB = np.zeros((N_reac,))
-    LB = np.zeros((N_reac,))
-    RHS = np.zeros((N_spec,))
-    obj_fun_vec = np.zeros((N_reac,))
-    obj_fun_vec[reactions[biomass_reaction]] = 1
+    UB = list(1e9*np.ones((N_reac,)))
+    LB = list(-1e9*np.ones((N_reac,)))
+    RHS = list(np.zeros((N_spec,)))
+    obj_fun_vec = list(np.zeros((N_reac,)))
+    obj_fun_vec[reactions[biomass_reaction]] = 1.0
     rows = defaultdict(list)
     values = defaultdict(list)
 
     for r_idx, reaction in enumerate(sbml_model.getListOfReactions()):
-        plugin = reaction.getPlugin('fbc')
-        if plugin is None:
-            raise Exception('No fbc plugin defined for reaction {}. No way \
-                to determine reaction bounds.'.format(reaction.getName()))
         reactants = {r.getSpecies(): r.getStoichiometry() for r in reaction.getListOfReactants()}
         products = {p.getSpecies(): p.getStoichiometry() for p in reaction.getListOfProducts()}
-        reaction_species = list(set(reactants.keys() + products.keys()))
+        rk = list(reactants.keys())
+        pk = list(products.keys())
+        reaction_species = set(rk + pk)
         stoichiometries = []
         for s in reaction_species:
             stoich = products.get(s, 0) - reactants.get(s, 0)
             stoichiometries.append(stoich)
         for sp, stoich in zip(reaction_species,stoichiometries):
-            sp_idx = species[sp]
-            rows[sp_idx].append(r_idx)
-            values[sp_idx].append(stoich)
+            try:
+                sp_idx = species[sp]
+                rows[sp_idx].append(r_idx)
+                values[sp_idx].append(stoich)
+            except:
+                continue
 
-        UB[r_idx] = sbml_model.getParameter(plugin.getUpperFluxBound()).getValue()
-        LB[r_idx] = sbml_model.getParameter(plugin.getLowerFluxBound()).getValue()
+        if not sbml_model.reactions[r_idx].getReversible():
+            LB[r_idx] = 0.0
+
     # create CPLEX objects
     lp_problem = cplex.Cplex()
     cplex_rows = []
@@ -289,10 +401,9 @@ def create_fba_problem(sbml_file, biomass_reaction):
         cplex_rows.append(cplex.SparsePair(rows[sp_idx], values[sp_idx]))
 
     lp_problem.objective.set_sense(lp_problem.objective.sense.maximize)
-    lp_problem.variables.add(names=reaction_ids, obj=obj_fun_vec,
-                             ub=UB, lb=LB)
-    lp_problem.linear_constraints.add(names=species_ids, rhs=RHS,
-                                      senses=['E'] * len(species),
+    lp_problem.variables.add(names=list(reaction_ids), obj=list(obj_fun_vec),ub=list(UB), lb=list(LB))
+    lp_problem.linear_constraints.add(names=list(species_ids), rhs=list(RHS),
+                                      senses=list(['E'] * len(species)),
                                       lin_expr=cplex_rows)
     lp_problem.set_results_stream(None)
     return lp_problem
@@ -310,13 +421,15 @@ class Enzymes(MutableMapping):
         self.fluxes = dict(fluxes)
         self.cdw = cdw
         for enz in rba_model.enzymes.enzymes:
-            enz_id = enz.id[2:-7]
-            is_cytosolic = is_enz_cytosolic(enz_id, rba_model)
+            enz_id = enz.id[:-7]
+            #is_cytosolic = is_enz_cytosolic(enz_id, rba_model)
+            is_cytosolic = True
             if 'duplicate' in enz_id:
                 dup_index = enz_id.index('duplicate') - 1
                 flux_id = enz_id[:dup_index]
             else:
                 flux_id = enz_id
+            
             #if flux_id not in fluxes:
             #    continue
             flux = 0. if flux_id not in fluxes else fluxes[flux_id]
@@ -324,11 +437,13 @@ class Enzymes(MutableMapping):
             for sr in enz.machinery_composition.reactants:
                 gid = sr.species
                 stoich = sr.stoichiometry
+                subunit_id=sr.comment
                 r_cnt = gene_cnt[gid]
                 nz_r_cnt = 0 if gid not in nz_gene_cnt else nz_gene_cnt[gid]
-                count = 0 if gid not in protein_counts else protein_counts[gid]
-                conc = 0 if gid not in protein_counts else protein_concentrations[gid]
-                gene = Protein(gid, r_cnt, nz_r_cnt, stoich, count, conc)
+                #{"GeneA_loc_Cytoplasm"}
+                count = 0 if gid.split("_loc_")[0] not in protein_counts else protein_counts[gid.split("_loc_")[0]]
+                conc = 0 if gid.split("_loc_")[0] not in protein_counts else protein_concentrations[gid.split("_loc_")[0]]
+                gene = Protein(gid, r_cnt, nz_r_cnt, stoich, count, conc, subunit_id)
                 genes[gid] = gene
             enzyme = Enzyme(enz_id, flux, genes, is_cytosolic, cdw)
 
@@ -395,7 +510,8 @@ class Enzyme(object):
         self.genes = genes
         self.is_cytosolic = is_cytosolic
         self.cdw = cdw
-        self.set_count()
+        self.set_count_subunits_considered()
+        #self.set_count()
         self.set_conc()
         self.set_kapp()
 
@@ -405,6 +521,26 @@ class Enzyme(object):
         _str = _str + 'Genes\tReactions\tStoichiometry\tCount\n'
         gene_str = '\n'.join([str(gene) for gene in self.genes.values()])
         return _str + gene_str
+
+    def set_count_subunits_considered(self):
+        total_su_counts={}
+        total_su_stoichiometries={}
+        for gene in self.genes.values():
+            su_id=gene.subunit_id
+            if su_id in total_su_counts.keys():
+                total_su_counts[su_id]+=gene.count
+                total_su_stoichiometries[su_id]+=gene.stoichiometry
+            else:
+                total_su_counts[su_id]=gene.count
+                total_su_stoichiometries[su_id]=gene.stoichiometry
+        
+        stoichiometry_normalized_su_counts = {su_id:total_su_counts[su_id]/total_su_stoichiometries[su_id] for su_id in list(total_su_counts.keys())}
+        nnz_counts=[i for i in list(stoichiometry_normalized_su_counts.values()) if (i>0)]
+        if len(nnz_counts)>0:
+            self.count = gmean(nnz_counts)
+        else:
+            self.count = 0.0
+
 
     def set_count(self):
         counts = np.array([gene.count for gene in self.genes.values()])
@@ -420,22 +556,30 @@ class Enzyme(object):
         #counts = counts / reactions
         if exclusive_non_zero:
             counts = filter(lambda x: x != 0, counts)
-        self.count = gmean(counts)
+
+        nnz_counts=[i for i in counts if i>0]
+        if len(nnz_counts)>0:
+            self.count = gmean(nnz_counts)
+        else:
+            self.count = 0.0
 
     def set_conc(self):
-        self.set_count()
-        self.concentration = self.count / R / self.cdw * 1e3
+        self.set_count_subunits_considered()
+        #self.set_count()
+        #self.concentration = self.count / R / self.cdw * 1e3
+        self.concentration = self.count
 
     def set_kapp(self):
-        self.kapp = self.flux / self.concentration if (self.concentration != 0 and not np.isnan(self.concentration)) else 0
+        self.kapp = abs(self.flux) / self.concentration if (self.concentration != 0 and not np.isnan(self.concentration)) else 0
 
 
 class Protein(object):
-    def __init__(self, gene, reactions, nz_reactions, stoichiometry, count, concentration):
+    def __init__(self, gene, reactions, nz_reactions, stoichiometry, count, concentration,subunit_id):
         self.gene = gene
         self.reactions = reactions
         self.nz_reactions = nz_reactions
         self.stoichiometry = stoichiometry
+        self.subunit_id = subunit_id
         self.count = count
         self.concentration = concentration
 
@@ -450,3 +594,4 @@ class Protein(object):
 
     def __str__(self):
         return self.__repr__()
+

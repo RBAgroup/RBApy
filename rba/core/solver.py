@@ -8,6 +8,7 @@ import abc
 import functools
 import numpy
 import os
+import pandas
 from scipy.sparse import coo_matrix
 
 # from scipy.sparse import diags
@@ -199,12 +200,32 @@ class Solver(object):
         self.verbose = verbose
 
     def solve(self):
+
         """ Compute configuration corresponding to maximal growth rate. """
         self._sol_basis = None
         self.X = self.lambda_ = self.mu_opt = None
         mu_min = self.mu_min
         mu_max = self.mu_max
 
+        ### storing matrices below is very useful for sanity checking of changes.
+        ### Therefore I left it and just commented it out.
+        """
+        self.matrix.build_matrices(0.0)
+        zeromatrix=pandas.DataFrame(data=self.matrix.A.toarray(),index=self.matrix.row_names,columns=self.matrix.col_names)
+        zeromatrix["RHS"]=list(self.matrix.b)
+        zeromatrix.to_csv("zeromatrix.csv")
+
+        self.matrix.build_matrices(0.33)
+        zerothreethreematrix=pandas.DataFrame(data=self.matrix.A.toarray(),index=self.matrix.row_names,columns=self.matrix.col_names)
+        zerothreethreematrix["RHS"]=list(self.matrix.b)
+        zerothreethreematrix.to_csv("zerothreethreematrix.csv")
+
+        self.matrix.build_matrices(1.0)
+        onematrix=pandas.DataFrame(data=self.matrix.A.toarray(),index=self.matrix.row_names,columns=self.matrix.col_names)
+        onematrix["RHS"]=list(self.matrix.b)
+        onematrix.to_csv("onematrix.csv")
+        """
+        
         # check that μ=μ_min is solution
         if self.verbose:
             print('  Checking μ = μ_min = {} is feasible ...'.format(mu_min), end='')
@@ -272,7 +293,7 @@ class Solver(object):
         if self.lp_solver.is_feasible():
             self.lp_solver.store_results(mu_min)
         elif self.lp_solver.is_infeasible():
-            raise ValueError('μ = μ_min = {} is infeasible, check matrix consistency.'.format(mu_min))
+            raise ValueError('μ = μ_min = {} is infeasible (status code: {}), check matrix consistency.'.format(mu_min,self.lp_solver.get_status()['code']))
         else:
             raise ValueError(self.unknown_flag_msg(mu_min))
 
@@ -432,7 +453,8 @@ class CplexLpSolver(LpSolver):
         self._lp.solve()
 
     def is_feasible(self):
-        return self._lp.solution.get_status() == self._lp.solution.status.optimal
+        return(self._lp.solution.get_status() in [1,5])
+        #return self._lp.solution.get_status() == self._lp.solution.status.optimal
 
     def is_infeasible(self):
         flag = self._lp.solution.get_status()

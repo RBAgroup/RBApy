@@ -10,7 +10,6 @@ from rba.prerba.default_data import DefaultData
 
 _DEFAULT_AMINO_ACIDS = DefaultData().metabolites.aas
 
-
 def composition(sequence, alphabet):
     """Compute composition of sequence with given alphabet."""
     comp = dict.fromkeys(alphabet, 0)
@@ -38,6 +37,7 @@ class Macromolecule(object):
         self.location = None
         self.stoichiometry = None
         self.sequence = None
+        self.origin = None
 
 
 class Protein(Macromolecule):
@@ -68,6 +68,19 @@ class Protein(Macromolecule):
 
 
 class Rna(Macromolecule):
+    """
+    Basic rna information.
+
+    Attributes
+    ----------
+    location : str
+        Location of protein.
+    stoichiometry : int or float
+        Stoichiometry of protein within enzymatic complex.
+    sequence : str
+        Sequence of protein (nucleotides in one-lette format).
+
+    """
     def __init__(self):
         super(Rna, self).__init__()
 

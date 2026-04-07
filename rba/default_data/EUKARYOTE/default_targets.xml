@@ -1,0 +1,17 @@
+<RBATargets>
+  <listOfTargetGroups>
+    <targetGroup id="transcription_targets">
+      <listOfConcentrations>
+        <targetSpecies value="mrna_loc_Nucleus_concentration" species="mrna_loc_Nucleus"/>
+        <targetSpecies value="mrna_loc_Mitochondrion_matrix_concentration" species="mrna_loc_Mitochondrion_matrix"/>
+      </listOfConcentrations>
+    </targetGroup>
+    <targetGroup id="replication_targets">
+      <listOfConcentrations>
+        <targetSpecies value="dna_loc_Nucleus_concentration" species="dna_loc_Nucleus"/>
+        <targetSpecies value="dna_loc_Mitochondrion_matrix_concentration" species="dna_loc_Mitochondrion_matrix"/>
+      </listOfConcentrations>
+    </targetGroup>
+  </listOfTargetGroups>
+</RBATargets>
+

@@ -1,0 +1,12 @@
+compartments = model/compartments.xml
+metabolism = model/metabolism.xml
+enzymes = model/enzymes.xml
+proteins = model/proteins.xml
+rnas = model/rnas.xml
+dna = model/dna.xml
+other_macromolecules = model/other_macromolecules.xml
+processes = model/processes.xml
+targets = model/targets.xml
+parameters = model/parameters.xml
+custom_constraints = model/custom_constraints.xml
+medium = model/medium.tsv

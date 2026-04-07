@@ -22,7 +22,7 @@ def main():
         print('Building model ...')
     try:
         model = rba.RbaModel.from_data(args.parameter_file, verbose=args.verbose)
-        model.write(args.model_dir)
+        model.write(args.model_dir,generate_mean_composition_model=True)
     except UserWarning as error:
         raise SystemExit(str(error))
     if args.verbose:

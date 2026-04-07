@@ -1,0 +1,13 @@
+<RBADna>
+  <listOfComponents/>
+  <listOfMacromolecules>
+    <macromolecule id="dna__DEFAULT" compartment="DEFAULT">
+      <composition>
+        <componentReference component="A" stoichiometry="0.3199"/>
+        <componentReference component="C" stoichiometry="0.1804"/>
+        <componentReference component="G" stoichiometry="0.1802"/>
+        <componentReference component="T" stoichiometry="0.3195"/>
+      </composition>
+    </macromolecule>
+  </listOfMacromolecules>
+</RBADna>

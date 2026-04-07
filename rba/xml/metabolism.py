@@ -9,10 +9,14 @@ from __future__ import division, print_function, absolute_import
 from lxml import etree
 
 # local imports
+from rba.xml._rbaml_version import __rbaml_version__ as rbaml_version
 from rba.xml.common import (is_true, get_unique_child,
-                            ListOf, ListOfProducts, ListOfReactants)
+                            ListOf, ListOfProducts, 
+                            ListOfReactants, xml_input_tag_error)
 
-__all__ = ['RbaMetabolism', 'Compartment', 'ListOfCompartments',
+__all__ = ['RbaMetabolism', 
+           'CompartmentMetabolism', 
+           'ListOfCompartmentsMetabolism',
            'Species', 'ListOfSpecies', 'Reaction', 'ListOfReactions']
 
 
@@ -22,23 +26,20 @@ class RbaMetabolism(object):
 
     Attributes
     ----------
-    compartments : ListOfCompartments
-        List of cell compartments.
     species : ListOfSpecies
         List of metabolites.
     reactions : ListOfReactions
         List of reactions.
     """
-
+    tag='RBAMetabolism'
     def __init__(self):
         """
         Default constructor.
         """
-        self.compartments = ListOfCompartments()
         self.species = ListOfSpecies()
         self.reactions = ListOfReactions()
 
-    def write(self, output_stream, doc_name='RBAMetabolism'):
+    def write(self, output_stream,meta_data={}):
         """
         Write information as an XML structure.
 
@@ -46,13 +47,20 @@ class RbaMetabolism(object):
         ----------
         output_stream : file or buffer
             Location where XML structure should be written.
-        doc_name : str, optional
-            Name of XML document.
         """
-        root = etree.Element(doc_name)
-        root.extend([self.compartments.to_xml_node(),
-                     self.species.to_xml_node(), self.reactions.to_xml_node()])
-        etree.ElementTree(root).write(output_stream, pretty_print=True)
+        root = etree.Element(self.tag)
+        root.extend([self.species.to_xml_node(), 
+                     self.reactions.to_xml_node()])
+        tree=etree.ElementTree(root)
+        root.addprevious(etree.Comment(" Created by RBApy version {} with RBAML version {}".format(meta_data.get("RBApy_version_model_generation",None),rbaml_version)))
+        root.addprevious(etree.Comment("Model: {}, Organism/Tissue: {}, Taxon-ID: {}".format(meta_data.get("Model",""),
+                                                                                             meta_data.get("Organism/Tissue",""),
+                                                                                             meta_data.get("Taxon_ID",""))))
+        root.addprevious(etree.Comment("Authored by: {}".format(meta_data.get("Author(s)",""))))
+        root.addprevious(etree.Comment("Copyright of: {}".format(meta_data.get("Copyright_holder",""))))
+        root.addprevious(etree.Comment("License: {}".format(meta_data.get("License",""))))
+        root.addprevious(etree.ProcessingInstruction("rbaml", 'version="{}"'.format(rbaml_version)))
+        tree.write(output_stream, xml_declaration=True, encoding="UTF-8", pretty_print=True)
 
     @classmethod
     def from_file(cls, input_stream):
@@ -65,19 +73,27 @@ class RbaMetabolism(object):
             Location containing XML structure.
         """
         node = etree.ElementTree(file=input_stream).getroot()
+        # Verify that root tag in file is the one specified by class RBAMetabolism
+        if node.tag != cls.tag:
+            raise xml_input_tag_error(file=input_stream.name,file_tag=node.tag,requested_tag=cls.tag)
         result = cls()
-        n = get_unique_child(node, ListOfCompartments.tag)
-        result.compartments = ListOfCompartments.from_xml_node(n)
+        try:
+            #OBSOLETE! But still required to read and update models in old format (rbaml v1)
+            n = get_unique_child(node, ListOfCompartmentsMetabolism.tag)
+            result.compartments = ListOfCompartmentsMetabolism.from_xml_node(n)
+        except: 
+            pass
         n = get_unique_child(node, ListOfSpecies.tag)
         result.species = ListOfSpecies.from_xml_node(n)
         n = get_unique_child(node, ListOfReactions.tag)
         result.reactions = ListOfReactions.from_xml_node(n)
         return result
+#
 
-
-class Compartment(object):
+class CompartmentMetabolism(object):
     """
-    Compartment information.
+    Compartment information originally located in RBAmetabolism..
+    OBSOLETE! But still required to read and update models in old format (rbaml v1)
 
     Attributes
     ----------
@@ -114,13 +130,14 @@ class Compartment(object):
         return cls(node.get('id'))
 
 
-class ListOfCompartments(ListOf):
+class ListOfCompartmentsMetabolism(ListOf):
     """
-    List of Compartment elements
+    List of Compartment elements originally located in RBAmetabolism.
+    OBSOLETE! But still required to read and update models in old format (rbaml v1)
     """
 
     tag = 'listOfCompartments'
-    list_element = Compartment
+    list_element = CompartmentMetabolism
 
 
 class Species(object):

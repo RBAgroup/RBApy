@@ -74,25 +74,34 @@ class DeterminedTargets(object):
 
         """
         # extract target substructures
-        conc_targets = []
-        prod_targets = []
-        deg_targets = []
+        self.conc_targets = []
+        self.prod_targets = []
+        self.deg_targets = []
         for target_group in targets:
-            conc_targets += [t for t in target_group.concentrations
-                             if t.value is not None]
-            prod_targets += [t for t in target_group.production_fluxes
-                             if t.value is not None]
-            deg_targets += [t for t in target_group.degradation_fluxes
-                            if t.value is not None]
+            self.conc_targets += [t for t in target_group.concentrations if t.value is not None]
+            self.prod_targets += [t for t in target_group.production_fluxes if t.value is not None]
+            self.deg_targets += [t for t in target_group.degradation_fluxes if t.value is not None]
+
+        self.construct_target_species(species,parameters)
+
+
+    def construct_target_species(self,species,parameters):
         # extract fluxes used to maintain concentration
-        conc_set = extract_targets(conc_targets, species)
+        conc_set = extract_targets(self.conc_targets, species, degradation=False)
+        conc_set_deg = extract_targets(self.conc_targets, species, degradation=True)
+        prod_set = extract_targets(self.prod_targets, species, degradation=False)
+        deg_set = extract_targets(self.deg_targets, species, degradation=True)
+
+        self._concentration_target_species_names=conc_set.names
+        self._concentration_target_species_specific_degradation_rates=numpy.array([self.specific_degradation_rate_macromolecule(half_life,parameters) for half_life in [species.half_lifes[species._index[target_species]] for target_species in self._concentration_target_species_names]])
         self._conc_composition = conc_set.composition
         self._conc_proc_cost = conc_set.processing_cost
+        self._conc_composition_degradation = conc_set_deg.composition
+        self._conc_proc_cost_degradation  = conc_set_deg.processing_cost
         self._weight = conc_set.weight
-        self._conc_values = ParameterVector(conc_set.values, parameters)
+        self._conc_values = ParameterVector(conc_set.values, parameters) # effective target concentration parameter functions to be evaluated by compute-method
         # extract absolute production and degradation fluxes
-        prod_set = extract_targets(prod_targets, species)
-        deg_set = extract_targets(deg_targets, species, degradation=True)
+                
         self._values = ParameterVector(prod_set.values + deg_set.values,
                                        parameters)
         self._composition = hstack([prod_set.composition,
@@ -100,17 +109,29 @@ class DeterminedTargets(object):
         self._proc_cost = hstack([prod_set.processing_cost,
                                   deg_set.processing_cost]).tocsr()
 
+
     def compute(self, mu):
         """Compute composition, processing cost and weight of targets."""
         conc_values = self._conc_values.compute()
         abs_values = self._values.compute()
-        return (self._conc_composition * (mu * conc_values)
-                + self._composition * abs_values,
-                self._conc_proc_cost * (mu * conc_values)
-                + self._proc_cost * abs_values,
+        return (self._conc_composition * ((mu * conc_values + self._concentration_target_species_specific_degradation_rates * conc_values)) + self._conc_composition_degradation * (self._concentration_target_species_specific_degradation_rates * conc_values) + self._composition * abs_values, 
+                self._conc_proc_cost *   ((mu * conc_values + self._concentration_target_species_specific_degradation_rates * conc_values)) + self._conc_proc_cost_degradation * (self._concentration_target_species_specific_degradation_rates * conc_values) + self._proc_cost * abs_values,
                 self._weight * conc_values)
 
-
+    def specific_degradation_rate_macromolecule(self,half_life,parameters):
+        """
+        Calculate the specific degradation rate of a macromolecult 
+        from its half_life time
+        """
+        if half_life:
+            t_05=parameters[half_life].value
+            if numpy.isfinite(t_05):
+                return numpy.float64(numpy.log(2.0)/t_05)
+            else:
+                return numpy.float64(0.0)
+        else:
+            return numpy.float64(0.0)
+    
 class UndeterminedTargets(object):
     """
     Class computing upper/lower bounds of process-related fluxes.
@@ -137,21 +158,24 @@ class UndeterminedTargets(object):
 
         """
         # extract target substructures
-        conc_targets = []
-        prod_targets = []
-        deg_targets = []
+        self.conc_targets = []
+        self.prod_targets = []
+        self.deg_targets = []
         for target_group in targets:
-            conc_targets += [t for t in target_group.concentrations
+            self.conc_targets += [t for t in target_group.concentrations
                              if t.value is None]
-            prod_targets += [t for t in target_group.production_fluxes
+            self.prod_targets += [t for t in target_group.production_fluxes
                              if t.value is None]
-            deg_targets += [t for t in target_group.degradation_fluxes
+            self.deg_targets += [t for t in target_group.degradation_fluxes
                             if t.value is None]
+        self.construct_target_matrix(species,parameters)
+
+    def construct_target_matrix(self,species,parameters):
         # extract fluxes used to maintain concentration
-        conc_set = extract_targets(conc_targets, species)
+        conc_set = extract_targets(self.conc_targets, species, degradation=False)
         # read production and degradation fluxes
-        prod_set = extract_targets(prod_targets, species)
-        deg_set = extract_targets(deg_targets, species, degradation=True)
+        prod_set = extract_targets(self.prod_targets, species, degradation=False)
+        deg_set = extract_targets(self.deg_targets, species, degradation=True)
         self.names = conc_set.names + prod_set.names + deg_set.names
         self._conc_composition = conc_set.composition
         self._conc_proc_cost = conc_set.processing_cost
@@ -164,8 +188,8 @@ class UndeterminedTargets(object):
                                    parameters)
         self._ub = ParameterVector(conc_set.ub + prod_set.ub + deg_set.ub,
                                    parameters)
-        self.f = numpy.zeros(len(conc_targets) + len(prod_targets)
-                             + len(deg_targets))
+        self.f = numpy.zeros(len(self.conc_targets) + len(self.prod_targets)
+                             + len(self.deg_targets))
 
     def matrices(self, mu):
         """

@@ -7,9 +7,10 @@ from __future__ import division, print_function, absolute_import
 from lxml import etree
 
 # local imports
-from rba.xml.common import (
-    get_unique_child, is_true, ListOf, MachineryComposition
-    )
+from rba.xml._rbaml_version import __rbaml_version__ as rbaml_version
+from rba.xml.common import (get_unique_child, is_true, ListOf, 
+                            MachineryComposition, xml_input_tag_error
+                            )
 
 __all__ = ['RbaEnzymes', 'Enzyme', 'ListOfEnzymes']
 
@@ -24,12 +25,12 @@ class RbaEnzymes(object):
         Enzymes in the system.
 
     """
-
+    tag='RBAEnzymes'
     def __init__(self):
         """Build default object."""
         self.enzymes = ListOfEnzymes()
 
-    def write(self, output_stream, doc_name='RBAEnzymes'):
+    def write(self, output_stream,meta_data={}):
         """
         Write information as an XML structure.
 
@@ -37,13 +38,20 @@ class RbaEnzymes(object):
         ----------
         output_stream : file or buffer
             Location where XML structure should be written.
-        doc_name : str
-            Name of XML document.
-
         """
-        root = etree.Element(doc_name)
+        root = etree.Element(self.tag)
         root.extend([self.enzymes.to_xml_node()])
-        etree.ElementTree(root).write(output_stream, pretty_print=True)
+        tree=etree.ElementTree(root)
+
+        root.addprevious(etree.Comment(" Created by RBApy version {} with RBAML version {}".format(meta_data.get("RBApy_version_model_generation",None),rbaml_version)))
+        root.addprevious(etree.Comment("Model: {}, Organism/Tissue: {}, Taxon-ID: {}".format(meta_data.get("Model",""),
+                                                                                             meta_data.get("Organism/Tissue",""),
+                                                                                             meta_data.get("Taxon_ID",""))))
+        root.addprevious(etree.Comment("Authored by: {}".format(meta_data.get("Author(s)",""))))
+        root.addprevious(etree.Comment("Copyright of: {}".format(meta_data.get("Copyright_holder",""))))
+        root.addprevious(etree.Comment("License: {}".format(meta_data.get("License",""))))
+        root.addprevious(etree.ProcessingInstruction("rbaml", 'version="{}"'.format(rbaml_version)))
+        tree.write(output_stream, xml_declaration=True, encoding="UTF-8", pretty_print=True)
 
     @classmethod
     def from_file(cls, input_stream):
@@ -57,6 +65,9 @@ class RbaEnzymes(object):
 
         """
         node = etree.ElementTree(file=input_stream).getroot()
+        # Verify that root tag in file is the one specified by class RBAEnzymes
+        if node.tag != cls.tag:
+            raise xml_input_tag_error(file=input_stream.name,file_tag=node.tag,requested_tag=cls.tag)
         result = cls()
         n = get_unique_child(node, ListOfEnzymes.tag)
         result.enzymes = ListOfEnzymes.from_xml_node(n)

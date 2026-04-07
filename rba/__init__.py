@@ -11,11 +11,13 @@ from .core import *  # noqa: F401
 from .utils import *  # noqa: F401
 
 from . import prerba, core, utils  # noqa: F401
+from importlib_resources import files
 
-from pkg_resources import resource_string
+_version_text = files(__name__).joinpath('_version.py').read_text(encoding='utf-8')
+_authors_text = files(__name__).joinpath('_authors.py').read_text(encoding='utf-8')
 
-__version__ = resource_string(__name__, '_version.py').decode("utf-8").split("'")[1]
-__author__ = resource_string(__name__, '_authors.py').decode("utf-8").split("'")[1]
+__version__ = _version_text.split("'")[1]
+__author__ = _authors_text.split("'")[1]
 
 __all__ = ['RbaModel']
 __all__ += prerba.__all__

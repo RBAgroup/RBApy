@@ -91,7 +91,8 @@ class Metabolism(object):
             concentrations in external medium.
 
         """
-        zero_metabolites = [m for m, c in medium.items() if c == 0]
+        # find which entries in medium are equal to zero AND are also boundary metabolites.
+        zero_metabolites = [m for m, c in medium.items() if (c == 0) and (m in list(self._boundary_lb.keys()))]
         self._zero_lb = list(set(
             chain.from_iterable(self._boundary_lb[m] for m in zero_metabolites)
             ))

@@ -1,4 +1,4 @@
-import ConfigParser
+import configparser
 import numpy as np
 
 import matplotlib.pyplot as plt
@@ -57,7 +57,7 @@ def visualize_solution(exp_data, comp_data, sol):
 
 if __name__ == '__main__':
 
-    config = ConfigParser.ConfigParser()
+    config = configparser.ConfigParser()
     config.read('prot_per_compartment.cfg')
 
     exp_df = load_experiment_data(config)
@@ -66,11 +66,16 @@ if __name__ == '__main__':
     loc_data = load_location_data(config)
     if cm_data is None:
         cm_data = create_mock_compartment_map(config, prot_data)
-
+        
     compartment_data = compute_compartment_data(exp_df, prot_data, loc_data, cm_data, config)
 
-    solution = compute_linear_fits(exp_df, compartment_data, normalize=True, sums_to_one=True)
-
+    if compartment_data.shape[1]>1:
+        solution = compute_linear_fits(exp_df, compartment_data, normalize=True, sums_to_one=True)
+    else:
+        solution=pd.DataFrame(index=compartment_data.index, columns=['slope', 'intercept'])
+        solution['slope']=[0.0]*compartment_data.shape[0]
+        solution['intercept']=list(compartment_data.iloc[:,0])
+        solution['intercept']/=sum(list(compartment_data.iloc[:,0]))
     export_solution(compartment_data, solution, config)
 
     visualize_solution(exp_df, compartment_data, solution)

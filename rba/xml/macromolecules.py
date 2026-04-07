@@ -9,9 +9,10 @@ from __future__ import division, print_function, absolute_import
 from lxml import etree
 
 # local imports
-from rba.xml.common import get_unique_child, ListOf
+from rba.xml._rbaml_version import __rbaml_version__ as rbaml_version
+from rba.xml.common import get_unique_child, ListOf, xml_input_tag_error
 
-__all__ = ['RbaMacromolecules', 'Component', 'ListOfComponents',
+__all__ = ['RbaProteins','RbaRNAs','RbaDNA','RbaMacromolecules', 'Component', 'ListOfComponents',
            'Macromolecule', 'ListOfMacromolecules', 'ComponentReference',
            'Composition']
 
@@ -27,7 +28,7 @@ class RbaMacromolecules(object):
     macromolecules : ListOfMacromolecules
         List of macromolecules.
     """
-
+    tag='RBAMacromolecules'
     def __init__(self):
         """
         Default constructor.
@@ -35,7 +36,7 @@ class RbaMacromolecules(object):
         self.components = ListOfComponents()
         self.macromolecules = ListOfMacromolecules()
 
-    def write(self, output_stream, doc_name='RBAMacromolecules'):
+    def write(self, output_stream,meta_data={}):
         """
         Write information as an XML structure.
 
@@ -43,13 +44,21 @@ class RbaMacromolecules(object):
         ----------
         output_stream : file or buffer
             Location where XML structure should be written.
-        doc_name : str, optional
-            Name of XML document.
         """
-        root = etree.Element(doc_name)
+        root = etree.Element(self.tag)
         root.extend([self.components.to_xml_node(),
                      self.macromolecules.to_xml_node()])
-        etree.ElementTree(root).write(output_stream, pretty_print=True)
+        tree=etree.ElementTree(root)
+
+        root.addprevious(etree.Comment(" Created by RBApy version {} with RBAML version {}".format(meta_data.get("RBApy_version_model_generation",None),rbaml_version)))
+        root.addprevious(etree.Comment("Model: {}, Organism/Tissue: {}, Taxon-ID: {}".format(meta_data.get("Model",""),
+                                                                                             meta_data.get("Organism/Tissue",""),
+                                                                                             meta_data.get("Taxon_ID",""))))
+        root.addprevious(etree.Comment("Authored by: {}".format(meta_data.get("Author(s)",""))))
+        root.addprevious(etree.Comment("Copyright of: {}".format(meta_data.get("Copyright_holder",""))))
+        root.addprevious(etree.Comment("License: {}".format(meta_data.get("License",""))))
+        root.addprevious(etree.ProcessingInstruction("rbaml", 'version="{}"'.format(rbaml_version)))
+        tree.write(output_stream, xml_declaration=True, encoding="UTF-8", pretty_print=True)
 
     @classmethod
     def from_file(cls, input_stream):
@@ -62,6 +71,9 @@ class RbaMacromolecules(object):
             Location containing XML structure.
         """
         node = etree.ElementTree(file=input_stream).getroot()
+        # Verify that root tag in file is the one specified by class RBAMacromolecules,RBAProteins,RBARnas,RBADna
+        if node.tag != cls.tag:
+            raise xml_input_tag_error(file=input_stream.name,file_tag=node.tag,requested_tag=cls.tag)
         result = cls()
         n = get_unique_child(node, ListOfComponents.tag)
         result.components = ListOfComponents.from_xml_node(n)
@@ -149,11 +161,15 @@ class Macromolecule(object):
         Identifier of compartment where molecule lives.
     composition : Composition
         Composition of macromolecule in terms of components.
+    half_life : str or None
+        Reference to parameter, representing the half_life time 
+        of respective macromolecule. 
+
     """
 
     tag = 'macromolecule'
 
-    def __init__(self, id_, compartment, composition=None):
+    def __init__(self, id_, compartment, composition=None, half_life=None):
         """
         Constructor.
 
@@ -166,9 +182,14 @@ class Macromolecule(object):
         composition : dict, optional
             Dictionary where keys are ids of components and values are their
             stoichiometry within the molecule.
+        half_life : str , optional
+            Peference to parameter (parameter-ID as str), representing the half_life time 
+            of respective macromolecule. Defeault: None (no decay assumed)
+
         """
         self.id = id_
         self.compartment = compartment
+        self.half_life = half_life
         self.composition = Composition()
         if composition:
             for comp, sto in composition.items():
@@ -181,6 +202,8 @@ class Macromolecule(object):
         result = etree.Element(self.tag)
         result.set('id', self.id)
         result.set('compartment', self.compartment)
+        if self.half_life is not None:
+            result.set('half_life', self.half_life)
         if not self.composition.is_empty():
             result.extend([self.composition.to_xml_node()])
         return result
@@ -190,7 +213,7 @@ class Macromolecule(object):
         """
         Constructor from xml node.
         """
-        result = cls(node.get('id'), node.get('compartment'))
+        result = cls(id_=node.get('id'), compartment=node.get('compartment'), half_life=node.get('half_life'))
         comp_node = get_unique_child(node, Composition.tag)
         result.composition = Composition.from_xml_node(comp_node)
         return result
@@ -257,3 +280,13 @@ class Composition(ListOf):
 
     tag = 'composition'
     list_element = ComponentReference
+
+
+class RbaProteins(RbaMacromolecules):
+    tag='RBAProteins'
+
+class RbaDNA(RbaMacromolecules):
+    tag='RBADna'
+
+class RbaRNAs(RbaMacromolecules):
+    tag='RBARnas'

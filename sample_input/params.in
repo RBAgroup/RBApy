@@ -4,9 +4,9 @@
 #########################
 
 ##############################################################################
-# INPUT_DIR                                                                  
-# Directory where input files can be found and where helper files will be    
-# stored. Can be asolute path or path relative to where program is RUN (!).  
+# INPUT_DIR
+# Directory where input files can be found and where helper files will be
+# stored. Can be asolute path or path relative to where program is RUN (!).
 ##############################################################################
 
 INPUT_DIR = sample_input/data
@@ -17,31 +17,28 @@ INPUT_DIR = sample_input/data
 # located in INPUT_DIR (or provide a path relative to INPUT_DIR).
 ##############################################################################
 
-SBML_FILE = sample.xml
+SBML_FILE = sbml.xml
 
 ##############################################################################
-# EXTERNAL_COMPARTMENTS (optional)
+# EXTERNAL_COMPARTMENTS
 # Identifier of SBML compartments that contain boundary metabolites. If
 # metabolites are already tagged as 'boundaryCondition', you do not need
 # to specify this parameter. If several compartments contain boundary
 # metabolites, write them down separated by a comma.
 ##############################################################################
 
-# EXTERNAL_COMPARTMENTS = e 
+EXTERNAL_COMPARTMENTS = e 
+
+INTERFACE_COMPARTMENTS = e,c 
+
+###############################
+# Species category
+###############################
+
+SPECIES_CATEGORY = PROKARYOTE
 
 ##############################################################################
-# INTERFACE_COMPARTMENTS (optional, but recommended)
-# Identifiers of SBML compartments that delimit the interface between exterior-interior of
-# cells. A michaelis-menten efficiency will be automatically assigned to the enzymes. 
-# the identifiers must be separated by a comma
-# If this option is not specified, RBApy will look for any reaction importing metabolites 
-# into the cytosol. 
-##############################################################################
-
-# INTERFACE_COMPARTMENTS = c,p 
-
-##############################################################################
-# ORGANISM_ID                                                                  
+# ORGANISM_ID
 # Taxonomy ID of target organism as established by the NCBI. Please retrieve
 # id of your organism on:
 #   www.ncbi.nlm.nih.gov/taxonomy
@@ -49,13 +46,12 @@ SBML_FILE = sample.xml
 #   www.uniprot.org/taxonomy/
 ##############################################################################
 
-ORGANISM_ID = 83333
+ORGANISM_ID = 224308
 
 ##############################################################################
-# OUTPUT_DIR                                                                  
+# OUTPUT_DIR
 # Directory where files used to run RBA are stored. Absolute path or path
 # relative to where program is RUN (!).
 ##############################################################################
 
 OUTPUT_DIR = sample_input
-

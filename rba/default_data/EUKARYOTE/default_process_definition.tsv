@@ -1,0 +1,16 @@
+MACROMOLECULE TYPE	ID	ORIGIN	LOCATION	PROCESS	CAPACITY PARAMETER	PROCESSING LOCATION	PROCESSING TYPE	TEMPLATE PROCESSING MAP	INPUT FRACTION
+protein		Nucleus		Translation_c	ribosome_efficiency_CM	Cytoplasm	production	default_translation	1
+protein		Mitochondrion_matrix		Translation_m	ribosome_efficiency_CM	Mitochondrion_matrix	production	default_translation	1
+rna		Nucleus		Transcription_n	RNApol_efficiency_CM	Nucleus	production	default_transcription	1
+rna		Mitochondrion_matrix		Transcription_noMM_m		Mitochondrion_matrix	production	default_transcription	1
+dna		Nucleus		Replication_n	DNApol_efficiency_CM	Nucleus	production	default_dna_replication	1
+dna		Mitochondrion_matrix		Replication_noMM_m		Mitochondrion_matrix	production	default_dna_replication	1
+rna				RNAdeg_noMM		Cytoplasm	degradation	default_rna_degradation	1
+protein				PROTEINdeg_noMM		Cytoplasm	degradation	default_protein_degradation	1
+protein		Nucleus	Mitochondrion_matrix	TIM_TOM	translocation_efficiency_CM	Cytoplasm	production	default_processing	1
+protein		Nucleus	Mitochondrion_inner_membrane	TIM_TOM	translocation_efficiency_CM	Cytoplasm	production	default_processing	1
+protein		Nucleus	Mitochondrion_outer_membrane	TIM_TOM	translocation_efficiency_CM	Cytoplasm	production	default_processing	1
+protein		Nucleus	Mitochondrion_intermembrane_space	TIM_TOM	translocation_efficiency_CM	Cytoplasm	production	default_processing	1
+protein		Nucleus	Cytoplasm	Chaperoning_c	chaperone_efficiency_CM	Cytoplasm	production	default_processing	0.1
+protein			Mitochondrion_matrix	Chaperoning_m	chaperone_efficiency_CM	Mitochondrion_matrix	production	default_processing	0.1
+protein			Secreted	Secretion_noMM		Cytoplasm	production	default_processing	1

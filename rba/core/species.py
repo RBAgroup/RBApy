@@ -8,10 +8,11 @@ from collections import namedtuple
 from scipy.sparse import (
     csr_matrix, lil_matrix, coo_matrix, hstack, eye
     )
+from rba.core.parameter_vector import ParameterVector
 import numpy
 
 # class storing machinery-related information
-Machinery = namedtuple('Machinery', 'composition processing_cost weight')
+Machinery = namedtuple('Machinery', 'composition processing_cost weight degradation_composition degradation_processing_cost complex_degradation_rate')
 
 
 class Species(object):
@@ -22,6 +23,9 @@ class Species(object):
     ----------
     ids : list of str
         Identifiers of species stored (metabolites/macromolecules).
+    half_lifes : list of str
+        Identifiers parameters, representing half_life times of 
+        different macromolecules.
     production : sparse matrix
         Production matrix (in terms of metabolites).
     prod_proc_cost : sparse matrix
@@ -35,37 +39,70 @@ class Species(object):
 
     """
 
-    def __init__(self, data, metabolites):
+    def __init__(self, data, metabolites, parameters):
         """Constructor."""
         self._metabolites = metabolites
+        self._parameters = parameters
+        self._data=data
         # extract composition of base species
-        self.ids = (metabolites
-                    + [m.id for m in data.proteins.macromolecules]
-                    + [m.id for m in data.rnas.macromolecules]
-                    + [m.id for m in data.dna.macromolecules])
+        self.ids = (self._metabolites
+                    + [m.id for m in self._data.proteins.macromolecules]
+                    + [m.id for m in self._data.rnas.macromolecules]
+                    + [m.id for m in self._data.dna.macromolecules]
+                    + [m.id for m in self._data.other_macromolecules.macromolecules])
+        self.half_lifes=([None]*len(self._metabolites) 
+                         + [m.half_life for m in self._data.proteins.macromolecules]
+                         + [m.half_life for m in self._data.rnas.macromolecules]
+                         + [m.half_life for m in self._data.dna.macromolecules]
+                         + [m.half_life for m in self._data.other_macromolecules.macromolecules])
         # polymers and metabolites are allowed to have the same identifier
         # by looping on reversed list, we ensure that the index of the
         # metabolite is returned
         self._index = {m: i for i, m in reversed(list(enumerate(self.ids)))}
+
+        self.check_if_species_cost_are_growth_rate_dependent()
+        self.construct_species_matrices(parameters)
+
+    def check_if_species_cost_are_growth_rate_dependent(self):
+        self.growth_rate_dependent_species_cost=False
+        growth_rate_dependent_processing_input_fraction_parameters=[]
+        for process in self._data.processes.processes:
+            for prod in process.processings.productions:
+                if type(prod.input_fraction) == str:
+                    if self._parameters[prod.input_fraction].is_growth_rate_dependent():
+                        growth_rate_dependent_processing_input_fraction_parameters.append(prod.input_fraction)
+                    elif self._parameters[prod.input_fraction].is_growth_rate_and_medium_dependent():
+                        growth_rate_dependent_processing_input_fraction_parameters.append(prod.input_fraction)
+            for deg in process.processings.degradations:
+                if type(deg.input_fraction) == str:
+                    if self._parameters[deg.input_fraction].is_growth_rate_dependent():
+                        growth_rate_dependent_processing_input_fraction_parameters.append(deg.input_fraction)
+                    elif self._parameters[deg.input_fraction].is_growth_rate_and_medium_dependent():
+                        growth_rate_dependent_processing_input_fraction_parameters.append(deg.input_fraction)
+        if len(growth_rate_dependent_processing_input_fraction_parameters)!=0:
+            self.growth_rate_dependent_species_cost=True
+            self.growth_rate_dependent_species_cost_parameters=list(set(growth_rate_dependent_processing_input_fraction_parameters))
+
+        
+    def construct_species_matrices(self,parameters):    
         # metabolites (weights and processing costs are zero)
-        nb_comp = len(data.metabolism.compartments)
-        nb_met = len(metabolites)
-        nb_processes = len(data.processes.processes)
+        nb_comp = len([i for i in self._data.compartments.compartments if not i.is_external])
+        nb_met = len(self._metabolites)
+        nb_processes = len(self._data.processes.processes)
         met_comp = -eye(nb_met)
         met_proc = csr_matrix((nb_processes, nb_met))
         met_deg = eye(nb_met)
         met_deg_proc = csr_matrix((nb_processes, nb_met))
         met_weight = csr_matrix((nb_comp, nb_met))
         # macromolecules
-        [macro_comp, macro_proc, macro_deg, macro_deg_proc, macro_weight] \
-            = compute_macromolecule_composition(data, metabolites)
+        [macro_comp, macro_proc, macro_deg, macro_deg_proc, macro_weight] = compute_macromolecule_composition(self._data, self._metabolites,parameters)
         self.production = hstack([met_comp, macro_comp]).tocsr()
         self.prod_proc_cost = hstack([met_proc, macro_proc]).tocsr()
         self.degradation = hstack([met_deg, macro_deg]).tocsr()
         self.deg_proc_cost = hstack([met_deg_proc, macro_deg_proc]).tocsr()
         self.weight = hstack([met_weight, macro_weight]).tocsr()
 
-    def create_machinery(self, machinery_set):
+    def create_machinery(self, machinery_set,parameters):
         """
         Create machineries from a list of RBA machinery composition structures.
 
@@ -73,6 +110,8 @@ class Species(object):
         ----------
         machinery_set : list of rba.xml.MachineryComposition
             Machinery compositions.
+        parameters : 
+            Current parameters.
 
         Returns
         -------
@@ -82,14 +121,54 @@ class Species(object):
 
         """
         species = lil_matrix((len(self.ids), len(machinery_set)))
+        half_lifes_reactants_machinery=[]
         for col, machinery in enumerate(machinery_set):
+            half_lifes_reactants=[]
             for reac in machinery.reactants:
                 species[self._index[reac.species], col] += reac.stoichiometry
+                half_lifes_reactants.append(self.half_lifes[self._index[reac.species]])
             for prod in machinery.products:
                 species[self._index[prod.species], col] -= prod.stoichiometry
+            half_lifes_reactants_machinery.append(half_lifes_reactants)
         return Machinery(self.production*species,
                          self.prod_proc_cost*species,
-                         self.weight*species)
+                         self.weight*species,
+                         self.degradation*species,
+                         self.deg_proc_cost*species,
+                         self.compute_specific_degradation_rate_complex(su_half_lifes=half_lifes_reactants_machinery,parameters=parameters))
+
+    def compute_specific_degradation_rate_complex(self,su_half_lifes,parameters):
+        """
+        Infer the degradation rate of macromolecular complexes 
+        from the half_life times of the individual constituents (subunits).
+        (Different assumptions can be made here).
+        Half lifes of subunits are defined by current value of reprective parameter.
+
+        Parameters
+        ----------
+        su_half_lifes : 
+            Identifiers parameters, representing half_life times of 
+            different macromolecules.        
+        parameters : 
+            Current parameters. 
+        Returns
+        -------
+        numpy.array
+            Array with the inferred complex degradation rates for each complex
+        """
+        complex_degradation_rates=[]
+        for enzyme_su_half_lifes in su_half_lifes:
+            su_half_life_values=[t_05 for t_05 in [parameters[su_half_life_param].value for su_half_life_param in enzyme_su_half_lifes if su_half_life_param] if numpy.isfinite(t_05)]
+            if su_half_life_values:
+                if min(su_half_life_values) > 0:
+                    #Our assumption:complex half_life equals the smallest half_life of the subuints.
+                    #complex_degradation_rates.append(numpy.log(2)/min(su_half_life_values))
+                    complex_degradation_rates.append(numpy.float64(numpy.log(2.0)/min(su_half_life_values)))
+                else:
+                    complex_degradation_rates.append(numpy.float64(0.0))
+            else:
+                complex_degradation_rates.append(numpy.float64(0.0))
+        return numpy.fromiter(complex_degradation_rates,'float', len(su_half_lifes))
 
     def metabolite_synthesis(self):
         """
@@ -124,7 +203,7 @@ class Species(object):
         return reactions, names
 
 
-def compute_macromolecule_composition(data, metabolites):
+def compute_macromolecule_composition(data, metabolites,parameters):
     """
     Compute base information of macromolecules.
 
@@ -135,32 +214,38 @@ def compute_macromolecule_composition(data, metabolites):
 
     """
     nb_processes = len(data.processes.processes)
-    compartments = [c.id for c in data.metabolism.compartments]
+    compartments = [c.id for c in data.compartments.compartments if not c.is_external]
     # get base macromolecule information
-    proteins = MacromoleculeSet(data.proteins, compartments,
-                                metabolites, nb_processes)
+    proteins = MacromoleculeSet(data.proteins, compartments,metabolites, nb_processes)
     rnas = MacromoleculeSet(data.rnas, compartments, metabolites, nb_processes)
     dna = MacromoleculeSet(data.dna, compartments, metabolites, nb_processes)
+    other_macromolecules = MacromoleculeSet(data.other_macromolecules, compartments, metabolites, nb_processes)
     # apply processing maps
-    macro_sets = {'protein': proteins, 'rna': rnas, 'dna': dna}
+    macro_sets = {'protein': proteins, 'rna': rnas, 'dna': dna, 'other_macromolecules': other_macromolecules}
     maps = {m.id: m for m in data.processes.processing_maps}
     for p_index, process in enumerate(data.processes.processes):
         for prod in process.processings.productions:
+            if type(prod.input_fraction) == str:
+                global_input_fraction=numpy.float64(parameters[prod.input_fraction].value)  # global input fraction to processing (None or parameter ID)
+            else:
+                global_input_fraction=numpy.float64(1.0)
             inputs = [i.species for i in prod.inputs]
-            macro_sets[prod.set].apply_production_map(
-                maps[prod.processing_map], p_index, inputs
-                )
+            input_fractions=[global_input_fraction*i.stoichiometry for i in prod.inputs] # list of stoichiometry arguments of inputs to processes (used as coefficient representing fraction of input species requiring processing)
+            macro_sets[prod.set].apply_production_map(maps[prod.processing_map], p_index, inputs, input_fractions=input_fractions)
         for deg in process.processings.degradations:
+            if type(deg.input_fraction) == str:
+                global_input_fraction=numpy.float64(parameters[deg.input_fraction].value)  # global input fraction to processing (None or parameter ID)
+            else:
+                global_input_fraction=numpy.float64(1.0)
             inputs = [i.species for i in deg.inputs]
-            macro_sets[deg.set].apply_degradation_map(
-                maps[deg.processing_map], p_index, inputs
-                )
+            input_fractions=[global_input_fraction*i.stoichiometry for i in deg.inputs] # list of stoichiometry arguments of inputs to processes (used as coefficient representing fraction of input species requiring processing)
+            macro_sets[deg.set].apply_degradation_map(maps[deg.processing_map], p_index, inputs)
     # aggregate matrices across sets
-    production_metabolites = [s.production for s in (proteins, rnas, dna)]
-    production_cost = [s.production_cost for s in (proteins, rnas, dna)]
-    degradation_metabolites = [s.degradation for s in (proteins, rnas, dna)]
-    degradation_cost = [s.degradation_cost for s in (proteins, rnas, dna)]
-    weight = [s.weight for s in (proteins, rnas, dna)]
+    production_metabolites = [s.production for s in (proteins, rnas, dna, other_macromolecules)]
+    production_cost = [s.production_cost for s in (proteins, rnas, dna, other_macromolecules)]
+    degradation_metabolites = [s.degradation for s in (proteins, rnas, dna, other_macromolecules)]
+    degradation_cost = [s.degradation_cost for s in (proteins, rnas, dna, other_macromolecules)]
+    weight = [s.weight for s in (proteins, rnas, dna, other_macromolecules)]
     return (hstack(production_metabolites), hstack(production_cost),
             hstack(degradation_metabolites), hstack(degradation_cost),
             hstack(weight))
@@ -187,28 +272,33 @@ class MacromoleculeSet(object):
         self.production_cost = coo_matrix((nb_processes, nb_mol))
         self.degradation_cost = coo_matrix((nb_processes, nb_mol))
 
-    def apply_production_map(self, map_, process_index, inputs):
+    def apply_production_map(self, map_, process_index, inputs, input_fractions=None):
         self._apply_map(map_, inputs, process_index,
-                        self.production, self.production_cost)
+                        self.production, self.production_cost, input_fractions=input_fractions)
 
-    def apply_degradation_map(self, map_, process_index, inputs):
+    def apply_degradation_map(self, map_, process_index, inputs, input_fractions=None):
         self._apply_map(map_, inputs, process_index,
-                        self.degradation, self.degradation_cost)
+                        self.degradation, self.degradation_cost, input_fractions=input_fractions)
 
-    def _apply_map(self, map_, inputs, process_index, met_matrix, proc_matrix):
+    def _apply_map(self, map_, inputs, process_index, met_matrix, proc_matrix, input_fractions=None):
+        if input_fractions is None:
+            input_fractions=[1.0]*len(inputs)
         # create column selector for inputs
-        cols = numpy.array([self._molecule_index[i] for i in inputs],
-                           dtype = int)
+        cols = numpy.array([self._molecule_index[i] for i in inputs],dtype = int)
+
         proc_map = ProcessingMap(map_, self.components, self._metabolites)
         met, proc_cost = proc_map.apply_map(self._component_matrix[:, cols])
+
         # update production/degradation reactions
-        met = met.tocoo()
+        #met = met.tocoo()
+        met = met.multiply(numpy.array(input_fractions)).tocoo() #mutiply the processing demand of each input with the respective input fraction
         met_matrix.row = numpy.concatenate([met_matrix.row, met.row])
         met_matrix.col = numpy.concatenate([met_matrix.col, cols[met.col]])
         met_matrix.data = numpy.concatenate([met_matrix.data, met.data])
         # udpate procesing cost matrix
         if proc_cost.nnz:
-            proc_cost = proc_cost.tocoo()
+            #proc_cost = proc_cost.tocoo()
+            proc_cost = proc_cost.multiply(numpy.array(input_fractions)).tocoo() #mutiply the processing demand of each input with the respective input fraction
             proc_matrix.row = numpy.concatenate(
                 [proc_matrix.row,
                  numpy.array([process_index]*len(proc_cost.data))]
@@ -239,13 +329,17 @@ class MacromoleculeSet(object):
         """Compute weight and associate weight with location."""
         # we first compute weight per component, then weight per molecule
         w = csr_matrix([c.weight for c in macro_set.components], dtype='float')
-        location = [compartments.index(m.compartment)
-                    for m in macro_set.macromolecules]
+        external_compartments=[m.compartment for m in macro_set.macromolecules if m.compartment not in compartments]
+        compartments_appended_with_external_ones=list(compartments+external_compartments)
+        location = [compartments_appended_with_external_ones.index(m.compartment) for m in macro_set.macromolecules]
         nb_macros = len(macro_set.macromolecules)
         W = csr_matrix(((w*C).toarray().ravel(),
                         (location, range(nb_macros))),
-                       shape=(len(compartments), nb_macros))
-        return W
+                       shape=(len(compartments_appended_with_external_ones), nb_macros))
+        if len(compartments_appended_with_external_ones)>len(compartments):
+            return(W[:-len(external_compartments),:])
+        else:
+            return(W)
 
 
 class ProcessingMap(object):

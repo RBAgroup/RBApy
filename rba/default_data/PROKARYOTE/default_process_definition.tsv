@@ -1,0 +1,8 @@
+MACROMOLECULE TYPE	ID	ORIGIN	LOCATION	PROCESS	CAPACITY PARAMETER	PROCESSING LOCATION	PROCESSING TYPE	TEMPLATE PROCESSING MAP	INPUT FRACTION
+protein				Translation	ribosome_efficiency_MM	Cytoplasm	production	default_translation	1
+protein				Folding	chaperone_efficiency_LM	Cytoplasm	production	default_processing	0.1
+rna				Transcription_noMM		Cytoplasm	production	default_transcription	1
+dna				Replication_noMM		Cytoplasm	production	default_dna_replication	1
+rna				RNAdeg_noMM		Cytoplasm	degradation	default_rna_degradation	1
+protein				PROTEINdeg_noMM		Cytoplasm	degradation	default_protein_degradation	1
+protein			Secreted	Secretion_noMM		Cytoplasm	production	default_processing	1

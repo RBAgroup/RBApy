@@ -30,7 +30,7 @@ class SbmlData(object):
 
     """
 
-    def __init__(self, input_file, cytosol_id='c', external_ids=None, interface_id=None):
+    def __init__(self, input_file, cytosol_id='c', external_ids=None, interface_id=None,default_sbml_rba_compartment_map={}):
         """
         Build from file.
 
@@ -42,12 +42,16 @@ class SbmlData(object):
             identifier of cytosol in the SBML file.
         external_ids: list of str
             identifiers of external compartments in SBML file.
-
+        interface_id: str
+            identifier of interface between cell and environment (usuall cell membrane)
+        default_sbml_rba_compartment_map: dict
+            dictionary with the default mapping between RBA and SBML compartments.
         """
         # WARNING: not storing document in a variable will result
         # in segmentation fault!
         document = self._load_document(input_file)
         model = document.getModel()
+        self.default_sbml_rba_compartment_map=default_sbml_rba_compartment_map
         self._initialize_species(model, external_ids)
         self.external_prefixes = [self._prefix(m.id)
                                   for m in self.species
@@ -58,6 +62,7 @@ class SbmlData(object):
         document = libsbml.readSBML(input_file)
         if document.getNumErrors() > 0:
             document.printErrors()
+            print("")
             raise UserWarning('Invalid SBML.')
         return document
 
@@ -66,11 +71,13 @@ class SbmlData(object):
             external_ids = []
         external_ids += self._identify_external_compartments(model)
         self.species = rba.xml.ListOfSpecies()
+        self.metabolic_compartments=[i.getId() for i in model.getListOfCompartments()]
         for spec in model.getListOfSpecies():
             boundary = spec.getBoundaryCondition()
             if spec.getCompartment() in external_ids:
                 boundary = True
             self.species.append(rba.xml.Species(spec.getId(), boundary))
+        
 
     def _identify_external_compartments(self, model):
         # Compartments are considered external if all metabolites
@@ -96,11 +103,17 @@ class SbmlData(object):
     def _extract_reactions_and_enzymes(self, model, cytosol_id, interface_id):
         self.reactions = rba.xml.ListOfReactions()
         self.enzymes = []
+        self.spontanous_reactions=[]
         parser = self._create_annotation_parser(model)
         for reaction in model.getListOfReactions():
             try:
                 enzymes = parser.enzyme_composition(reaction)
+                #check if any enzyme exists, which is not empty.
+                # remove blanks and check if string has length unequal zero 
+                if len([e for e in enzymes if len([i for i in e if len(i.replace(" ",""))!=0])!=0])==0:
+                    self.spontanous_reactions.append(reaction.id) # declare reaction spontaneous
             except UserWarning as warn:
+                print("")
                 raise UserWarning(
                     'ERROR: In reaction \'{}\':\n'
                     '{}'.format(reaction.id, warn.args[0])
@@ -116,6 +129,7 @@ class SbmlData(object):
                     new_reaction, enzyme, cytosol_id, interface_id
                 ))
         if not self.enzymes:
+            print("")
             raise UserWarning(
                 'Your SBML document does not contain any fbc gene products nor uses '
                 'COBRA notes to define enzyme compositions for '
@@ -149,6 +163,8 @@ class SbmlData(object):
         enzyme.imported_metabolites = self._imported_metabolites(
             enzyme, reaction, cytosol_id, interface_id)
         enzyme.initialize_efficiencies()
+        # localisation is deduced from the localisation of metabolites
+        enzyme.location_from_reaction = self._inferred_location(set(enzyme.compartments_of_metabolites))
         return enzyme
 
     def _all_species_in_same_compartment(self, reaction):
@@ -159,10 +175,22 @@ class SbmlData(object):
 
     def _retrieve_compartments_of_metabolites(self, reaction):
         compartments = [self._suffix(m.species)
-                        for m in itertools.chain(reaction.reactants, reaction.products)]
+                        for m in itertools.chain(reaction.reactants,
+                                                 reaction.products)]
         # remove double entries + order entries by alphabetic order
-        compartments = set(compartments)
+        compartments = list(set(compartments))
+        compartments.sort()
         return compartments
+
+    def _inferred_location(self, compartments_id_sbml):
+        """
+        Default mapping between location(s) of metabolites in metabolic reactions
+        and compartments as locations of associated proteins.
+        Serve as default entry in location_map helper file 
+        and may be changed by manual curation
+        """
+        return(self.default_sbml_rba_compartment_map.get(frozenset(compartments_id_sbml),self.default_sbml_rba_compartment_map[frozenset(["DEFAULT"])]))
+
 
     def _imported_metabolites(self, enzyme, reaction, cytosol_id, interface_id):
         """
@@ -182,7 +210,7 @@ class SbmlData(object):
             else:
                 return []
         else:
-            if enzyme.compartments_of_metabolites == interface_id:
+            if set(enzyme.compartments_of_metabolites) == interface_id:
                 return self._noncytosolic_external_reactants(reaction, cytosol_id)
             else:
                 return []
@@ -247,6 +275,7 @@ class FbcAnnotationParser(object):
                 result += self._read_fbc_association_components(assoc)
             return result
         else:
+            print("")
             raise UserWarning(
                 'Invalid or RBApy-incompatible SBML document.\n'
                 'RBApy forbids that gene reaction rules contain OR statements inside '
@@ -260,6 +289,7 @@ class CobraNoteParser(object):
     def enzyme_composition(self, reaction):
         result = []
         if not reaction.getNotes():
+            print("")
             raise UserWarning('Missing enzyme annotation')
         for ga in self._gene_associations(reaction.getNotes()):
             composition = self._parse_gene_association(ga)

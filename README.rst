@@ -1,11 +1,11 @@
 RBApy
-==============================
+===============================
 
 RBApy is a open-source Python package for the automated generation of bacterial Resource Balance Analysis (RBA) models (https://rba.inrae.fr).
-Existing RBA models for *Bacillus subtilis 168* (wild type), *Escherichia coli K-12* (wild type) and CO2-fixing *Escherichia coli K-12* (an engineered strain) can be found here: https://github.com/SysBioInra/Bacterial-RBA-models.
+Existing RBA models of prokaryotic and eukaryotic cells are available in the RBA-model repository: https://github.com/RBAgroup/RBA-models.
 
 For a complete documentation on RBApy installation and usage, please visit the website:
-https://sysbioinra.github.io/RBApy/
+https://rbagroup.github.io/RBApy/
 
 
 Installation
@@ -38,7 +38,7 @@ RBApy requires one of the linear programming solvers `IBM CPLEX <https://www.ibm
     pip install rbapy[gurobi]
     ```
 
-More information about how to install RBApy is available at https://sysbioinra.github.io/RBApy/installation.html.
+More information about how to install RBApy is available at https://rbagroup.github.io/RBApy/installation.html.
 
 Remark on usage
 ---------------
@@ -52,18 +52,11 @@ When using RBApy in own Python code, it must be imported as: rba
 Running
 -------
 
-For more detailed instructions on usage, please refer to the RBApy website https://sysbioinra.github.io/RBApy/.
+For more detailed instructions on usage, please refer to the RBApy website https://rbagroup.github.io/RBApy/.
 
 Put the SBML file containing the Genome Size Metabolic Model (GSMM) of your organism of interest in the `input` directory and fill in the
 parameter file `input/params.in`. Then open a console at the root
-of the repository and run:
-
-
-```
-python generate_rba_model.py input/params.in
-```
-
-or, more generally:
+of the repository and run the following command line in your terminal:
 
 
 ```
@@ -71,7 +64,7 @@ python generate_rba_model.py path/to/params.in
 ```
 
 The script will generate several files used as an input for the RBA solver.
-By default, they will be written to the `output` directory.
+
 
 Warning: for the first run, the script will download and parse Uniprot data
 as best it can. Unfortunately, numerous values cannot be parsed properly and
@@ -124,20 +117,21 @@ Empty fields in Gene-association will be interpreted as a diffusion reaction.
 
 Authors
 -------
+RBApy is developed by MaIAGE (https://maiage.inrae.fr/biosys) and  MIAT units (https://miat.inrae.fr/teams/biocomp/) at INRAE, by 
+Bodeit, O., Fischer S., Bulovic A., Goelzer A.
 
-Fischer S. , Bulovic A. , Goelzer A. , Bodeit, O., Dinh M.
 
-
-Citation
+Citations
 ---------------
 
-If you use RBApy for scientific publications, please cite Bulović A., Fischer S., Dinh M., Golib F., Liebermeister W., Poirier C., Tournier L., Klipp E., Fromion V., Goelzer A. (2019), "Automated generation of bacterial resource allocation models", Metabolic Engineering 55 (2019) 12–22. `https://doi.org/10.1016/j.ymben.2019.06.001 <https://doi.org/10.1016/j.ymben.2019.06.001>`_.
-
+If you use RBApy for scientific publications, please cite 
+- Bulović A., Fischer S., Dinh M., Golib F., Liebermeister W., Poirier C., Tournier L., Klipp E., Fromion V., Goelzer A. (2019), "Automated generation of bacterial resource allocation models", Metabolic Engineering 55 (2019) 12–22. `https://doi.org/10.1016/j.ymben.2019.06.001 <https://doi.org/10.1016/j.ymben.2019.06.001>`_.
+- and (...)
 
 License
 -------
 
-Copyright (c) 2018 INRAE - MaIAGE - France.
+Copyright (c) 2018-2026 INRAE - France.
 
 RBApy is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

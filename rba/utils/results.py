@@ -25,6 +25,8 @@ class Results(object):
                           for r in model.metabolism.reactions}
         self.enzymes = [e.id for e in model.enzymes.enzymes]
         self.processes = [p.id for p in model.processes.processes]
+        self.compartments = [c.id for c in model.compartments.compartments if not c.is_external]
+
         boundary_metabolites = set(m.id for m in model.metabolism.species
                                    if m.boundary_condition)
         self.boundary_reactions = []
@@ -41,6 +43,9 @@ class Results(object):
 
     def process_machinery_concentrations(self):
         return {i: self.variables[i + '_machinery'] for i in self.processes}
+
+    def compartment_sizes(self):
+        return {i: self.variables[i + '_occupation'] for i in self.compartments}
 
     def sorted_boundary_fluxes(self):
         """
@@ -115,30 +120,35 @@ class Results(object):
         return result
 
     def write(self, output_dir):
-        with open(os.path.join(output_dir, 'reactions.out'), 'w') as f:
+        with open(os.path.join(output_dir, 'outputs/growth_rate.out'), 'w') as f:
+            f.write('{}\t{}\n'.format("growth_rate", self.mu_opt))
+        with open(os.path.join(output_dir, 'outputs/compartments.out'), 'w') as f:
+            f.write('Compartment\tSize\n')
+            for compartment, size in self.compartment_sizes().items():
+                f.write('{}\t{}\n'.format(compartment, size))
+        with open(os.path.join(output_dir, 'outputs/reactions.out'), 'w') as f:
             f.write('Reaction\tFlux\n')
             for reaction, flux in self.reaction_fluxes().items():
                 f.write('{}\t{}\n'.format(reaction, flux))
-        with open(os.path.join(output_dir, 'enzymes.out'), 'w') as f:
+        with open(os.path.join(output_dir, 'outputs/enzymes.out'), 'w') as f:
             f.write('Enzyme\tConcentration\n')
             for enzyme, conc in self.enzyme_concentrations().items():
                 f.write('{}\t{}\n'.format(enzyme, conc))
-        with open(os.path.join(output_dir,
-                               'process_machineries.out'), 'w') as f:
+        with open(os.path.join(output_dir,'outputs/process_machineries.out'), 'w') as f:
             f.write('Process\tMachinery Concentration\n')
             for process, conc in \
                     self.process_machinery_concentrations().items():
                 f.write('{}\t{}\n'.format(process, conc))
 
 
-    def write_fluxes(self, output_file, file_type='json', merge_isozyme_reactions=True,
+    def write_fluxes(self, output_dir, file_type='json', merge_isozyme_reactions=True,
                      only_nonzero=True, remove_prefix=False):
         '''
         Writes the simulation-generated fluxes to a file.
 
         Parameters
         ----------
-        output_file : string
+        output_dir : string
             Path to the output file
         file_type: string
             Either json or csv. In case of csv, values are separated
@@ -173,17 +183,17 @@ class Results(object):
                     rf_merged[reac_id] += flux_val
             rf = rf_merged
         if file_type == 'json':
-            with open(output_file, 'w') as fout:
+            with open(os.path.join(output_dir,'outputs/flux_distribution_predicted.json'), 'w') as fout:
                 fout.write(json.dumps(rf, indent=4))
         elif file_type == 'csv':
-            with open(output_file, 'w') as fout:
+            with open(os.path.join(output_dir,'outputs/flux_distribution_predicted.csv'), 'w') as fout:
                 fout.write('\n'.join(['{};{}'.format(k, v) for k, v in rf.items()]))
         return rf
 
-    def write_proteins(self, output_file, file_type='csv'):
+    def write_proteins(self, output_dir, file_type='csv'):
         '''
         Write simulated protein concentrations to a file.
-        output_file: string
+        output_dir: string
             Path to the output file
         file_type: str
             File type, can be csv of json
@@ -198,18 +208,18 @@ class Results(object):
                 continue
             enz = self._model.enzymes.enzymes.get_by_id(enz_id)
             for sp in enz.machinery_composition.reactants:
-                prot_conc[sp.species] += sp.stoichiometry * enz_conc
+                prot_conc[sp.species.split("_loc_")[0]] += sp.stoichiometry * enz_conc
         for mach_id, mach_conc in self.process_machinery_concentrations().items():
             if mach_conc == 0:
                 continue
             mach = self._model.processes.processes.get_by_id(mach_id)
             for sp in mach.machinery.machinery_composition.reactants:
-                prot_conc[sp.species] += sp.stoichiometry * enz_conc
+                prot_conc[sp.species.split("_loc_")[0]] += sp.stoichiometry * mach_conc
         if file_type == 'csv':
-            with open(output_file, 'w') as fout:
+            with open(os.path.join(output_dir,'outputs/proteome_predicted.csv'), 'w') as fout:
                 fout.write('\n'.join(['{}\t{}'.format(k, v) for k, v in prot_conc.items()]))
         elif file_type == 'json':
-            with open(output_file, 'w') as fout:
+            with open(os.path.join(output_dir,'outputs/proteome_predicted.json'), 'w') as fout:
                 fout.write(json.dumps(prot_conc, indent=4))
         return prot_conc
 
@@ -224,7 +234,7 @@ class Results(object):
             'RowNames': self._matrices.row_names, 'RowSigns': self._matrices.row_signs,
             'Medium': self._model.medium
         }
-        scipy.io.savemat(os.path.join(output_dir, 'rba_matlab.mat'),
+        scipy.io.savemat(os.path.join(output_dir, 'outputs/rba_matlab.mat'),
                          data, do_compression=True)
 
     def print_main_transport_reactions(self, number=10):

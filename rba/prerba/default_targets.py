@@ -5,6 +5,7 @@ from __future__ import division, print_function, absolute_import
 
 # local imports
 import rba.xml
+from importlib_resources import files, as_file
 
 
 class DefaultTargets(object):
@@ -18,22 +19,65 @@ class DefaultTargets(object):
 
     """
 
-    def __init__(self, default_data, metabolite_map):
+    def __init__(self, user_data):
         """
         Build object from default data and metabolite map.
 
         Parameters
         ----------
-        default_data : rba.prerba.default_data.DefaultData)
-            Default data used to initialize targets.
-        metabolite_map: dict
-            Map from internal metabolite ids to user-defined ids.
+        user_data : rba.prerba.default_data.User)
+            USer data used to initialize targets.
 
         """
-        self.default = default_data
-        self._metabolites = metabolite_map
+        self.user_data = user_data
+        # import default target
+        if self.user_data.default_input_directory is not None:
+            resource_path = files('rba').joinpath(self.user_data.default_input_directory, "default_targets.xml")
+            with as_file(resource_path) as src_path:
+                with open(src_path, 'r') as f:
+                    self.default_targets =rba.xml.RbaTargets().from_file(f)
 
-    def translation(self, compartments):
+
+    def transcription(self):
+        """
+        Build transcription targets.
+
+        Returns
+        -------
+        rba.xml.TargetGroup
+            Transcription targets.
+
+        """
+        return(self.default_targets.target_groups._elements_by_id.get('transcription_targets',None))
+
+
+    def replication(self):
+        """
+        Build replication targets.
+
+        Returns
+        -------
+        rba.xml.TargetGroup
+            Replication targets.
+
+        """
+        return(self.default_targets.target_groups._elements_by_id.get('replication_targets',None))
+
+
+    def rna_degradation(self):
+        """
+        Build RNA degradation targets.
+
+        Returns
+        -------
+        rba.xml.TargetGroup
+            RNA degradation targets.
+
+        """
+        return(self.default_targets.target_groups._elements_by_id.get('rna_degradation',None))
+
+
+    def translation(self):
         """
         Build translation targets.
 
@@ -49,65 +93,13 @@ class DefaultTargets(object):
 
         """
         targets = rba.xml.TargetGroup('translation_targets')
-        for cpt in compartments:
-            prot_id = self.default.metabolites.average_protein_id(cpt)
+        for comp in self.user_data.compartments():
+            prot_id = self.user_data.protein_data.average_protein_id(comp)
             target = rba.xml.TargetSpecies(prot_id)
-            target.value = 'nonenzymatic_proteins_' + cpt
+            target.value = 'nonenzymatic_proteins_{}'.format(comp)
             targets.concentrations.append(target)
         return targets
 
-    def transcription(self):
-        """
-        Build transcription targets.
-
-        Returns
-        -------
-        rba.xml.TargetGroup
-            Transcription targets.
-
-        """
-        targets = rba.xml.TargetGroup('transcription_targets')
-        default_metabolites = self.default.metabolites
-        # mrna
-        target = rba.xml.TargetSpecies(default_metabolites.mrna)
-        target.value = 'mrna_concentration'
-        targets.concentrations.append(target)
-        target = rba.xml.TargetSpecies(default_metabolites.mrna)
-        target.value = 'mrna_degradation_flux'
-        targets.production_fluxes.append(target)
-        return targets
-
-    def replication(self):
-        """
-        Build replication targets.
-
-        Returns
-        -------
-        rba.xml.TargetGroup
-            Replication targets.
-
-        """
-        targets = rba.xml.TargetGroup('replication_targets')
-        target = rba.xml.TargetSpecies(self.default.metabolites.dna)
-        target.value = 'dna_concentration'
-        targets.concentrations.append(target)
-        return targets
-
-    def rna_degradation(self):
-        """
-        Build RNA degradation targets.
-
-        Returns
-        -------
-        rba.xml.TargetGroup
-            RNA degradation targets.
-
-        """
-        targets = rba.xml.TargetGroup('rna_degradation')
-        target = rba.xml.TargetSpecies(self.default.metabolites.mrna)
-        target.value = 'mrna_degradation_flux'
-        targets.degradation_fluxes.append(target)
-        return targets
 
     def metabolite_production(self):
         """
@@ -120,13 +112,27 @@ class DefaultTargets(object):
 
         """
         targets = rba.xml.TargetGroup('metabolite_production')
-        for id_, metabolite in self._metabolites.items():
+        internal_metabolite_species=[i.id for i in self.user_data.sbml_data.species if not i.boundary_condition]
+
+        for id_, metabolite in self.user_data.metabolite_map.items():
             if metabolite.sbml_id and metabolite.concentration:
-                target = rba.xml.TargetSpecies(metabolite.sbml_id)
-                target.value = (self.default.parameters
-                                .metabolite_concentration(id_))
-                targets.concentrations.append(target)
+                # define metabolite, located in cytoplasm as target species. 
+                located_internal_sbml_ids=[i for i in self.user_data.metabolite_location_map[metabolite.sbml_id] if i in internal_metabolite_species]
+                target_metabolite=None
+                if "{}_{}".format(metabolite.sbml_id,self.user_data.generate_mapping_rba_to_sbml_compartments(rba_compartment=self.user_data.compartment('Cytoplasm'))) in located_internal_sbml_ids:
+                    target_metabolite="{}_{}".format(metabolite.sbml_id,self.user_data.generate_mapping_rba_to_sbml_compartments(rba_compartment=self.user_data.compartment('Cytoplasm')))
+                #if metabolite is not present in cytoplasm, chose the one in default location if present in this copmpartmen
+                elif "{}_{}".format(metabolite.sbml_id,self.user_data.generate_mapping_rba_to_sbml_compartments(rba_compartment=self.user_data.protein_data._default_location)) in located_internal_sbml_ids:
+                    target_metabolite="{}_{}".format(metabolite.sbml_id,self.user_data.generate_mapping_rba_to_sbml_compartments(rba_compartment=self.user_data.compartment(self.user_data.protein_data._default_location)))
+                #otherwise chose species, regardles of location
+                elif len(located_internal_sbml_ids)!=0:
+                    target_metabolite=located_internal_sbml_ids[0]
+                if target_metabolite is not None:
+                    target = rba.xml.TargetSpecies(target_metabolite)
+                    target.value = (self.user_data.default.parameters.metabolite_concentration(metabolite.sbml_id))
+                    targets.concentrations.append(target)
         return targets
+
 
     def macrocomponents(self, macro_fluxes):
         """
@@ -146,10 +152,10 @@ class DefaultTargets(object):
         targets = rba.xml.TargetGroup('macrocomponent_production')
         for id_ in macro_fluxes:
             target = rba.xml.TargetSpecies(id_)
-            target.value = (self.default.parameters
-                            .metabolite_concentration(id_))
+            target.value = (self.user_data.default.parameters.metabolite_concentration(id_))
             targets.concentrations.append(target)
         return targets
+
 
     def maintenance_atp(self, reaction_name):
         """

@@ -43,12 +43,10 @@ class Processes(object):
 
         """
         # extract ids
-        self.ids = [p.id for p in processes]
+        self.processes = processes
+        self.ids = [p.id for p in self.processes]
 
-        # extract machinery related information
-        # extract machinery
-        machinery = [p.machinery.machinery_composition for p in processes]
-        self.machinery = species.create_machinery(machinery)
+        self.construct_machinery(species,parameters)
         # extract capacities
         # we use CPLEX conventions for signs E=equality, L=lower than.
         values = []
@@ -69,3 +67,8 @@ class Processes(object):
         self.ub = functions.default_ub.value * numpy.ones(nb_processes)
         self.lb = numpy.zeros(nb_processes)
         self.f = numpy.zeros(nb_processes)
+
+    def construct_machinery(self,species,parameters):
+        # extract machinery information
+        machinery = [p.machinery.machinery_composition for p in self.processes]
+        self.machinery = species.create_machinery(machinery,parameters=parameters)

@@ -9,6 +9,8 @@ from lxml import etree
 __all__ = ['is_true', 'MachineryComposition', 'SpeciesReference',
            'ListOfReactants', 'ListOfProducts', 'TargetValue']
 
+def xml_input_tag_error(file,file_tag,requested_tag):
+    return(Exception("Root tag {} in file {} does not match required {}".format(file_tag,file,requested_tag)))
 
 def is_true(attribute):
     """
@@ -195,12 +197,14 @@ class SpeciesReference(object):
         Identifier of species.
     stoichiometry : float
         Stoichiometry of species.
+    comment : str
+        Comment.
 
     """
 
     tag = 'speciesReference'
 
-    def __init__(self, species, stoichiometry):
+    def __init__(self, species, stoichiometry, comment=None):
         """
         Constructor.
 
@@ -210,22 +214,26 @@ class SpeciesReference(object):
             Identifier of species.
         stoichiometry : float
             Stoichiometry of species.
-
+        comment : str
+            Comment (no implemented functionality for this attribute).
         """
         self.species = species
         self.stoichiometry = stoichiometry
+        self.comment = comment
 
     def to_xml_node(self):
         """Convert to xml node."""
         result = etree.Element(self.tag)
         result.set('species', self.species)
         result.set('stoichiometry', str(self.stoichiometry))
+        if self.comment is not None:
+            result.set('comment', str(self.comment))
         return result
 
     @classmethod
     def from_xml_node(cls, node):
         """Build object from xml node."""
-        return cls(node.get('species'), float(node.get('stoichiometry')))
+        return cls(node.get('species'), float(node.get('stoichiometry')), node.get('comment'))
 
 
 class ListOfReactants(ListOf):

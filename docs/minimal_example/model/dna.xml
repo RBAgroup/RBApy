@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created by RBApy version None with RBAML version 2-->
+<!--Model: None, Organism/Tissue: None, Taxon-ID: None-->
+<!--Authored by: None-->
+<!--Copyright of: None-->
+<!--License: None-->
+<?rbaml version="2"?>
+<RBADna>
+  <listOfComponents/>
+  <listOfMacromolecules/>
+</RBADna>

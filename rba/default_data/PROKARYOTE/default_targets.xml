@@ -1,0 +1,15 @@
+<RBATargets>
+  <listOfTargetGroups>
+    <targetGroup id="transcription_targets">
+      <listOfConcentrations>
+        <targetSpecies value="mrna_concentration" species="mrna_loc_Cytoplasm"/>
+      </listOfConcentrations>       
+    </targetGroup>
+    <targetGroup id="replication_targets">
+      <listOfConcentrations>
+        <targetSpecies value="dna_concentration" species="dna_loc_Cytoplasm"/>
+      </listOfConcentrations>
+    </targetGroup>
+  </listOfTargetGroups>
+</RBATargets>
+

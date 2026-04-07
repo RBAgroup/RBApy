@@ -39,14 +39,15 @@ class CurationData(object):
         self.filename = filename
         self._data_added = False
         self.data = pandas.DataFrame(columns=columns)
+        self.file_already_existed=False
         try:
-            self.data = pandas.read_csv(filename, sep='\t',
-                                        na_values=[self.missing_tag])
+            self.data = pandas.read_csv(filename, sep='\t',na_values=[self.missing_tag])
+            self.file_already_existed=True
         except IOError:
             print('Helper file {} not found.'.format(filename))
             self.write(self.filename)
 
-    def update_file(self):
+    def update_file(self, sort_by=None):
         """
         Write data to default file if data was added since last update.
 
@@ -57,12 +58,12 @@ class CurationData(object):
 
         """
         if self._data_added:
-            self.write(self.filename)
+            self.write(self.filename, sort_by=sort_by)
             self._data_added = False
             return True
         return False
 
-    def write(self, output_file):
+    def write(self, output_file, sort_by=None):
         """
         Write data to file.
 
@@ -72,8 +73,9 @@ class CurationData(object):
             Path to file or buffer.
 
         """
-        self.data.to_csv(output_file, sep='\t',
-                         na_rep=self.missing_tag, index=False)
+        if sort_by:
+            self.data.sort_values(by=sort_by, axis=0, ascending=False, inplace=True)
+        self.data.to_csv(output_file, sep='\t', na_rep=self.missing_tag, index=False)
 
     def rows(self):
         """
@@ -101,6 +103,31 @@ class CurationData(object):
         new_rows = pandas.DataFrame(rows, columns=self.data.columns)
         self.data = pandas.concat([self.data, new_rows], axis=0,ignore_index=True)  
         self._data_added = True
+
+    def remove_rows_by_index(self, row_indices):
+        """
+        Remove rows from data.
+
+        Parameters
+        ----------
+        row_indices : list of int
+            Indices of rows to remove.
+        """
+        self.data.drop(index=row_indices,inplace=True)
+        self.data.reset_index(drop=True,inplace=True)
+        self._data_added = True
+
+    def remove_row_by_index(self, row_index):
+        """
+        Remove single row from data.
+
+        Parameters
+        ----------
+        row : list/tuples
+            Row to remove current data.
+
+        """
+        self.remove_rows_by_index(row_indices=[row_index])
 
     def add_row(self, row):
         """

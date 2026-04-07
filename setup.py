@@ -31,15 +31,15 @@ setup(
     # https://packaging.python.org/en/latest/single_source_version.html
     version=version,
 
-    description='Package for automated generation of bacterial Resource Balance Analysis (RBA) models and simulation of RBA models',
+    description='Package for automated generation, simulation and calibration of Resource Balance Analysis (RBA) models',
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://sysbioinra.github.io/RBApy/',
+    url='https://rbagroup.github.io/RBApy/',
 
     # Author details
     author=authors,
-    author_email='anne.goelzer@inra.fr',
+    author_email='support-rbapy@inrae.fr',
 
     # Choose your license
     license='GPLv3',
@@ -50,7 +50,7 @@ setup(
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
 
         # Indicate who your project is intended for
         'Intended Audience :: Science/Research',
@@ -62,10 +62,11 @@ setup(
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9', 
+        'Programming Language :: Python :: 3.10',                               
     ],
 
     # What does your project relate to?
@@ -83,8 +84,9 @@ setup(
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),
-
+    #packages=find_packages(exclude=['contrib', 'docs', 'tests']),
+    packages=find_packages(exclude=['docs', 'tests','sample_input']),
+    
     # Alternatively, if you want to distribute just a my_module.py, uncomment
     # this:
     #   py_modules=["my_module"],
@@ -98,9 +100,10 @@ setup(
         'lxml',
         'numpy',
         'pandas',
-        'python-libsbml',
+        'python-libsbml == 5.19.2',
         'scipy',
-        'requests'
+        'requests',
+        'importlib_resources',
     ],
 
     # List additional groups of dependencies here (e.g. development
@@ -128,8 +131,13 @@ setup(
     # If there are data files included in your packages that need to be
     # installed, specify them here.  If using Python 2.6 or less, then these
     # have to be included in MANIFEST.in as well.
+    include_package_data=True,
     package_data={
-        #'sample': ['package_data.dat'],
+        'rba': ['default_data/READMES/*',
+                'default_data/PLANT/*',
+                'default_data/EUKARYOTE/*',
+                'default_data/PROKARYOTE/*'
+                ],
     },
 
     # Although 'package_data' is the preferred approach, in some case you may
@@ -145,6 +153,7 @@ setup(
         'console_scripts': [
             'generate-rba-model=rba.cli.generate_rba_model:main',
             'solve-rba-model=rba.cli.solve_rba_model:main',
+            'update-rba-model=rba.cli.update_rba_model:main',                
         ],
     },
 )
