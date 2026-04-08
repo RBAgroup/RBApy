@@ -8,15 +8,17 @@ layout: subpage
 
 	<h1>Installation</h1>
 		<p>
-		<b>RBApy</b> can be installed with Python 2.7 and Python 3.5 (or any later version compatible with the cplex package).
+		<b>RBApy</b> requires an optimization solver (Cplex, Gurobi or GlpK) and can be installed with Python 3.8 or any later version compatible with the optimization solver.
+		 We recommend to use Cplex or Gurobi to simulate large models.
 	</p>
 	<h2>1. Install Python</h2>
 <p>
 	If Python is not installed on your own computer, you need to install it. 
-Go to the website  <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>. 
+	Go to the website  <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>. 
 Download the appropriate python release for your system and install it.
 </p>
-	<h2>2. Install CPLEX</h2>
+	<h2>2. Install CPLEX or GUROBI</h2>
+	<h3>2.1 CPLEX</h3>
 	<p>
 		IBM&reg; CPLEX is an optimization software package. <b>RBApy</b> uses this package for the generation and checking of feasibility of the Linear Programming (LP) problem. CPLEX requires a licence to run, and one can be obtained for free if you have an academic email address. This you can do as follows:
 
@@ -28,27 +30,31 @@ Download the appropriate python release for your system and install it.
 
 		After you have successfuly downloaded the package you need to install it and setup the Python API. </p>
 
-<h3>2.1. On Unix systems</h3>
+<h4>2.1.1 On Unix systems</h4>
 	<p>
 Open a terminal, navigate to executable and run following commands (make sure to adapt the executable name if necessary):
 	</p>
 
-	<pre><code>chmod u+x cplex_studio12.7.1.osx.bin 
-./cplex_studio12.7.1.osx.bin </code></pre>
+	<pre><code>chmod u+x cplex_studio2212.linux_x86_64.bin
+./cplex_studio2212.linux_x86_64.bin </code></pre>
 
 	<p>
-		Make sure to remember CPLEX's installation path, as we need to navigate to it to setup the Python API. 
-		Go to the directory where CPLEX is installed, then go the sub-directory named <code>python</code>. 
-		<pre><code>cd Path/To/Cplex/cplex/python/x86-64_linux</code></pre>
-		In this directory you should find a file <code>setup.py</code>. Be sure that you have administrator permissions, 
-		then set up the Python API by typing in the terminal:
+		Make sure to remember CPLEX's installation path. For the newest cplex version (22.1.2 or later), the CPLEX Python interface is no longer 
+		delivered inside CPLEX Optimization Studio, but can be installed directly from PyPI or from Anaconda, using the commands
+
+  <pre><code> pip install cplex (conda install cplex for Anaconda)
+ pip install docplex (conda install docplex for Anaconda)  </code></pre>
+
+The first command installs the Community Edition CPLEX and CP Optimizer runtimes as well as a low-level Python interface to CPLEX. 
+The second installs the higher-level "docplex" Python package which includes CPLEX and CP Optimizer modelling and solving support. 
+The Community Edition runtimes which come as standard are limited in the size of optimization problems that they can solve. 
+To upgrade the Community Edition runtimes and remove size limitations, use the command "docplex" which was installed when you installed the "docplex" module
+ with pip or conda. Running:
+
+  <pre><code> docplex config --upgrade Full_Path_To_This_CPLEX_Studio_Installation  </code></pre>
+
+	will upgrade the CPLEX and CP Optimizer Python runtimes from the Community Edition version to a size-unlimited version. 
     </p>
-
-		<pre><code>python setup.py install</code></pre> 
-
-		<p>or</p>
-
-		<pre><code>sudo python setup.py install</code></pre>   
 
 	<p>You can check that CPLEX was correctly installed by running:</p>
 
@@ -56,7 +62,7 @@ Open a terminal, navigate to executable and run following commands (make sure to
 import cplex</code></pre>
 
 
-<h3>2.2 On Windows systems</h3>
+<h4>2.1.2 On Windows systems</h4>
 <p>
 Open the navigator, navigate to the location of the CPLEX installer and run it. Make sure to remember CPLEX's installation path, as we will need to navigate to it to set up the Python API. <br>
 Then open a batch console <b>with administrative permissions</b>. Go to the directory where CPLEX is installed, then go the sub-directory named <code>python</code>. 
@@ -74,7 +80,7 @@ A file named <code>setup.py</code> should be present. Set up the Python API by t
 	<pre><code>Path\To\Python\python.exe
 import cplex</code></pre>
 
-<h3>2.3 On MAC systems</h3>
+<h4>2.1.3 On MAC systems</h4>
 	<p>
 	Open a terminal, navigate to executable and run following commands (make sure to adapt the executable name if necessary):
 	</p>
@@ -105,16 +111,34 @@ python setup.py install --home yourPythonPackageshome/cplex</code></pre>
 import cplex</code></pre>
 
 
+	<h3>2.2 GUROBI</h3>
+<p></p>	
+To use RBApy with Gurobi, ask for an academic licence on the Gurobi's  <a href="https://www.gurobi.com/">website</a>.
 
+Save your license to your home directory (~/gurobi.lic) or to the appropriate location for your OS (e.g., /opt/gurobi/gurobi.lic for Linux).
+Then install the gurobipy package by typing:
+	<pre><code>pip install gurobipy</code></pre>
+
+</p>
+<p> Then check the installation by typing 
+	<pre><code>python
+import gurobipy</code></pre>
+
+</p>
 	<h2>3. Install <b>RBApy</b> package</h2>
 	<p>
-		We recommend that you use the stable relase of the RBApy package which you can download from our <a href="https://github.com/SysBioInra/RBApy">github page</a>, and find under the tab <i>Releases</i>. 
+		We recommend that you use the stable relase of the RBApy package which you can download either via  <a href="https://pypi.org/project/rbapy/">Pypi</a>, 
+		either from our <a href="https://github.com/RBAgroup/RBApy">github page</a>, and find under the tab <i>Releases</i>. 
+		To install RBApy via Pypi, open a console and type:
+		
+		<pre><code>pip install rbapy</code></pre>
+		
 		Alternatively, if you wish to clone the repository, make sure you checkout the commit containing the tag referencing the latest release, as shown:
-	</p>
-	<pre><code>git clone https://github.com/SysBioInra/RBApy
-cd RBApy
-git checkout tags/v1.0</code></pre>
 
+	<pre><code>git clone https://github.com/RBAgroup/RBApy
+cd RBApy
+git checkout tags/v2.0</code></pre>
+	</p>
 	<p>
 		Navigate to the directory containing RBApy, be sure that you have <b>administrator permissions</b> and install it by typing:<br>
 On UNIX and MAC systems,
@@ -136,9 +160,7 @@ The <code>Path\To\Python</code> should be replaced by a Python installation path
 	<p>
 		This step may take some time, as it will install missing dependencies. 
 	</p>
-<p>
-	((<b>NOTE:</b> RBApy needs <code>scipy<=1.2.1</code>, so check that you have the appropriate version installed. This issue arose because the latest <code>scipy</code> version (1.3.0) introduced some changes which are not yet supported by RBApy, but should be in near future.))
-</p>
+
 <p>
 		After this step is finished, you can check that RBApy was correctly installed by running:
 </p>
