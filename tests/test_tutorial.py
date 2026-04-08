@@ -114,6 +114,7 @@ class TutorialTestCase(unittest.TestCase):
 
         results = my_model.solve(lp_solver=lp_solver)
         numpy.testing.assert_allclose(results.mu_opt, 2.5, rtol=rtol)
+        print(results.variables)
         self.assertEqual(results.variables, {
             'R_transport': -0.0,
             'R_protein_component_precursor': 0.0,
