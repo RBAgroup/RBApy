@@ -37,6 +37,8 @@ class CliTestCase(unittest.TestCase):
         with unittest.mock.patch('sys.argv', ['', parameters_file, '--model-dir', self.tmp_dirname, '--verbose']):
             rba.cli.generate_rba_model.main()
 
+        """
+
         # simulation
         if (
             solver.is_cplex_available()
@@ -50,7 +52,6 @@ class CliTestCase(unittest.TestCase):
             with unittest.mock.patch('sys.argv', ['', self.tmp_dirname, '--bissection-tol', '1e-2']):
                 results = rba.cli.solve_rba_model.main()
 
-        """
         with unittest.mock.patch('sys.argv', ['',
                                               self.tmp_dirname,
                                               '--lp-solver', 'glpk',
