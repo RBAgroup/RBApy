@@ -14,7 +14,7 @@ layout: subpage
   <ol type="I">
     <li><a href="usage.html#sec1">Running an existing model</a></li>
     <ol>
-	  <li><a href="usage.html#sec1.1">How to update a model from v1 to v2?</a></li>
+	  <li><a href="usage.html#sec1.1">How to update a model from v2 to v3?</a></li>
       <li><a href="usage.html#sec1.2">How to run an existing model?</a></li>
       <li><a href="usage.html#sec1.3">How to visualize results of RBApy simulation?</a></li>
       <li><a href="usage.html#sec1.4">How to change the medium and environmental variables?</a></li>
@@ -71,14 +71,19 @@ layout: subpage
 
 <p>
 <b>Summary of the main changes in version 3 of the package. </b>
-RBApy version 3 is a major update, enabling the semi-automatic construction and simulation of RBA models of prokaryotes as well as  eukaryotes. Models are saved in the rbaml version 2 format, and older RBA models are not compatible with the software anymore and need to be updated with the tool, provided. Major changes also include the introduction of macromolecule decay (based on their respective half life times), the ability to define other environmental variables than the medium composition (e.g. temperature) and the capability of predicting growth-optimal compartment sizes. For further information please consult the documentation materials.
+RBApy version 3 is a major update, enabling the semi-automatic construction and simulation of RBA models of prokaryotes as well as eukaryotes. 
+Models are saved in the rbaml version 2 format. Older RBA models (encoded in rbaml version 1) are not compatible anymore with RBApy version 3 and need 
+to be updated (see <a href="#sec1.1">section 1.1</a>). 
+Major changes also include the introduction of macromolecule decay (based on their respective half life times), 
+the ability to define other environmental variables than the medium composition (e.g. temperature) and the capability of predicting growth-optimal compartment sizes. 
+For further information please consult the documentation materials.
 </p>
 <br>
 Here is the usage for the version 3 of the package, which is capable of generating and simulating RBA models for prokaryotic and eukaryotic cells.
 For the usage of older versions of the RBApy package, see  <a href="usage_v1.html">here</a>.
 
 <h2 id="sec1">1. Running an existing model </h2>
-<h3 id="sec1.1">1.1 How to update an existing to version 3?</h3>
+<h3 id="sec1.1">1.1 How to update an existing model to version 3?</h3>
 <p>
 Open a console and run the command line
 	<pre><code> update-rba-model path/to/model </code></pre>
