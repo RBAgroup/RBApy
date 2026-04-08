@@ -73,15 +73,15 @@ class TutorialTestCase(unittest.TestCase):
         ######################################################
         # Creation of an empty model with RBApy
         my_model = rba.RbaModel()
-        self.assertEqual(len(my_model.metabolism.compartments), 0)
+        self.assertEqual(len(my_model.compartments.compartments), 0)
 
         my_model.write(self.tmp_dirname)
 
         my_model = rba.RbaModel.from_xml(self.tmp_dirname)
-        self.assertEqual(len(my_model.metabolism.compartments), 0)
+        self.assertEqual(len(my_model.compartments.compartments), 0)
 
         ######################################################
-        # metabolism.xml: compartments, metabolites and reactions
+        # metabolism.xml: metabolites and reactions
         my_model.metabolism.species.append(rba.xml.Species('M_carbon_source_e', boundary_condition=True))
         my_model.metabolism.species.append(rba.xml.Species('M_carbon_source_c', boundary_condition=False))
         my_model.metabolism.species.append(rba.xml.Species('M_protein_component_precursor_c', boundary_condition=False))
@@ -91,8 +91,8 @@ class TutorialTestCase(unittest.TestCase):
         self.assertEqual(my_model.metabolism.species[0].id, 'M_carbon_source_e')
         # my_model.write()
 
-        my_model.metabolism.compartments.append(rba.xml.Compartment('extracellular'))
-        my_model.metabolism.compartments.append(rba.xml.Compartment('cytosol'))
+        my_model.compartments.compartments.append(rba.xml.Compartment('extracellular'))
+        my_model.compartments.compartments.append(rba.xml.Compartment('cytosol'))
         # my_model.write()
 
         reaction_1 = rba.xml.Reaction('R_transport', reversible=False)
@@ -181,63 +181,17 @@ class TutorialTestCase(unittest.TestCase):
 
         results = my_model.solve(lp_solver=lp_solver)
         numpy.testing.assert_allclose(results.mu_opt, 2.5, rtol=rtol)
-        """
-        self.assertEqual(results.variables, {
-            'R_transport': 0.0,
-            'R_protein_component_precursor': 0.0,
-            'R_biomass': 0.0,
-            'R_transport_enzyme': -0.0,
-            'R_protein_precursor_enzyme': 0.0,
-            'R_biomass_enzyme': 0.0
-        })
-        self.assertEqual(results.dual_values, {
-            'M_carbon_source_c': 0.0,
-            'M_protein_component_precursor_c': 0.0,
-            'M_biomass_c': 0.0,
-            'R_transport_enzyme_forward_capacity': -0.105,
-            'R_protein_precursor_enzyme_forward_capacity': 0.0,
-            'R_biomass_enzyme_forward_capacity': 0.0,
-            'R_transport_enzyme_backward_capacity': 0.0,
-            'R_protein_precursor_enzyme_backward_capacity': 0.0,
-            'R_biomass_enzyme_backward_capacity': 0.0,
-        })
-        """
 
         ######################################################
-        # density.xml: density constraints for compartments
+        # compartments.xml: occupation limit for compartments
 
-        density_constraint = rba.xml.TargetDensity('cytosol')
-        density_constraint.upper_bound = 'maximal_cytosol_density'
-        my_model.density.target_densities.append(density_constraint)
-
+        my_model.compartments.compartments.get_by_id('cytosol').upper_bound='maximal_cytosol_density'
         my_model.parameters.functions.append(rba.xml.Function('maximal_cytosol_density', 'constant', {'CONSTANT': 10}))
 
         # my_model.write()
 
         results = my_model.solve(lp_solver=lp_solver)
         numpy.testing.assert_allclose(results.mu_opt, 2.5, rtol=rtol)
-        """
-        self.assertEqual(results.variables, {
-            'R_transport': 0.0,
-            'R_protein_component_precursor': 0.0,
-            'R_biomass': 0.0,
-            'R_transport_enzyme': -0.0,
-            'R_protein_precursor_enzyme': 0.0,
-            'R_biomass_enzyme': 0.0
-        })
-        self.assertEqual(results.dual_values, {
-            'M_carbon_source_c': 0.0,
-            'M_protein_component_precursor_c': 0.0,
-            'M_biomass_c': 0.0,
-            'R_transport_enzyme_forward_capacity': -0.105,
-            'R_protein_precursor_enzyme_forward_capacity': 0.0,
-            'R_biomass_enzyme_forward_capacity': 0.0,
-            'R_transport_enzyme_backward_capacity': 0.0,
-            'R_protein_precursor_enzyme_backward_capacity': 0.0,
-            'R_biomass_enzyme_backward_capacity': 0.0,
-            'cytosol_density': 0.0
-        })
-        """
 
         ######################################################
         # targets.xml: production requirements
@@ -253,28 +207,6 @@ class TutorialTestCase(unittest.TestCase):
 
         results = my_model.solve(lp_solver=lp_solver)
         numpy.testing.assert_allclose(results.mu_opt, 1.3888883590698242, rtol=rtol)
-        """
-        self.assertEqual(results.variables, {
-            'R_transport': 1.3888883590698242,
-            'R_protein_component_precursor': 0.0,
-            'R_biomass': 1.3888883590698242,
-            'R_transport_enzyme': 0.14583327770233154,
-            'R_protein_precursor_enzyme': 0.0,
-            'R_biomass_enzyme': 0.13888883590698242
-        })
-        self.assertEqual(results.dual_values, {
-            'M_carbon_source_c': 0.105,
-            'M_protein_component_precursor_c': 0.0,
-            'M_biomass_c': 0.20500000000000002,
-            'R_transport_enzyme_forward_capacity': -0.105,
-            'R_protein_precursor_enzyme_forward_capacity': 0.0,
-            'R_biomass_enzyme_forward_capacity': -0.1,
-            'R_transport_enzyme_backward_capacity': 0.0,
-            'R_protein_precursor_enzyme_backward_capacity': 0.0,
-            'R_biomass_enzyme_backward_capacity': 0.0,
-            'cytosol_density': 0.0
-        })
-        """
 
         maximal_density_fn = my_model.parameters.functions.get_by_id('maximal_cytosol_density')
         maximal_density = maximal_density_fn.parameters.get_by_id('CONSTANT')
