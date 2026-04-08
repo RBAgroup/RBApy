@@ -1,0 +1,602 @@
+ENTRY	STOICHIOMETRY	GENE NAMES	PROTEIN NAME	UNIPROT NOTE
+P11045	1	dfrA BSU21810	Dihydrofolate reductase (EC 1.5.1.3)	[MISSING]
+P39582	1	menA ywaB BSU38490 ipa-6d	1,4-dihydroxy-2-naphthoate octaprenyltransferase (DHNA-octaprenyltransferase) (EC 2.5.1.74)	[MISSING]
+P94366	1	cydC yxkM BSU38740	ATP-binding/permease protein CydC	[MISSING]
+P26381	1	levF BSU27050	Fructose permease IIC component (EIIC-Fru) (PTS system fructose-specific EIIC component) (p28)	[MISSING]
+O35000	1	nagB BSU35020	Glucosamine-6-phosphate deaminase 1 (EC 3.5.99.6) (GlcN6P deaminase 1) (GNPDA 1) (Glucosamine-6-phosphate isomerase 1)	[MISSING]
+P37253	1	ilvC BSU28290	Ketol-acid reductoisomerase (NADP(+)) (KARI) (EC 1.1.1.86) (Acetohydroxy-acid isomeroreductase) (AHIR) (Alpha-keto-beta-hydroxylacyl reductoisomerase) (Ketol-acid reductoisomerase type 1) (Ketol-acid reductoisomerase type I)	[MISSING]
+P39131	1	mnaA BSU35660	UDP-N-acetylglucosamine 2-epimerase (EC 5.1.3.14) (UDP-GlcNAc-2-epimerase)	[MISSING]
+Q08352	1	ald spoVN BSU31930	Alanine dehydrogenase (EC 1.4.1.1) (Stage V sporulation protein N)	SUBUNIT: Homohexamer. Trimer of dimer (By similarity). {ECO:0000250}.
+P08065	1	sdhA citF BSU28440	Succinate dehydrogenase flavoprotein subunit (EC 1.3.5.1)	SUBUNIT: In B.subtilis succinate dehydrogenase forms part of an enzyme complex containing three subunits: a flavoprotein, an iron-sulfur protein and cytochrome b-558.
+P42199	1	tcyA yckK BSU03610	L-cystine-binding protein TcyA	SUBUNIT: The complex is composed of two ATP-binding proteins (TcyC), two transmembrane proteins (TcyB) and a solute-binding protein (TcyA). {ECO:0000305}.
+O05229	1	mrpD yufD BSU31630	Na(+)/H(+) antiporter subunit D (Mrp complex subunit D) (Multiple resistance and pH homeostasis protein D)	SUBUNIT: Forms a heterooligomeric complex that consists of seven subunits: MrpA, MrpB, MrpC, MrpD, MrpE, MrpF and MrpG. {ECO:0000269|PubMed:17693497}.
+P39634	1	rocA BSU37780 ipa-76d	1-pyrroline-5-carboxylate dehydrogenase (P5C dehydrogenase) (EC 1.2.1.88) (L-glutamate gamma-semialdehyde dehydrogenase)	[MISSING]
+P80865	1	sucD BSU16100	Succinate--CoA ligase [ADP-forming] subunit alpha (EC 6.2.1.5) (Succinyl-CoA synthetase subunit alpha) (SCS-alpha)	SUBUNIT: Heterotetramer of two alpha and two beta subunits. {ECO:0000255|HAMAP-Rule:MF_01988}.
+P12041	1	purQ BSU06470	Phosphoribosylformylglycinamidine synthase subunit PurQ (FGAM synthase) (EC 6.3.5.3) (Formylglycinamide ribonucleotide amidotransferase subunit I) (FGAR amidotransferase I) (FGAR-AT I) (Glutaminase PurQ) (EC 3.5.1.2) (Phosphoribosylformylglycinamidine synthase subunit I)	SUBUNIT: Part of the FGAM synthase complex composed of 1 PurL, 1 PurQ and 2 PurS subunits. {ECO:0000255|HAMAP-Rule:MF_00421, ECO:0000269|PubMed:15301530}.
+P46907	1	narK BSU37320	Nitrite extrusion protein (Nitrite facilitator)	[MISSING]
+P42087	1	hutM BSU39390 EE57D	Putative histidine permease	[MISSING]
+P18156	1	glpF BSU09280	Glycerol uptake facilitator protein	[MISSING]
+Q04796	1	dapA BSU16770	4-hydroxy-tetrahydrodipicolinate synthase (HTPA synthase) (EC 4.3.3.7)	SUBUNIT: Homotetramer; dimer of dimers. {ECO:0000255|HAMAP-Rule:MF_00418}.
+O34500	1	mntD ytgD BSU30740	Manganese transport system membrane protein MntD	[MISSING]
+Q45597	1	fbp yydE BSU40190	Fructose-1,6-bisphosphatase class 3 (FBPase class 3) (EC 3.1.3.11) (D-fructose-1,6-bisphosphate 1-phosphohydrolase class 3)	[MISSING]
+P96593	1	mntH ydaR BSU04360	Divalent metal cation transporter MntH	[MISSING]
+P49787	1	accC1 accC yqhX BSU24340	Biotin carboxylase 1 (EC 6.3.4.14) (Acetyl-CoA carboxylase subunit A 1) (ACC 1) (EC 6.4.1.2)	SUBUNIT: Acetyl-CoA carboxylase is a heterohexamer of biotin carboxyl carrier protein, biotin carboxylase and the two subunits of carboxyl transferase in a 2:2 complex. {ECO:0000250}.
+P55910	1	lctP ycgC BSU03060	L-lactate permease	[MISSING]
+P52996	1	panB BSU22430	3-methyl-2-oxobutanoate hydroxymethyltransferase (EC 2.1.2.11) (Ketopantoate hydroxymethyltransferase) (KPHMT)	SUBUNIT: Homodecamer; pentamer of dimers. {ECO:0000255|HAMAP-Rule:MF_00156}.
+P54419	1	metK metE BSU30550	S-adenosylmethionine synthase (AdoMet synthase) (EC 2.5.1.6) (MAT) (Methionine adenosyltransferase)	SUBUNIT: Homotetramer; dimer of dimers. {ECO:0000255|HAMAP-Rule:MF_00086}.
+P71040	1	clsA ywnE BSU36590	Major cardiolipin synthase ClsA (CL synthase 2) (EC 2.7.8.-)	[MISSING]
+O32169	1	metN yusC BSU32750	Methionine import ATP-binding protein MetN (EC 3.6.3.-)	SUBUNIT: The complex is composed of two ATP-binding proteins (MetN), two transmembrane proteins (MetP) and a solute-binding protein (MetQ). {ECO:0000305}.
+P94525	1	araD BSU28780	L-ribulose-5-phosphate 4-epimerase (EC 5.1.3.4) (Phosphoribulose isomerase)	[MISSING]
+P94529	1	araP yseD BSU28740	L-arabinose transport system permease protein AraP	[MISSING]
+P94391	1	putC ycgN BSU03210	1-pyrroline-5-carboxylate dehydrogenase 2 (P5C dehydrogenase 2) (EC 1.2.1.88) (L-glutamate gamma-semialdehyde dehydrogenase)	[MISSING]
+P37810	1	atpG BSU36820	ATP synthase gamma chain (ATP synthase F1 sector gamma subunit) (F-ATPase gamma subunit)	SUBUNIT: F-type ATPases have 2 components, CF(1) - the catalytic core - and CF(0) - the membrane proton channel. CF(1) has five subunits: alpha(3), beta(3), gamma(1), delta(1), epsilon(1). CF(0) has three main subunits: a, b and c (Probable). The F(1)F(0) complex interacts with SpoIIIJ and YqjG; YqgA is found in the same complex. {ECO:0000255|HAMAP-Rule:MF_00815, ECO:0000269|PubMed:19717609, ECO:0000305}.
+O34399	1	gltB BSU18440	Glutamate synthase [NADPH] small chain (EC 1.4.1.13) (NADPH-GOGAT)	SUBUNIT: Aggregate of 4 catalytic active heterodimers, consisting of a large and a small subunit. {ECO:0000250}.
+O05256	1	maeN yufR BSU31580	Na(+)-malate symporter (Sodium-dependent malate transporter)	[MISSING]
+P75030	1	ureA BSU36660	Urease subunit gamma (EC 3.5.1.5) (Urea amidohydrolase subunit gamma)	SUBUNIT: Heterotrimer of UreA (gamma), UreB (beta) and UreC (alpha) subunits. Three heterotrimers associate to form the active enzyme. {ECO:0000255|HAMAP-Rule:MF_00739}.
+P39578	1	dltD BSU38530 ipa-2r	Protein DltD	[MISSING]
+P70998	1	speE ywhF BSU37500	Polyamine aminopropyltransferase (Putrescine aminopropyltransferase) (PAPT) (Spermidine synthase) (SPDS) (SPDSY) (EC 2.5.1.16)	SUBUNIT: Homodimer or homotetramer. {ECO:0000255|HAMAP-Rule:MF_00198, ECO:0000269|Ref.4}.
+P52999	1	panD BSU22410	Aspartate 1-decarboxylase (EC 4.1.1.11) (Aspartate alpha-decarboxylase) [Cleaved into: Aspartate 1-decarboxylase beta chain; Aspartate 1-decarboxylase alpha chain]	SUBUNIT: Heterooctamer of four alpha and four beta subunits. {ECO:0000255|HAMAP-Rule:MF_00446}.
+P70999	1	speB ywhG BSU37490	Agmatinase (EC 3.5.3.11) (Agmatine ureohydrolase) (AUH)	[MISSING]
+P37251	1	ilvB BSU28310	Acetolactate synthase large subunit (AHAS) (EC 2.2.1.6) (Acetohydroxy-acid synthase large subunit) (ALS) (Vegetative protein 105) (VEG105)	SUBUNIT: Dimer of large and small chains.
+O32188	1	yusV BSU32940	Probable siderophore transport system ATP-binding protein YusV	SUBUNIT: The iron-hydroxamate siderophore complex is composed of one ATP-binding protein (YusV), two transmembrane proteins (YfiZ and YfhA) and a solute-binding protein (YfiY); the catechoplate siderophore complex is composed of one ATP-binding protein (YusV), two transmembrane proteins (FeuB and FeuC) and a solute-binding protein (FeuA). {ECO:0000305}.
+P18157	1	glpK BSU09290	Glycerol kinase (EC 2.7.1.30) (ATP:glycerol 3-phosphotransferase) (Glycerokinase) (GK)	SUBUNIT: Homotetramer and homodimer (in equilibrium). {ECO:0000255|HAMAP-Rule:MF_00186}.
+P46320	1	licH celD celF BSU38560	Probable 6-phospho-beta-glucosidase (EC 3.2.1.86)	[MISSING]
+P12946	1	ctaA BSU14870	Heme A synthase (HAS) (EC 1.3.-.-) (Cytochrome aa3-controlling protein)	SUBUNIT: Interacts with CtaB. {ECO:0000269|PubMed:15491161}.
+O32060	1	yrbD BSU27810	Putative sodium/proton-dependent alanine carrier protein YrbD	[MISSING]
+P39636	1	rocC BSU37760 ipa-78d	Amino-acid permease RocC	[MISSING]
+P39608	1	ywcJ BSU38060 ipa-48r	Uncharacterized transporter YwcJ	[MISSING]
+P45744	1	dhbC BSU31990	Isochorismate synthase DhbC (EC 5.4.4.2) (Isochorismate mutase)	[MISSING]
+P42178	1	narJ BSU37260	Probable nitrate reductase molybdenum cofactor assembly chaperone NarJ	[MISSING]
+P28819	1	pabA trpG BSU00750	Aminodeoxychorismate/anthranilate synthase component 2 (ADC synthase) (ADCS) (EC 2.6.1.85) (EC 4.1.3.27) (4-amino-4-deoxychorismate synthase component 2) (Aminodeoxychorismate synthase, glutamine amidotransferase component)	SUBUNIT: Monomer. Heterodimer consisting of two non-identical subunits: a glutamine amidotransferase subunit (PabA) and a aminodeoxychorismate synthase subunit (PabB) (By similarity). {ECO:0000250}.
+P16440	1	ribE ribB BSU23270	Riboflavin synthase (RS) (EC 2.5.1.9) (Heavy riboflavin synthase alpha subunit) (HRS alpha subunit) (Light riboflavin synthase)	SUBUNIT: Homotrimer. Can interact with 6,7-dimethyl-8-ribityllumazine synthase, forming a lumazine synthase/riboflavin synthase complex, also designated as 'heavy riboflavin synthase complex', which consists of a trimer of riboflavin synthase enclosed within an icosahedral structure composed of 60 subunits of 6,7-dimethyl-8-ribityllumazine synthase. {ECO:0000269|PubMed:2106516, ECO:0000269|PubMed:3083108, ECO:0000269|PubMed:6766130}.
+P53554	1	bioI CYP107H BSU30190	Biotin biosynthesis cytochrome P450 (EC 1.14.14.46)	[MISSING]
+P39820	1	proB BSU13120	Glutamate 5-kinase 1 (EC 2.7.2.11) (Gamma-glutamyl kinase 1) (GK 1)	[MISSING]
+P18579	1	murB ylxC BSU15230	UDP-N-acetylenolpyruvoylglucosamine reductase (EC 1.3.1.98) (UDP-N-acetylmuramate dehydrogenase)	[MISSING]
+P25994	1	pyrAB BSU15520	Carbamoyl-phosphate synthase pyrimidine-specific large chain (EC 6.3.5.5) (Carbamoyl-phosphate synthetase ammonia chain)	SUBUNIT: Composed of two chains; the small (or glutamine) chain promotes the hydrolysis of glutamine to ammonia, which is used by the large (or ammonia) chain to synthesize carbamoyl phosphate.
+P53558	1	bioD BSU30210	ATP-dependent dethiobiotin synthetase BioD (EC 6.3.3.3) (DTB synthetase) (DTBS) (Dethiobiotin synthase)	[MISSING]
+P24012	1	ctaE BSU14910	Cytochrome c oxidase subunit 3 (EC 1.9.3.1) (Caa-3605 subunit 3) (Cytochrome aa3 subunit 3) (Cytochrome c oxidase polypeptide III) (Oxidase aa(3) subunit 3)	[MISSING]
+O34368	1	gutA ydjD BSU06160	Probable glucitol transport protein GutA	[MISSING]
+O32147	1	pucA yurF BSU32510	Probable xanthine dehydrogenase subunit A (XDHase subunit A) (EC 1.17.1.4)	SUBUNIT: Could be composed of four subunits: PucA, PucC, PucD and PucE.
+Q06755	1	ispD yacM BSU00900	2-C-methyl-D-erythritol 4-phosphate cytidylyltransferase (EC 2.7.7.60) (4-diphosphocytidyl-2C-methyl-D-erythritol synthase) (MEP cytidylyltransferase) (MCT)	[MISSING]
+P50726	1	fmnP ribU ypaA BSU23050	Riboflavin transporter FmnP (FMN permease) (Riboflavin ECF transporter S component FmnP)	SUBUNIT: Forms a stable energy-coupling factor (ECF) transporter complex composed of a membrane-embedded substrate-binding protein (S component), 2 ATP-binding proteins (A component) and 2 transmembrane proteins (T component). May be able to interact with more than 1 S component at a time (By similarity). {ECO:0000250}.
+P94530	1	araQ yseE BSU28730	L-arabinose transport system permease protein AraQ	[MISSING]
+P37941	1	bfmBAB bfmB1b BSU24040	2-oxoisovalerate dehydrogenase subunit beta (EC 1.2.4.4) (Branched-chain alpha-keto acid dehydrogenase E1 component beta chain) (BCKDH E1-beta)	SUBUNIT: Heterotetramer of two alpha and two beta chains. Directly associated with ODBA in the E1 complex.
+O32144	1	pucD yurC BSU32480	Probable xanthine dehydrogenase subunit D (XDHase subunit D) (EC 1.17.1.4)	SUBUNIT: Could be composed of four subunits: PucA, PucC, PucD and PucE.
+O05269	1	guaC yumD BSU32130	GMP reductase (EC 1.7.1.7) (Guanosine 5'-monophosphate oxidoreductase) (Guanosine monophosphate reductase)	[MISSING]
+P25996	1	pyrD pyrDA pyrDI BSU15540	Dihydroorotate dehydrogenase B (NAD(+)), catalytic subunit (DHOD B) (DHODase B) (DHOdehase B) (EC 1.3.1.14) (Dihydroorotate oxidase B) (Orotate reductase (NADH))	SUBUNIT: Heterotetramer of 2 PyrK and 2 PyrD type B subunits. {ECO:0000269|PubMed:10545205}.
+O34946	1	znuC adcC ycdI BSU02860	High-affinity zinc uptake system ATP-binding protein ZnuC (EC 3.6.3.-)	SUBUNIT: The complex is composed of two ATP-binding proteins (ZnuC), two transmembrane proteins (ZnuB) and a solute-binding protein (ZnuA). {ECO:0000305}.
+P45745	1	dhbF BSU31960	Dimodular nonribosomal peptide synthase	[MISSING]
+P94584	6	fabZ ywpB BSU36370	3-hydroxyacyl-[acyl-carrier-protein] dehydratase FabZ (EC 4.2.1.59) ((3R)-hydroxymyristoyl-[acyl-carrier-protein] dehydratase) ((3R)-hydroxymyristoyl-ACP dehydrase) (Beta-hydroxyacyl-ACP dehydratase)	[MISSING]
+P39821	1	proA BSU13130	Gamma-glutamyl phosphate reductase (GPR) (EC 1.2.1.41) (Glutamate-5-semialdehyde dehydrogenase) (Glutamyl-gamma-semialdehyde dehydrogenase) (GSA dehydrogenase)	[MISSING]
+P42432	1	nasA BSU03330	Nitrate transporter	[MISSING]
+P42433	1	nasB nasBA BSU03320	Assimilatory nitrate reductase electron transfer subunit	[MISSING]
+P12043	1	purM ath BSU06500	Phosphoribosylformylglycinamidine cyclo-ligase (EC 6.3.3.1) (AIR synthase) (AIRS) (Phosphoribosyl-aminoimidazole synthetase)	[MISSING]
+P80861	1	yjlD BSU12290	NADH dehydrogenase-like protein YjlD (EC 1.6.99.-) (Glucose starvation-inducible protein 5) (GSI5)	[MISSING]
+O31464	1	glnT ybgH BSU02420	Probable sodium/glutamine symporter GlnT	[MISSING]
+P46338	1	pstS yqgG yzmB BSU24990	Phosphate-binding protein PstS (PBP)	SUBUNIT: The complex is composed of two ATP-binding proteins (PstB), two transmembrane proteins (PstC and PstA) and a solute-binding protein (PstS). {ECO:0000305}.
+P26382	1	levG BSU27040	Fructose permease IID component (EIID-Fru) (PTS system fructose-specific EIID component) (p30)	[MISSING]
+P37815	10	atpE BSU36860	ATP synthase subunit c (ATP synthase F(0) sector subunit c) (F-type ATPase subunit c) (F-ATPase subunit c) (Lipid-binding protein)	SUBUNIT: F-type ATPases have 2 components, F(1) - the catalytic core - and F(0) - the membrane proton channel. F(1) has five subunits: alpha(3), beta(3), gamma(1), delta(1), epsilon(1). F(0) has three main subunits: a(1), b(2) and c(10-14). The alpha and beta chains form an alternating ring which encloses part of the gamma chain. F(1) is attached to F(0) by a central stalk formed by the gamma and epsilon chains, while a peripheral stalk is formed by the delta and b chains (Probable). The F(1)F(0) complex interacts with SpoIIIJ and YqjG; YqgA is found in the same complex. {ECO:0000255|HAMAP-Rule:MF_01396, ECO:0000269|PubMed:19717609, ECO:0000305}.
+O34426	1	speH speD ytcF BSU29010	S-adenosylmethionine decarboxylase proenzyme (AdoMetDC) (SAMDC) (EC 4.1.1.50) [Cleaved into: S-adenosylmethionine decarboxylase beta chain; S-adenosylmethionine decarboxylase alpha chain]	SUBUNIT: Heterotetramer of two alpha and two beta chains arranged as a dimer of alpha/beta heterodimers. {ECO:0000255|HAMAP-Rule:MF_00464}.
+O34313	1	yfkN BSU07840	Trifunctional nucleotide phosphoesterase protein YfkN [Includes: 2',3'-cyclic-nucleotide 2'-phosphodiesterase/3'-nucleotidase (EC 3.1.3.6) (EC 3.1.4.16); 5'-nucleotidase (EC 3.1.3.5)]	[MISSING]
+O34340	6	fabF yjaY BSU11340	3-oxoacyl-[acyl-carrier-protein] synthase 2 (EC 2.3.1.179) (3-oxoacyl-[acyl-carrier-protein] synthase II) (Beta-ketoacyl-ACP synthase II) (KAS II)	[MISSING]
+P12425	1	glnA BSU17460	Glutamine synthetase (GS) (EC 6.3.1.2) (Glutamate--ammonia ligase) (Glutamine synthetase I alpha) (GSI alpha)	SUBUNIT: Oligomer of 12 subunits arranged in the form of two hexagons. In its feedback-inhibited form, interacts with TnrA in order to block its DNA-binding activity. This inhibitory effect is the highest when both glutamine and AMP are present. {ECO:0000269|PubMed:11719184, ECO:0000269|PubMed:24158439, ECO:0000269|PubMed:25691471}.
+O06491	1	gatA yedB yerM BSU06680	Glutamyl-tRNA(Gln) amidotransferase subunit A (Glu-ADT subunit A) (EC 6.3.5.7)	SUBUNIT: Heterotrimer of A, B and C subunits.
+O32090	1	pncB yueK BSU31750	Nicotinate phosphoribosyltransferase (NAPRTase) (EC 6.3.4.21)	[MISSING]
+P38032	1	nadB BSU27870	L-aspartate oxidase (LASPO) (EC 1.4.3.16) (Quinolinate synthase B)	[MISSING]
+O34987	1	pbuG yebB BSU06370	Guanine/hypoxanthine permease PbuG	[MISSING]
+P25503	1	hutU BSU39360 EE57A	Urocanate hydratase (Urocanase) (EC 4.2.1.49) (Imidazolonepropionate hydrolase)	[MISSING]
+P23973	1	menF icsM BSU30830	Isochorismate synthase MenF (EC 5.4.4.2) (Isochorismate mutase)	[MISSING]
+Q07429	1	nrgA amtB BSU36510	Ammonium transporter (Membrane protein NrgA) (Protein AmtB)	SUBUNIT: Interacts with NrgB for a correct localization of the latter. GlnK-AmtB complex interacts with TnrA. {ECO:0000269|PubMed:17001076, ECO:0000269|PubMed:21435182, ECO:0000305|PubMed:14600241}.
+O34436	1	pit ykaB BSU12840	Probable low-affinity inorganic phosphate transporter	[MISSING]
+P50618	1	nrdI ymaA BSU17370	Protein NrdI	[MISSING]
+P24010	1	ctaD BSU14900	Cytochrome c oxidase subunit 1 (EC 1.9.3.1) (Caa-3605 subunit 1) (Cytochrome aa3 subunit 1) (Cytochrome c oxidase polypeptide I) (Oxidase aa(3) subunit 1)	[MISSING]
+P42957	1	mtlD mtlB BSU03990	Mannitol-1-phosphate 5-dehydrogenase (EC 1.1.1.17)	[MISSING]
+O34858	1	argH BSU29440	Argininosuccinate lyase (ASAL) (EC 4.3.2.1) (Arginosuccinase)	[MISSING]
+O34598	1	guaD gde BSU13170	Guanine deaminase (GDEase) (Guanase) (Guanine aminase) (EC 3.5.4.3) (Guanine aminohydrolase) (GAH)	[MISSING]
+O32102	1	besA yuiI BSU32010	Ferri-bacillibactin esterase BesA (EC 3.1.-.-) (Bacillibactin trilactone hydrolase)	[MISSING]
+P39766	1	pyrP BSU15480	Uracil permease (Uracil transporter)	[MISSING]
+P54381	1	glyS yqfK BSU25260	Glycine--tRNA ligase beta subunit (EC 6.1.1.14) (Glycyl-tRNA synthetase beta subunit) (GlyRS)	SUBUNIT: Tetramer of two alpha and two beta subunits.
+Q9KWZ1	1	nadA BSU27850	Quinolinate synthase A (EC 2.5.1.72)	[MISSING]
+P39816	1	gamP ybfS yzfA BSU02350	Putative PTS system glucosamine-specific EIICBA component [Includes: Glucosamine permease IIC component (PTS system glucosamine-specific EIIC component); Glucosamine-specific phosphotransferase enzyme IIB component (EC 2.7.1.193) (PTS system glucosamine-specific EIIB component); Glucosamine-specific phosphotransferase enzyme IIA component (EC 2.7.1.193) (PTS system glucosamine-specific EIIA component)]	[MISSING]
+P46913	1	qcrC bfcC BSU22540	Menaquinol-cytochrome c reductase cytochrome b/c subunit	SUBUNIT: The main subunits of the menaquinone:cytochrome c complex are: cytochrome b, the Rieske protein and a cytochrome b/c subunit.
+O34348	1	yfmC BSU07520	Fe(3+)-citrate-binding protein YfmC (Ferric-citrate-binding protein)	SUBUNIT: The complex is composed of one ATP-binding protein (YfmF), two transmembrane proteins (YfmD and YfmE) and a solute-binding protein (YfmC). {ECO:0000305}.
+P12044	1	purE BSU06420	N5-carboxyaminoimidazole ribonucleotide mutase (N5-CAIR mutase) (EC 5.4.99.18) (5-(carboxyamino)imidazole ribonucleotide mutase)	[MISSING]
+P42415	1	iolD yxdD BSU39730 E83D	3D-(3,5/4)-trihydroxycyclohexane-1,2-dione hydrolase (THcHDO hydrolase) (EC 3.7.1.22)	[MISSING]
+P42953	1	tagG BSU35710	Teichoic acid translocation permease protein TagG	SUBUNIT: The complex is composed of two ATP-binding proteins (TagH) and two transmembrane proteins (TagG). {ECO:0000305}.
+P54547	1	zwf yqjJ BSU23850	Glucose-6-phosphate 1-dehydrogenase (G6PD) (EC 1.1.1.49) (Vegetative protein 11) (VEG11)	[MISSING]
+O30509	1	gatB yerN BSU06690	Aspartyl/glutamyl-tRNA(Asn/Gln) amidotransferase subunit B (Asp/Glu-ADT subunit B) (EC 6.3.5.-)	SUBUNIT: Heterotrimer of A, B and C subunits.
+P45868	1	maeA BSU37050	Probable NAD-dependent malic enzyme 2 (NAD-ME 2) (EC 1.1.1.38)	[MISSING]
+P26379	1	levD sacL BSU27070	PTS system fructose-specific EIIA component (EC 2.7.1.202) (EIIA-Fru) (Fructose-specific phosphotransferase enzyme IIA component) (lev-PTS) (p16)	[MISSING]
+O32028	1	mtnN mtn pfs BSU27270	5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase (MTA/SAH nucleosidase) (MTAN) (EC 3.2.2.9) (5'-methylthioadenosine nucleosidase) (MTA nucleosidase) (S-adenosylhomocysteine nucleosidase) (AdoHcy nucleosidase) (SAH nucleosidase) (SRH nucleosidase)	[MISSING]
+Q03521	1	mraY BSU15190	Phospho-N-acetylmuramoyl-pentapeptide-transferase (EC 2.7.8.13) (UDP-MurNAc-pentapeptide phosphotransferase)	[MISSING]
+Q7WY60	1	mrpE BSU31640	Na(+)/H(+) antiporter subunit E (Mrp complex subunit E) (Multiple resistance and pH homeostasis protein E)	SUBUNIT: Forms a heterooligomeric complex that consists of seven subunits: MrpA, MrpB, MrpC, MrpD, MrpE, MrpF and MrpG. {ECO:0000269|PubMed:17693497}.
+P35162	1	resC ypxC BSU23130	Cytochrome c biogenesis protein ResC	[MISSING]
+P94524	1	araB BSU28790	Ribulokinase (EC 2.7.1.16)	[MISSING]
+O31461	1	ilvE ybgE BSU02390	Branched-chain-amino-acid transaminase 1 (BCAT 1) (EC 2.6.1.42)	[MISSING]
+P35161	1	resB ypxB BSU23140	Cytochrome c biogenesis protein ResB	[MISSING]
+P39581	1	dltA dae BSU38500 ipa-5r	D-alanine--poly(phosphoribitol) ligase subunit 1 (EC 6.1.1.13) (D-alanine-D-alanyl carrier protein ligase) (DCL) (D-alanine-activating enzyme) (DAE)	[MISSING]
+P39795	1	treA treC BSU07810	Trehalose-6-phosphate hydrolase (EC 3.2.1.93) (Alpha,alpha-phosphotrehalase) (Phospho-alpha-(1-1)-glucosidase)	[MISSING]
+P11998	1	ribH BSU23250	6,7-dimethyl-8-ribityllumazine synthase (DMRL synthase) (LS) (Lumazine synthase) (EC 2.5.1.78) (Heavy riboflavin synthase beta subunit) (HRS beta subunit)	SUBUNIT: Forms an icosahedral capsid composed of 60 subunits, arranged as a dodecamer of pentamers. Can interact with riboflavin synthase, forming a lumazine synthase/riboflavin synthase complex, also designated as 'heavy riboflavin synthase complex', which consists of a trimer of riboflavin synthase enclosed within the icosahedral structure composed of 60 subunits of 6,7-dimethyl-8-ribityllumazine synthase. {ECO:0000269|PubMed:3083108, ECO:0000269|PubMed:3145341, ECO:0000269|PubMed:7473709, ECO:0000269|Ref.11}.
+O31404	1	acoA yfjK BSU08060	Acetoin:2,6-dichlorophenolindophenol oxidoreductase subunit alpha (Acetoin:DCPIP oxidoreductase-alpha) (Ao:DCPIP OR) (EC 1.1.1.-) (TPP-dependent acetoin dehydrogenase E1 subunit alpha)	SUBUNIT: Tetramer of 2 alpha and 2 beta subunits. {ECO:0000250}.
+P37814	2	atpF BSU36850	ATP synthase subunit b (ATP synthase F(0) sector subunit b) (ATPase subunit I) (F-type ATPase subunit b) (F-ATPase subunit b)	SUBUNIT: F-type ATPases have 2 components, F(1) - the catalytic core - and F(0) - the membrane proton channel. F(1) has five subunits: alpha(3), beta(3), gamma(1), delta(1), epsilon(1). F(0) has three main subunits: a(1), b(2) and c(10-14). The alpha and beta chains form an alternating ring which encloses part of the gamma chain. F(1) is attached to F(0) by a central stalk formed by the gamma and epsilon chains, while a peripheral stalk is formed by the delta and b chains (Probable). The F(1)F(0) complex interacts with SpoIIIJ and YqjG; YqgA is found in the same complex. {ECO:0000255|HAMAP-Rule:MF_01398, ECO:0000269|PubMed:19717609, ECO:0000305}.
+O07584	1	plsC yhdO BSU09540	1-acyl-sn-glycerol-3-phosphate acyltransferase (1-AGP acyltransferase) (1-AGPAT) (1-acyl-G3P acyltransferase) (EC 2.3.1.n4) (Lysophosphatidic acid acyltransferase) (LPAAT) (Phosphatidic acid synthase) (PA synthase)	[MISSING]
+O34563	1	glnH BSU27440	ABC transporter glutamine-binding protein GlnH	SUBUNIT: The complex is composed of two ATP-binding proteins (GlnQ), two transmembrane proteins (GlnM and GlnP) and a solute-binding protein (GlnH). {ECO:0000305}.
+P39595	1	efeU ywbL BSU38280 ipa-27d	Ferrous iron permease EfeU (Fe(2+) ion permease EfeU) (Ferrous iron uptake protein)	SUBUNIT: Part of a ferrous iron transporter composed of EfeU, EfeM and EfeN. {ECO:0000250}.
+P71019	6	fabD ylpE BSU15900	Malonyl CoA-acyl carrier protein transacylase (MCT) (EC 2.3.1.39)	[MISSING]
+P04948	1	thrB BSU32240	Homoserine kinase (HK) (HSK) (EC 2.7.1.39)	[MISSING]
+P80877	1	metE metC BSU13180	5-methyltetrahydropteroyltriglutamate--homocysteine methyltransferase (EC 2.1.1.14) (Cobalamin-independent methionine synthase) (Methionine synthase, vitamin-B12 independent isozyme) (Superoxide-inducible protein 9) (SOI9)	[MISSING]
+O32117	1	yutJ BSU32200	NADH dehydrogenase-like protein YutJ (EC 1.6.-.-)	[MISSING]
+P37942	1	bfmBB bfmB bfmB2 BSU24030	Lipoamide acyltransferase component of branched-chain alpha-keto acid dehydrogenase complex (EC 2.3.1.168) (Branched-chain alpha-keto acid dehydrogenase complex component E2) (BCKAD-E2) (BCKADE2) (Dihydrolipoamide acetyltransferase component of branched-chain alpha-keto acid dehydrogenase complex) (Dihydrolipoamide branched chain transacylase) (Dihydrolipoyllysine-residue (2-methylpropanoyl)transferase)	SUBUNIT: Forms a 24-polypeptide structural core with octahedral symmetry.
+P20692	1	tyrA BSU22610	Prephenate dehydrogenase (PDH) (EC 1.3.1.12)	[MISSING]
+P46353	1	drm yqkN BSU23500	Phosphopentomutase (EC 5.4.2.7) (Phosphodeoxyribomutase)	[MISSING]
+P05306	1	sacP BSU38050 ipa-49d	PTS system sucrose-specific EIIBC component (EIIBC-Scr) (EII-Scr) [Includes: Sucrose-specific phosphotransferase enzyme IIB component (EC 2.7.1.-) (PTS system sucrose-specific EIIB component); Sucrose permease IIC component (PTS system sucrose-specific EIIC component)]	[MISSING]
+P42200	1	tcyB yckJ BSU03600	L-cystine transport system permease protein TcyB	SUBUNIT: The complex is composed of two ATP-binding proteins (TcyC), two transmembrane proteins (TcyB) and a solute-binding protein (TcyA). {ECO:0000305}.
+P03964	1	trpC BSU22660	Indole-3-glycerol phosphate synthase (IGPS) (EC 4.1.1.48)	[MISSING]
+O07515	1	trpP BSU10010	Probable tryptophan transport protein	[MISSING]
+P17620	1	ribBA ribA BSU23260	Riboflavin biosynthesis protein RibBA [Includes: 3,4-dihydroxy-2-butanone 4-phosphate synthase (DHBP synthase) (EC 4.1.99.12); GTP cyclohydrolase-2 (EC 3.5.4.25) (GTP cyclohydrolase II)]	[MISSING]
+P21883	1	pdhC aceC BSU14600	Dihydrolipoyllysine-residue acetyltransferase component of pyruvate dehydrogenase complex (EC 2.3.1.12) (Dihydrolipoamide acetyltransferase component of pyruvate dehydrogenase complex) (E2) (S complex, 48 kDa subunit)	SUBUNIT: Forms a 24-polypeptide structural core with octahedral symmetry.
+P46329	1	aldX yxaS yxbE BSU39860 VE7FR	Probable aldehyde dehydrogenase AldX (EC 1.2.1.3)	[MISSING]
+O34510	1	yfmF BSU07490	Fe(3+)-citrate import ATP-binding protein YfmF (Ferric-citrate import ATP-binding protein) (EC 3.6.3.-)	SUBUNIT: The complex is composed of one ATP-binding protein (YfmF), two transmembrane proteins (YfmD and YfmE) and a solute-binding protein (YfmC). {ECO:0000305}.
+P54575	1	ribC BSU16670	Riboflavin biosynthesis protein RibC [Includes: Riboflavin kinase (EC 2.7.1.26) (Flavokinase); FMN adenylyltransferase (EC 2.7.7.2) (FAD pyrophosphorylase) (FAD synthase)]	[MISSING]
+O34606	1	glnP BSU27460	Probable glutamine ABC transporter permease protein GlnP	SUBUNIT: The complex is composed of two ATP-binding proteins (GlnQ), two transmembrane proteins (GlnM and GlnP) and a solute-binding protein (GlnH). {ECO:0000305}.
+P39597	1	efeN ywbN BSU38260 ipa-29d	Probable deferrochelatase/peroxidase EfeN (EC 1.11.1.-)	SUBUNIT: Part of a ferrous iron transporter composed of EfeU, EfeM and EfeN. {ECO:0000250}.
+O32168	1	metP yusB BSU32740	Methionine import system permease protein MetP	SUBUNIT: The complex is composed of two ATP-binding proteins (MetN), two transmembrane proteins (MetP) and a solute-binding protein (MetQ). {ECO:0000250}.
+Q45064	1	plsY yneS BSU18070	Glycerol-3-phosphate acyltransferase (Acyl-PO4 G3P acyltransferase) (Acyl-phosphate--glycerol-3-phosphate acyltransferase) (G3P acyltransferase) (GPAT) (EC 2.3.1.n3) (Lysophosphatidic acid synthase) (LPA synthase)	SUBUNIT: Probably interacts with PlsX. {ECO:0000269|PubMed:19282621}.
+O34671	1	glnM BSU27450	Probable glutamine ABC transporter permease protein GlnM	SUBUNIT: The complex is composed of two ATP-binding proteins (GlnQ), two transmembrane proteins (GlnM and GlnP) and a solute-binding protein (GlnH). {ECO:0000305}.
+O34900	1	tcyN ytmN BSU29340	L-cystine import ATP-binding protein TcyN (EC 3.6.3.-)	SUBUNIT: The complex is composed of two ATP-binding proteins (TcyN), two transmembrane proteins (TcyL and TcyM) and two solute-binding proteins (TcyJ and TcyK). {ECO:0000305}.
+P39817	1	gltP BSU02340	Proton/glutamate-aspartate symporter (Proton/glutamate symport protein)	[MISSING]
+O31645	1	manP yjdD BSU12010	PTS system mannose-specific EIIBCA component (EIIBCA-Man) (EII-Man) [Includes: Mannose-specific phosphotransferase enzyme IIB component (EC 2.7.1.191) (PTS system mannose-specific EIIB component); Mannose permease IIC component (PTS system mannose-specific EIIC component); Mannose-specific phosphotransferase enzyme IIA component (PTS system mannose-specific EIIA component)]	[MISSING]
+P25983	1	pyrK pyrDB pyrDII pyrZ ylxD BSU15530	Dihydroorotate dehydrogenase B (NAD(+)), electron transfer subunit (Dihydroorotate oxidase B, electron transfer subunit)	SUBUNIT: Heterotetramer of 2 PyrK and 2 PyrD type B subunits. {ECO:0000269|PubMed:10545205}.
+P24011	1	ctaC BSU14890	Cytochrome c oxidase subunit 2 (EC 1.9.3.1) (Caa-3605 subunit 2) (Cytochrome aa3 subunit 2) (Cytochrome c oxidase polypeptide II) (Oxidase aa(3) subunit 2)	[MISSING]
+P04990	1	thrC BSU32250	Threonine synthase (TS) (EC 4.2.3.1)	[MISSING]
+P39149	1	upp BSU36890 ipc-35d	Uracil phosphoribosyltransferase (EC 2.4.2.9) (UMP pyrophosphorylase) (UPRTase)	[MISSING]
+O31646	1	manA pmi yjdE BSU12020	Mannose-6-phosphate isomerase ManA (EC 5.3.1.8) (Phosphohexomutase) (Phosphomannose isomerase) (PMI)	[MISSING]
+O31550	1	acoC yfjI BSU08080	Dihydrolipoyllysine-residue acetyltransferase component of acetoin cleaving system (EC 2.3.1.12) (Acetoin dehydrogenase E2 component) (Dihydrolipoamide acetyltransferase component of acetoin cleaving system)	[MISSING]
+O34932	1	coaE ytaG BSU29060	Dephospho-CoA kinase (EC 2.7.1.24) (Dephosphocoenzyme A kinase)	[MISSING]
+P12012	1	gntP BSU40070	Gluconate permease	[MISSING]
+O05510	1	gmuE ydhR BSU05860	Putative fructokinase (EC 2.7.1.4) (Glucomannan utilization protein E)	[MISSING]
+O32141	1	pucL yunL BSU32450	Uric acid degradation bifunctional protein PucL [Includes: 2-oxo-4-hydroxy-4-carboxy-5-ureidoimidazoline decarboxylase (OHCU decarboxylase) (EC 4.1.1.97); Uricase (EC 1.7.3.3) (Urate oxidase)]	[MISSING]
+O32146	1	pucB yurE BSU32500	Purine catabolism protein PucB	[MISSING]
+O32139	1	pucJ yunJ BSU32430	Uric acid permease PucJ	[MISSING]
+P96613	1	murF ydbQ BSU04570	UDP-N-acetylmuramoyl-tripeptide--D-alanyl-D-alanine ligase (EC 6.3.2.10) (D-alanyl-D-alanine-adding enzyme) (UDP-MurNAc-pentapeptide synthetase)	[MISSING]
+O32167	1	metQ yusA BSU32730	Methionine-binding lipoprotein MetQ	SUBUNIT: The complex is composed of two ATP-binding proteins (MetN), two transmembrane proteins (MetP) and a solute-binding protein (metQ). {ECO:0000250}.
+O07576	1	yhdG BSU09460	Uncharacterized amino acid permease YhdG	[MISSING]
+P42436	1	nasE nasBD nirD BSU03290	Assimilatory nitrite reductase [NAD(P)H] small subunit (EC 1.7.1.4)	SUBUNIT: Associates with NasD. {ECO:0000250}.
+P54552	1	proI yqjO BSU23800	Pyrroline-5-carboxylate reductase 2 (P5C reductase 2) (P5CR 2) (EC 1.5.1.2) (PCA reductase 2)	[MISSING]
+P35160	1	resA ypxA BSU23150	Thiol-disulfide oxidoreductase ResA	[MISSING]
+O34591	1	acoB yfjJ BSU08070	Acetoin:2,6-dichlorophenolindophenol oxidoreductase subunit beta (Acetoin:DCPIP oxidoreductase-beta) (Ao:DCPIP OR) (EC 1.1.1.-) (TPP-dependent acetoin dehydrogenase E1 subunit beta)	SUBUNIT: Tetramer of 2 alpha and 2 beta subunits. {ECO:0000250}.
+P68729	1	argB BSU11210	Acetylglutamate kinase (EC 2.7.2.8) (N-acetyl-L-glutamate 5-phosphotransferase) (NAG kinase) (NAGK)	[MISSING]
+P24469	1	cccA BSU25190	Cytochrome c-550 (Cytochrome c A)	[MISSING]
+P54715	1	malP glv-2 glvC glvCB yfiB BSU08200	PTS system maltose-specific EIICB component [Includes: Maltose permease IIC component (PTS system maltose-specific EIIC component); Maltose-specific phosphotransferase enzyme IIB component (EC 2.7.1.208) (PTS system maltose-specific EIIB component)]	[MISSING]
+O31665	1	mtnE mtnV ykrV BSU13580	Transaminase MtnE (EC 2.6.1.-)	[MISSING]
+P54380	1	glyQ yqfJ BSU25270	Glycine--tRNA ligase alpha subunit (EC 6.1.1.14) (Glycyl-tRNA synthetase alpha subunit) (GlyRS)	SUBUNIT: Tetramer of two alpha and two beta subunits.
+P14193	1	prs BSU00510	Ribose-phosphate pyrophosphokinase (RPPK) (EC 2.7.6.1) (5-phospho-D-ribosyl alpha-1-diphosphate) (Phosphoribosyl diphosphate synthase) (Phosphoribosyl pyrophosphate synthase) (P-Rib-PP synthase) (PPRibP synthase) (PRPP synthase) (PRPPase)	SUBUNIT: Homohexamer; trimer of dimers. {ECO:0000269|PubMed:10742175, ECO:0000269|PubMed:11790837, ECO:0000303|PubMed:28031352}.
+P37472	1	hprT hpt BSU00680	Hypoxanthine-guanine phosphoribosyltransferase (HGPRT) (HGPRTase) (EC 2.4.2.8)	[MISSING]
+P39121	1	deoC dra BSU39420	Deoxyribose-phosphate aldolase (DERA) (EC 4.1.2.4) (2-deoxy-D-ribose 5-phosphate aldolase) (Phosphodeoxyriboaldolase) (Deoxyriboaldolase)	[MISSING]
+P94363	1	cimH yxkJ BSU38770	Citrate/malate transporter (Citrate/malate-proton symporter)	[MISSING]
+O34577	1	cysC ylnC BSU15600	Probable adenylyl-sulfate kinase (EC 2.7.1.25) (APS kinase) (ATP adenosine-5'-phosphosulfate 3'-phosphotransferase) (Adenosine-5'-phosphosulfate kinase)	[MISSING]
+P54495	1	glcK yqgR BSU24850	Glucokinase (EC 2.7.1.2) (Glucose kinase)	[MISSING]
+O34981	1	dapH ykuQ BSU14180	2,3,4,5-tetrahydropyridine-2,6-dicarboxylate N-acetyltransferase (EC 2.3.1.89) (Tetrahydrodipicolinate N-acetyltransferase) (THP acetyltransferase) (Tetrahydropicolinate acetylase)	[MISSING]
+P08064	1	sdhC BSU28450	Succinate dehydrogenase cytochrome b558 subunit (Cytochrome b-558)	SUBUNIT: Part of an enzyme complex containing three subunits: a flavoprotein, an iron-sulfur protein and cytochrome b-558.
+P36948	1	rbsC BSU35950	Ribose import permease protein RbsC	SUBUNIT: The complex is composed of an ATP-binding protein (RbsA), two transmembrane proteins (RbsC) and a solute-binding protein (RbsB). {ECO:0000250|UniProtKB:P0AGI1}.
+O34990	1	purU ykkE BSU13110	Formyltetrahydrofolate deformylase (EC 3.5.1.10) (Formyl-FH(4) hydrolase)	[MISSING]
+P96603	1	dctA dctP ydbH BSU04470	C4-dicarboxylate transport protein (C4-dicarboxylate permease)	[MISSING]
+P40778	1	murC ytxF BSU29790	UDP-N-acetylmuramate--L-alanine ligase (EC 6.3.2.8) (UDP-N-acetylmuramoyl-L-alanine synthetase)	[MISSING]
+O34897	1	ykuT BSU14210	Uncharacterized MscS family protein YkuT	[MISSING]
+P34959	1	qoxD BSU38140 ipa-40d	Quinol oxidase subunit 4 (EC 1.10.3.-) (Quinol oxidase aa3-600, subunit QoxD) (Quinol oxidase polypeptide IV)	[MISSING]
+P39646	1	pta ywfJ BSU37660 ipa-88d	Phosphate acetyltransferase (EC 2.3.1.8) (Phosphotransacetylase) (Vegetative protein 43) (VEG43)	[MISSING]
+O34660	1	dhaS BSU19310	Putative aldehyde dehydrogenase DhaS (EC 1.2.1.3)	[MISSING]
+O34832	1	yfmE BSU07500	Fe(3+)-citrate import system permease protein YfmE (Ferric-citrate import system permease protein)	SUBUNIT: The complex is composed of one ATP-binding protein (YfmF), two transmembrane proteins (YfmD and YfmE) and a solute-binding protein (YfmC). {ECO:0000305}.
+O07620	1	bioY yhfU BSU10370	Probable biotin transporter BioY	[MISSING]
+P39794	1	treP treB BSU07800	PTS system trehalose-specific EIIBC component (EIIBC-Tre) (EII-Tre) [Includes: Trehalose-specific phosphotransferase enzyme IIB component (EC 2.7.1.201) (PTS system trehalose-specific EIIB component); Trehalose permease IIC component (PTS system trehalose-specific EIIC component)]	[MISSING]
+P18186	1	argF BSU11250	Ornithine carbamoyltransferase (OTCase) (EC 2.1.3.3)	[MISSING]
+O35024	1	mntC ytgC BSU30750	Manganese transport system membrane protein MntC	[MISSING]
+P31102	1	aroB BSU22700	3-dehydroquinate synthase (DHQS) (EC 4.2.3.4)	[MISSING]
+P54537	1	artM yqiZ BSU23960	Arginine transport ATP-binding protein ArtM	[MISSING]
+P54482	1	ispG yqfY BSU25070	4-hydroxy-3-methylbut-2-en-1-yl diphosphate synthase (flavodoxin) (EC 1.17.7.3) (1-hydroxy-2-methyl-2-(E)-butenyl 4-diphosphate synthase)	[MISSING]
+O05507	1	gmuC ydhO BSU05830	PTS system oligo-beta-mannoside-specific EIIC component (Glucomannan utilization protein C) (Oligo-beta-mannoside permease IIC component)	[MISSING]
+P77837	1	ureC BSU36640	Urease subunit alpha (EC 3.5.1.5) (Urea amidohydrolase subunit alpha)	SUBUNIT: Heterotrimer of UreA (gamma), UreB (beta) and UreC (alpha) subunits. Three heterotrimers associate to form the active enzyme. {ECO:0000255|HAMAP-Rule:MF_01953}.
+P18159	1	pgcA gtaC gtaE yhxB BSU09310	Phosphoglucomutase (PGM) (EC 5.4.2.2) (Alpha-phosphoglucomutase) (Glucose phosphomutase)	[MISSING]
+O34753	1	tagO yvhI BSU35530	Probable undecaprenyl-phosphate N-acetylglucosaminyl 1-phosphate transferase (EC 2.7.8.33) (UDP-GlcNAc:undecaprenyl-phosphate GlcNAc-1-phosphate transferase) (Undecaprenyl-Phosphate GlcNAc-1-phosphate transferase)	[MISSING]
+O05259	1	mrpB yufU BSU31610	Na(+)/H(+) antiporter subunit B (Mrp complex subunit B) (Multiple resistance and pH homeostasis protein B)	SUBUNIT: Forms a heterooligomeric complex that consists of seven subunits: MrpA, MrpB, MrpC, MrpD, MrpE, MrpF and MrpG. {ECO:0000269|PubMed:17693497}.
+P54378	1	gcvT yqhI BSU24570	Aminomethyltransferase (EC 2.1.2.10) (Glycine cleavage system T protein)	SUBUNIT: The glycine cleavage system is composed of four proteins: P, T, L and H. {ECO:0000255|HAMAP-Rule:MF_00259}.
+P37809	3	atpD BSU36810	ATP synthase subunit beta (EC 3.6.3.14) (ATP synthase F1 sector subunit beta) (F-ATPase subunit beta) (Vegetative protein 31) (VEG31)	SUBUNIT: F-type ATPases have 2 components, CF(1) - the catalytic core - and CF(0) - the membrane proton channel. CF(1) has five subunits: alpha(3), beta(3), gamma(1), delta(1), epsilon(1). CF(0) has three main subunits: a(1), b(2) and c(9-12). The alpha and beta chains form an alternating ring which encloses part of the gamma chain. CF(1) is attached to CF(0) by a central stalk formed by the gamma and epsilon chains, while a peripheral stalk is formed by the delta and b chains (Probable). The F(1)F(0) complex interacts with SpoIIIJ and YqjG; YqgA is found in the same complex. {ECO:0000255|HAMAP-Rule:MF_01347, ECO:0000269|PubMed:19717609, ECO:0000305}.
+Q796V8	1	hemZ yhaV yhaW BSU09840	Oxygen-independent coproporphyrinogen-III oxidase-like protein HemZ (EC 1.3.99.-)	[MISSING]
+P94575	1	pucI ywoE BSU36470	Probable allantoin permease (Allantoin transport protein)	[MISSING]
+P42976	1	dapB BSU22490	4-hydroxy-tetrahydrodipicolinate reductase (HTPA reductase) (EC 1.17.1.8)	[MISSING]
+O05506	1	gmuA ydhN BSU05820	PTS system oligo-beta-mannoside-specific EIIA component (Glucomannan utilization protein A) (Oligo-beta-mannoside-specific phosphotransferase enzyme IIA component) (EC 2.7.1.205)	[MISSING]
+P40411	1	feuC BSU01610	Iron-uptake system permease protein FeuC	SUBUNIT: The complex is composed of one ATP-binding protein (YusV), two transmembrane proteins (FeuB and FeuC) and a solute-binding protein (FeuA). {ECO:0000305}.
+P36838	1	carA cpaA BSU11230	Carbamoyl-phosphate synthase arginine-specific small chain (EC 6.3.5.5) (Carbamoyl-phosphate synthetase glutamine chain)	SUBUNIT: Composed of two chains; the small (or glutamine) chain promotes the hydrolysis of glutamine to ammonia, which is used by the large (or ammonia) chain to synthesize carbamoyl phosphate.
+P94392	1	putP ycgO BSU03220	High-affinity proline transporter PutP	[MISSING]
+O32145	1	pucC yurD BSU32490	Probable xanthine dehydrogenase subunit C (XDHase subunit C) (EC 1.17.1.4)	SUBUNIT: Could be composed of four subunits: PucA, PucC, PucD and PucE.
+O34962	1	ytsJ BSU29220	Probable NAD-dependent malic enzyme 4 (NAD-ME 4) (EC 1.1.1.38)	[MISSING]
+P13243	1	fbaA fba fba1 tsr BSU37120	Probable fructose-bisphosphate aldolase (FBP aldolase) (FBPA) (EC 4.1.2.13) (Fructose-1,6-bisphosphate aldolase)	[MISSING]
+P54420	1	asnB asn BSU30540	Asparagine synthetase [glutamine-hydrolyzing] 1 (EC 6.3.5.4)	[MISSING]
+O34683	1	hisB BSU34900	Imidazoleglycerol-phosphate dehydratase (IGPD) (EC 4.2.1.19)	[MISSING]
+Q06750	1	cysE cysA BSU00930	Serine acetyltransferase (SAT) (EC 2.3.1.30)	[MISSING]
+O32029	1	yrrT BSU27280	Uncharacterized methyltransferase YrrT (EC 2.1.1.-)	[MISSING]
+P39138	1	rocF BSU40320	Arginase (EC 3.5.3.1)	[MISSING]
+P32396	1	hemH hemF BSU10130	Ferrochelatase (EC 4.99.1.1) (Heme synthase) (Protoheme ferro-lyase)	[MISSING]
+P54167	1	metAA metA metB BSU21910	Homoserine O-acetyltransferase (HAT) (EC 2.3.1.31) (Homoserine transacetylase) (HTA)	[MISSING]
+Q04795	1	dapG lssD BSU16760	Aspartokinase 1 (EC 2.7.2.4) (Aspartate kinase 1) (Aspartokinase I)	SUBUNIT: Tetramer consisting of 2 isoforms Alpha (catalytic) and 2 isoforms Beta (function not known). {ECO:0000250}.
+P19582	1	hom tdm BSU32260	Homoserine dehydrogenase (HDH) (EC 1.1.1.3)	[MISSING]
+P27620	1	tagA BSU35750	N-acetylglucosaminyldiphosphoundecaprenol N-acetyl-beta-D-mannosaminyltransferase (EC 2.4.1.187) (Major teichoic acid biosynthesis protein A) (N-acetylmannosaminyltransferase) (UDP-N-acetylmannosamine transferase) (UDP-N-acetylmannosamine:N-acetylglucosaminyl pyrophosphorylundecaprenol N-acetylmannosaminyltransferase)	[MISSING]
+P07600	1	trpB BSU22640	Tryptophan synthase beta chain (EC 4.2.1.20)	SUBUNIT: Tetramer of two alpha and two beta chains. {ECO:0000250}.
+P37537	1	tmk yaaP BSU00280	Thymidylate kinase (EC 2.7.4.9) (dTMP kinase)	[MISSING]
+P94463	1	fmt yloL BSU15730	Methionyl-tRNA formyltransferase (EC 2.1.2.9)	[MISSING]
+O05394	1	mccB yrhB BSU27250	Cystathionine gamma-lyase (EC 4.4.1.1) (Gamma-cystathionase) (Homocysteine gamma-lyase) (EC 4.4.1.2)	[MISSING]
+P03963	1	trpE BSU22680	Anthranilate synthase component 1 (AS) (ASI) (EC 4.1.3.27)	SUBUNIT: Heterotetramer consisting of two non-identical subunits: a beta subunit (TrpG) and a large alpha subunit (TrpE). {ECO:0000250}.
+P39596	1	efeM ywbM BSU38270 ipa-28d	Probable iron uptake system component EfeM	SUBUNIT: Part of a ferrous iron transporter composed of EfeU, EfeM and EfeN. {ECO:0000250}.
+P29252	1	folK BSU00790	2-amino-4-hydroxy-6-hydroxymethyldihydropteridine pyrophosphokinase (EC 2.7.6.3) (6-hydroxymethyl-7,8-dihydropterin pyrophosphokinase) (PPPK) (7,8-dihydro-6-hydroxymethylpterin-pyrophosphokinase) (HPPK)	[MISSING]
+P18185	1	carB cpaB BSU11240	Carbamoyl-phosphate synthase arginine-specific large chain (EC 6.3.5.5) (Carbamoyl-phosphate synthetase ammonia chain)	SUBUNIT: Composed of two chains; the small (or glutamine) chain promotes the hydrolysis of glutamine to ammonia, which is used by the large (or ammonia) chain to synthesize carbamoyl phosphate.
+P50620	1	nrdE nrdA BSU17380	Ribonucleoside-diphosphate reductase subunit alpha (EC 1.17.4.1) (Ribonucleotide reductase large subunit)	SUBUNIT: Tetramer of two alpha and two beta subunits. {ECO:0000250}.
+Q05852	1	gtaB BSU35670	UTP--glucose-1-phosphate uridylyltransferase (EC 2.7.7.9) (Alpha-D-glucosyl-1-phosphate uridylyltransferase) (General stress protein 33) (GSP33) (UDP-glucose pyrophosphorylase) (UDPGP) (Uridine diphosphoglucose pyrophosphorylase)	[MISSING]
+Q04789	1	alsS BSU36010	Acetolactate synthase (EC 2.2.1.6) (ALS) (Acetohydroxy-acid synthase)	[MISSING]
+P42954	1	tagH BSU35700	Teichoic acids export ATP-binding protein TagH (EC 3.6.3.40) (Teichoic acid-transporting ATPase)	SUBUNIT: The complex is composed of two ATP-binding proteins (TagH) and two transmembrane proteins (TagG). {ECO:0000255|HAMAP-Rule:MF_01715}.
+P94498	1	cysH BSU15570	Phosphoadenosine phosphosulfate reductase (EC 1.8.4.8) (3'-phosphoadenylylsulfate reductase) (PAPS reductase, thioredoxin dependent) (PAPS sulfotransferase) (PAdoPS reductase)	[MISSING]
+P46340	1	yqgI yzmD BSU24970	Probable ABC transporter permease protein YqgI	[MISSING]
+O05227	1	mrpG yufB BSU31660	Na(+)/H(+) antiporter subunit G (Mrp complex subunit G) (Multiple resistance and pH homeostasis protein G)	SUBUNIT: Forms a heterooligomeric complex that consists of seven subunits: MrpA, MrpB, MrpC, MrpD, MrpE, MrpF and MrpG. {ECO:0000269|PubMed:17693497}.
+O31667	1	mtnX ykrX BSU13600	2-hydroxy-3-keto-5-methylthiopentenyl-1-phosphate phosphatase (HK-MTPenyl-1-P phosphatase) (EC 3.1.3.87)	[MISSING]
+P17922	1	pheT BSU28630	Phenylalanine--tRNA ligase beta subunit (EC 6.1.1.20) (Phenylalanyl-tRNA synthetase beta subunit) (PheRS)	SUBUNIT: Tetramer of two alpha and two beta subunits. {ECO:0000250}.
+C0SP93	1	accD yttI BSU29210	Acetyl-coenzyme A carboxylase carboxyl transferase subunit beta (ACCase subunit beta) (Acetyl-CoA carboxylase carboxyltransferase subunit beta) (EC 6.4.1.2)	SUBUNIT: Acetyl-CoA carboxylase is a heterohexamer composed of biotin carboxyl carrier protein (AccB), biotin carboxylase (AccC) and two subunits each of ACCase subunit alpha (AccA) and ACCase subunit beta (AccD). {ECO:0000255|HAMAP-Rule:MF_01395}.
+P39579	1	dltC BSU38520 ipa-3r	D-alanine--poly(phosphoribitol) ligase subunit 2 (EC 6.1.1.13) (D-alanyl carrier protein) (DCP)	[MISSING]
+P46911	1	qcrA bfcA BSU22560	Menaquinol-cytochrome c reductase iron-sulfur subunit (Rieske iron-sulfur protein)	SUBUNIT: The main subunits of the menaquinone:cytochrome c complex are: cytochrome b, the Rieske protein and a cytochrome b/c subunit.
+O34916	1	ykuR dapL BSU14190	N-acetyldiaminopimelate deacetylase (EC 3.5.1.47)	[MISSING]
+P08066	1	sdhB BSU28430	Succinate dehydrogenase iron-sulfur subunit (EC 1.3.5.1)	SUBUNIT: In B.subtilis succinate dehydrogenase forms part of an enzyme complex containing three subunits: a flavoprotein, an iron-sulfur protein and cytochrome b-558.
+P23966	1	menB BSU30800	1,4-dihydroxy-2-naphthoyl-CoA synthase (DHNA-CoA synthase) (EC 4.1.3.36)	[MISSING]
+P38021	1	rocD BSU40340	Ornithine aminotransferase (OAT) (EC 2.6.1.13) (Ornithine--oxo-acid aminotransferase)	[MISSING]
+P39761	1	adeC ade yzaD BSU14520	Adenine deaminase (Adenase) (Adenine aminase) (EC 3.5.4.2)	[MISSING]
+P54304	1	hemN yqeR BSU25500	Oxygen-independent coproporphyrinogen-III oxidase-like protein YqeR (EC 1.3.99.-)	[MISSING]
+O34632	1	sirB ylnE BSU15620	Sirohydrochlorin ferrochelatase (EC 4.99.1.4)	[MISSING]
+P45743	1	dhbB BSU31970	Isochorismatase (EC 3.3.2.1) (2,3 dihydro-2,3 dihydroxybenzoate synthase) (Superoxide-inducible protein 1) (SOI1)	[MISSING]
+P37464	1	serS BSU00130	Serine--tRNA ligase (EC 6.1.1.11) (Seryl-tRNA synthetase) (SerRS) (Seryl-tRNA(Ser/Sec) synthetase)	SUBUNIT: Homodimer. The tRNA molecule binds across the dimer. {ECO:0000255|HAMAP-Rule:MF_00176}.
+O34520	1	hisG BSU34920	ATP phosphoribosyltransferase (ATP-PRT) (ATP-PRTase) (EC 2.4.2.17)	SUBUNIT: Heteromultimer composed of HisG and HisZ subunits. {ECO:0000250}.
+P40410	1	feuB BSU01620	Iron-uptake system permease protein FeuB	SUBUNIT: The complex is composed of one ATP-binding protein (YusV), two transmembrane proteins (FeuB and FeuC) and a solute-binding protein (FeuA). {ECO:0000305}.
+P37812	1	atpC BSU36800	ATP synthase epsilon chain (ATP synthase F1 sector epsilon subunit) (F-ATPase epsilon subunit)	SUBUNIT: F-type ATPases have 2 components, CF(1) - the catalytic core - and CF(0) - the membrane proton channel. CF(1) has five subunits: alpha(3), beta(3), gamma(1), delta(1), epsilon(1). CF(0) has three main subunits: a, b and c (Probable). The F(1)F(0) complex interacts with SpoIIIJ and YqjG; YqgA is found in the same complex. {ECO:0000269|PubMed:19717609, ECO:0000305}.
+P96710	1	araE yvbR BSU33960	Arabinose-proton symporter (Arabinose transporter)	[MISSING]
+P39580	1	dltB BSU38510 ipa-4r	Protein DltB	[MISSING]
+P42420	1	iolJ fbaB yxdI BSU39670 B65C	6-phospho-5-dehydro-2-deoxy-D-gluconate aldolase (DKGP aldolase) (EC 4.1.2.29)	[MISSING]
+O35033	1	coaBC yloI BSU15700	Probable coenzyme A biosynthesis bifunctional protein CoaBC (DNA/pantothenate metabolism flavoprotein) [Includes: Phosphopantothenoylcysteine decarboxylase (PPCDC) (EC 4.1.1.36) (CoaC); Phosphopantothenate--cysteine ligase (EC 6.3.2.5) (CoaB) (PPC synthetase) (PPCS) (Phosphopantothenoylcysteine synthase)]	[MISSING]
+P55069	1	citM yflO BSU07610	Mg(2+)/citrate complex secondary transporter	[MISSING]
+Q04777	1	alsD BSU36000	Alpha-acetolactate decarboxylase (EC 4.1.1.5)	[MISSING]
+P32393	1	comEB comE2 BSU25580	ComE operon protein 2 (EC 3.5.-.-)	[MISSING]
+P39812	1	gltA BSU18450	Glutamate synthase [NADPH] large chain (EC 1.4.1.13) (NADPH-GOGAT)	SUBUNIT: Aggregate of 4 catalytic active heterodimers, consisting of a large and a small subunit. {ECO:0000250}.
+O34813	1	sirC ylnF BSU15630	Precorrin-2 dehydrogenase (EC 1.3.1.76)	[MISSING]
+O34933	1	yfmD BSU07510	Fe(3+)-citrate import system permease protein YfmD (Ferric-citrate import system permease protein)	SUBUNIT: The complex is composed of one ATP-binding protein (YfmF), two transmembrane proteins (YfmD and YfmE) and a solute-binding protein (YfmC). {ECO:0000305}.
+P94462	1	defA def yloK BSU15720	Peptide deformylase 1 (PDF 1) (EC 3.5.1.88) (Polypeptide deformylase 1)	[MISSING]
+P23715	1	argC BSU11190	N-acetyl-gamma-glutamyl-phosphate reductase (AGPR) (EC 1.2.1.38) (N-acetyl-glutamate semialdehyde dehydrogenase) (NAGSA dehydrogenase)	[MISSING]
+O34872	1	ytiB BSU30690	Putative carbonic anhydrase YtiB (EC 4.2.1.1) (Carbonate dehydratase)	[MISSING]
+O34389	1	malS BSU29880	Probable NAD-dependent malic enzyme 3 (NAD-ME 3) (EC 1.1.1.38)	[MISSING]
+P54418	1	pckA ppc BSU30560	Phosphoenolpyruvate carboxykinase (ATP) (PCK) (PEP carboxykinase) (PEPCK) (EC 4.1.1.49)	[MISSING]
+P46317	1	licC celB BSU38580	Lichenan permease IIC component (EIIC-Lic) (PTS system lichenan-specific EIIC component)	[MISSING]
+P37252	1	ilvH ilvN BSU28300	Acetolactate synthase small subunit (EC 2.2.1.6) (Acetohydroxy-acid synthase small subunit) (AHAS) (ALS)	SUBUNIT: Dimer of large and small chains. {ECO:0000250}.
+P34956	1	qoxB BSU38160 ipa-38d	Quinol oxidase subunit 1 (EC 1.10.3.-) (Oxidase aa(3)-600 subunit 1) (Quinol oxidase aa3-600, subunit QoxB) (Quinol oxidase polypeptide I)	[MISSING]
+P96612	1	ddl ddlA BSU04560	D-alanine--D-alanine ligase (EC 6.3.2.4) (D-Ala-D-Ala ligase) (D-alanylalanine synthetase)	[MISSING]
+P27621	1	tagB BSU35760	Teichoic acid glycerol-phosphate primase (EC 2.7.8.44) (CDP-glycerol:N-acetyl-beta-D-mannosaminyl-1,4-N-acetyl-D-glucosaminyldiphosphoundecaprenyl glycerophosphotransferase) (CDP-glycerol:glycerophosphate glycerophosphotransferase) (Major teichoic acid biosynthesis protein B) (Tag primase)	[MISSING]
+P54473	1	ispH yqfP BSU25160	4-hydroxy-3-methylbut-2-enyl diphosphate reductase (HMBPP reductase) (EC 1.17.7.4)	[MISSING]
+O34315	1	tcyL ytmL BSU29360	L-cystine transport system permease protein TcyL	SUBUNIT: The complex is composed of two ATP-binding proteins (TcyN), two transmembrane proteins (TcyL and TcyM) and two solute-binding proteins (TcyJ and TcyK). {ECO:0000305}.
+O34610	1	znuB adcB yceA BSU02870	High-affinity zinc uptake system membrane protein ZnuB	SUBUNIT: The complex is composed of two ATP-binding proteins (ZnuC), two transmembrane proteins (ZnuB) and a solute-binding protein (ZnuA). {ECO:0000305}.
+P39071	1	dhbA entA BSU32000	2,3-dihydro-2,3-dihydroxybenzoate dehydrogenase (EC 1.3.1.28) (Cold shock protein CSI14)	[MISSING]
+O34557	1	rpe yloR BSU15790	Ribulose-phosphate 3-epimerase (EC 5.1.3.1) (Pentose-5-phosphate 3-epimerase) (PPE) (R5P3E)	[MISSING]
+P37808	3	atpA BSU36830	ATP synthase subunit alpha (EC 3.6.3.14) (ATP synthase F1 sector subunit alpha) (F-ATPase subunit alpha) (Vegetative protein 100) (VEG100)	SUBUNIT: F-type ATPases have 2 components, CF(1) - the catalytic core - and CF(0) - the membrane proton channel. CF(1) has five subunits: alpha(3), beta(3), gamma(1), delta(1), epsilon(1). CF(0) has three main subunits: a(1), b(2) and c(9-12). The alpha and beta chains form an alternating ring which encloses part of the gamma chain. CF(1) is attached to CF(0) by a central stalk formed by the gamma and epsilon chains, while a peripheral stalk is formed by the delta and b chains (Probable). The F(1)F(0) complex interacts with SpoIIIJ and YqjG; YqgA is found in the same complex. {ECO:0000255|HAMAP-Rule:MF_01346, ECO:0000269|PubMed:19717609, ECO:0000305}.
+O34572	1	ykoC BSU13210	Putative HMP/thiamine permease protein YkoC	SUBUNIT: The complex is composed of two ATP-binding proteins (YkoD), two transmembrane proteins (YkoC and YkoE) and a solute-binding protein (YkoF). {ECO:0000305}.
+O31714	1	fruK fruB BSU14390	1-phosphofructokinase (EC 2.7.1.56) (Fructose 1-phosphate kinase)	[MISSING]
+O34514	1	menC ytfD BSU30780	o-succinylbenzoate synthase (OSB synthase) (OSBS) (EC 4.2.1.113) (4-(2'-carboxyphenyl)-4-oxybutyric acid synthase) (o-succinylbenzoic acid synthase)	[MISSING]
+O32033	1	udk BSU27330	Uridine kinase (EC 2.7.1.48) (Cytidine monophosphokinase) (Uridine monophosphokinase)	[MISSING]
+P26901	1	katA kat kat-19 BSU08820	Vegetative catalase (EC 1.11.1.6)	[MISSING]
+O34651	1	hisD BSU34910	Histidinol dehydrogenase (HDH) (EC 1.1.1.23)	[MISSING]
+P42176	1	narH BSU37270	Nitrate reductase beta chain (EC 1.7.99.4)	[MISSING]
+P23971	1	menE BSU30790	2-succinylbenzoate--CoA ligase (EC 6.2.1.26) (o-succinylbenzoyl-CoA synthetase) (OSB-CoA synthetase)	[MISSING]
+P54535	1	artP yqiX BSU23980	Arginine-binding extracellular protein ArtP	[MISSING]
+P36947	1	rbsA BSU35940	Ribose import ATP-binding protein RbsA (EC 3.6.3.17)	SUBUNIT: The complex is composed of an ATP-binding protein (RbsA), two transmembrane proteins (RbsC) and a solute-binding protein (RbsB). {ECO:0000255|HAMAP-Rule:MF_01716}.
+P54383	1	ispA yqiD BSU24280	Farnesyl diphosphate synthase (FPP synthase) (EC 2.5.1.10) ((2E,6E)-farnesyl diphosphate synthase) (Geranyltranstransferase)	[MISSING]
+O35006	1	hisA BSU34880	1-(5-phosphoribosyl)-5-[(5-phosphoribosylamino)methylideneamino] imidazole-4-carboxamide isomerase (EC 5.3.1.16) (Phosphoribosylformimino-5-aminoimidazole carboxamide ribotide isomerase)	[MISSING]
+P37527	1	pdxS yaaD BSU00110	Pyridoxal 5'-phosphate synthase subunit PdxS (PLP synthase subunit PdxS) (EC 4.3.3.6) (Pdx1) (Superoxide-inducible protein 7) (SOI7)	SUBUNIT: Homohexamer and homododecamer. In the presence of PdxT, forms a dodecamer of heterodimers. {ECO:0000255|HAMAP-Rule:MF_01824, ECO:0000269|PubMed:17159152}.
+P39666	1	nadC yrxB BSU27860	Probable nicotinate-nucleotide pyrophosphorylase [carboxylating] (EC 2.4.2.19) (General stress protein 70) (GSP70) (Quinolinate phosphoribosyltransferase [decarboxylating]) (QAPRTase)	SUBUNIT: Hexamer formed by 3 homodimers. {ECO:0000250}.
+P13485	1	tagF rodC tag3 BSU35720	Teichoic acid poly(glycerol phosphate) polymerase (EC 2.7.8.12) (CDP-glycerol:poly(glycerophosphate) glycerophosphotransferase) (CGPTase) (Major teichoic acid biosynthesis protein F) (Poly(glycerol phosphate) polymerase) (Tag polymerase)	[MISSING]
+O05514	1	thiL ydiA ydxA BSU05900	Thiamine-monophosphate kinase (TMP kinase) (Thiamine-phosphate kinase) (EC 2.7.4.16)	[MISSING]
+O34847	1	accA BSU29200	Acetyl-coenzyme A carboxylase carboxyl transferase subunit alpha (ACCase subunit alpha) (Acetyl-CoA carboxylase carboxyltransferase subunit alpha) (EC 6.4.1.2)	SUBUNIT: Acetyl-CoA carboxylase is a heterohexamer composed of biotin carboxyl carrier protein (AccB), biotin carboxylase (AccC) and two subunits each of ACCase subunit alpha (AccA) and ACCase subunit beta (AccD). {ECO:0000255|HAMAP-Rule:MF_00823}.
+P40409	1	feuA BSU01630	Iron-uptake system-binding protein	SUBUNIT: The complex is composed of one ATP-binding protein (YusV), two transmembrane proteins (FeuB and FeuC) and a solute-binding protein (FeuA). {ECO:0000305}.
+P37528	1	pdxT yaaE BSU00120	Pyridoxal 5'-phosphate synthase subunit PdxT (EC 4.3.3.6) (Pdx2) (Pyridoxal 5'-phosphate synthase glutaminase subunit) (EC 3.5.1.2)	SUBUNIT: In the presence of PdxS, forms a dodecamer of heterodimers. Only shows activity in the heterodimer. {ECO:0000255|HAMAP-Rule:MF_01615, ECO:0000269|PubMed:17159152}.
+P42434	1	nasC narB nasBB BSU03310	Assimilatory nitrate reductase catalytic subunit (EC 1.7.99.4)	[MISSING]
+P94523	1	araA BSU28800	L-arabinose isomerase (EC 5.3.1.4)	[MISSING]
+O34852	1	tcyK ytmK BSU29370	L-cystine-binding protein TcyK	SUBUNIT: The complex is composed of two ATP-binding proteins (TcyN), two transmembrane proteins (TcyL and TcyM) and two solute-binding proteins (TcyJ and TcyK). {ECO:0000305}.
+P71012	1	fruA BSU14400	PTS system fructose-specific EIIABC component (EIIABC-Fru) [Includes: PTS system fructose-specific EIIA component (EC 2.7.1.202) (EII-Fru) (Fructose-specific phosphotransferase enzyme IIA component); PTS system fructose-specific EIIB component (EC 2.7.1.202) (EIII-Fru) (Fructose-specific phosphotransferase enzyme IIB component); PTS system fructose-specific EIIC component (Fructose permease IIC component)]	[MISSING]
+P39823	1	pssA pss BSU02270	CDP-diacylglycerol--serine O-phosphatidyltransferase (EC 2.7.8.8) (Phosphatidylserine synthase)	[MISSING]
+Q797S1	1	ybbF BSU01680	Putative PTS system EIIBC component YbbF [Includes: Phosphotransferase enzyme IIB component (EC 2.7.1.-) (PTS system EIIB component); Permease IIC component (PTS system EIIC component)]	[MISSING]
+O34411	1	hisK hisJ BSU29620	Histidinol-phosphatase (HolPase) (EC 3.1.3.15)	[MISSING]
+Q03523	1	murE BSU15180	UDP-N-acetylmuramoyl-L-alanyl-D-glutamate--2,6-diaminopimelate ligase (EC 6.3.2.13) (Meso-A2pm-adding enzyme) (Meso-diaminopimelate-adding enzyme) (UDP-MurNAc-L-Ala-D-Glu:meso-diaminopimelate ligase) (UDP-MurNAc-tripeptide synthetase) (UDP-N-acetylmuramyl-tripeptide synthetase)	[MISSING]
+O34362	1	ykoD BSU13220	Putative HMP/thiamine import ATP-binding protein YkoD (EC 3.6.3.-)	SUBUNIT: The complex is composed of two ATP-binding proteins (YkoD), two transmembrane proteins (YkoC and YkoE) and a solute-binding protein (YkoF). {ECO:0000305}.
+O31717	1	ykpB BSU14440	Uncharacterized oxidoreductase YkpB (EC 1.1.1.-)	[MISSING]
+P26380	1	levE sacL BSU27060	PTS system fructose-specific EIIB component (EC 2.7.1.202) (EIIB-Fru) (Fructose-specific phosphotransferase enzyme IIB component) (lev-PTS) (p18)	[MISSING]
+O34664	1	thiN yloS BSU15800	Thiamine pyrophosphokinase (TPK) (EC 2.7.6.2) (Thiamine diphosphokinase)	[MISSING]
+P25993	1	pyrAA BSU15510	Carbamoyl-phosphate synthase pyrimidine-specific small chain (EC 6.3.5.5) (Carbamoyl-phosphate synthetase glutamine chain)	SUBUNIT: Composed of two chains; the small (or glutamine) chain promotes the hydrolysis of glutamine to ammonia, which is used by the large (or ammonia) chain to synthesize carbamoyl phosphate.
+O05260	1	mrpC yufV BSU31620	Na(+)/H(+) antiporter subunit C (Mrp complex subunit C) (Multiple resistance and pH homeostasis protein C)	SUBUNIT: Forms a heterooligomeric complex that consists of seven subunits: MrpA, MrpB, MrpC, MrpD, MrpE, MrpF and MrpG. {ECO:0000269|PubMed:17693497}.
+P39156	1	ywlF BSU36920 ipc-32d	Putative sugar phosphate isomerase YwlF (EC 5.3.1.-)	[MISSING]
+P42417	1	iolF yxdF BSU39710 E83F	Minor myo-inositol transporter IolF	[MISSING]
+P94556	1	racE glr murI BSU28390	Glutamate racemase 1 (EC 5.1.1.3)	[MISSING]
+P46341	1	pstB2 pstBA yqgJ yzmE BSU24960	Phosphate import ATP-binding protein PstB 2 (EC 3.6.3.27) (ABC phosphate transporter 2) (Phosphate-transporting ATPase 2)	SUBUNIT: The complex is composed of two ATP-binding proteins (PstB), two transmembrane proteins (PstC and PstA) and a solute-binding protein (PstS). {ECO:0000255|HAMAP-Rule:MF_01702}.
+P54536	1	artQ yqiY BSU23970	Arginine transport system permease protein ArtQ	[MISSING]
+O34526	1	alaS BSU27410	Alanine--tRNA ligase (EC 6.1.1.7) (Alanyl-tRNA synthetase) (AlaRS)	[MISSING]
+P10725	1	alr1 alr dal BSU04640	Alanine racemase 1 (EC 5.1.1.1)	[MISSING]
+P94369	1	yxlA BSU38710	Putative purine-cytosine permease YxlA	[MISSING]
+O05228	1	mrpF yufC BSU31650	Na(+)/H(+) antiporter subunit F (Mrp complex subunit F) (Multiple resistance and pH homeostasis protein F) (Sodium-cholate efflux protein MrpF)	SUBUNIT: Forms a heterooligomeric complex that consists of seven subunits: MrpA, MrpB, MrpC, MrpD, MrpE, MrpF and MrpG. {ECO:0000269|PubMed:17693497}.
+P17921	1	pheS BSU28640	Phenylalanine--tRNA ligase alpha subunit (EC 6.1.1.20) (Phenylalanyl-tRNA synthetase alpha subunit) (PheRS)	SUBUNIT: Tetramer of two alpha and two beta subunits. {ECO:0000250}.
+P39756	1	fdhD narAA narQ BSU36710	Sulfur carrier protein FdhD	[MISSING]
+P46342	1	pstB1 pstBB yqgK yzmF BSU24950	Phosphate import ATP-binding protein PstB 1 (EC 3.6.3.27) (ABC phosphate transporter 1) (Phosphate-transporting ATPase 1)	SUBUNIT: The complex is composed of two ATP-binding proteins (PstB), two transmembrane proteins (PstC and PstA) and a solute-binding protein (PstS). {ECO:0000255|HAMAP-Rule:MF_01702}.
+O34764	1	sat ylnB BSU15590	Sulfate adenylyltransferase (EC 2.7.7.4) (ATP-sulfurylase) (Sulfate adenylate transferase) (SAT)	[MISSING]
+O31620	1	thiD yjbV BSU11710	Hydroxymethylpyrimidine/phosphomethylpyrimidine kinase (EC 2.7.1.49) (EC 2.7.4.7) (Hydroxymethylpyrimidine kinase) (HMP kinase) (Hydroxymethylpyrimidine phosphate kinase) (HMP-P kinase) (HMP-phosphate kinase) (HMPP kinase)	[MISSING]
+P42177	1	narI BSU37250	Nitrate reductase gamma chain (EC 1.7.99.4)	[MISSING]
+P42416	1	iolE yxdE BSU39720 E83E	Inosose dehydratase (EC 4.2.1.44) (2-keto-myo-inositol dehydratase) (2KMI dehydratase)	[MISSING]
+O34912	1	hisI hisIE BSU34860	Histidine biosynthesis bifunctional protein HisIE [Includes: Phosphoribosyl-AMP cyclohydrolase (PRA-CH) (EC 3.5.4.19); Phosphoribosyl-ATP pyrophosphatase (PRA-PH) (EC 3.6.1.31)]	[MISSING]
+P51785	1	ilvD BSU21870	Dihydroxy-acid dehydratase (DAD) (EC 4.2.1.9) (Vegetative protein 110) (VEG110)	[MISSING]
+P39912	1	aroA BSU29750	Protein AroA(G) [Includes: Phospho-2-dehydro-3-deoxyheptonate aldolase (EC 2.5.1.54) (3-deoxy-D-arabino-heptulosonate 7-phosphate synthase) (DAHP synthase) (Phospho-2-keto-3-deoxyheptonate aldolase); Chorismate mutase (EC 5.4.99.5)]	[MISSING]
+O06492	1	gatC yedA yerL BSU06670	Glutamyl-tRNA(Gln) amidotransferase subunit C (Glu-ADT subunit C) (EC 6.3.5.-)	SUBUNIT: Heterotrimer of A, B and C subunits. {ECO:0000250}.
+P12046	1	purC BSU06450	Phosphoribosylaminoimidazole-succinocarboxamide synthase (EC 6.3.2.6) (SAICAR synthetase) (Vegetative protein 286A) (VEG286A)	[MISSING]
+P50621	1	nrdF BSU17390	Ribonucleoside-diphosphate reductase subunit beta (EC 1.17.4.1) (Ribonucleotide reductase small subunit)	SUBUNIT: Tetramer of two alpha and two beta subunits. {ECO:0000250}.
+O34744	1	sumT ylnD BSU15610	Uroporphyrinogen-III C-methyltransferase (Urogen III methylase) (EC 2.1.1.107) (SUMT) (Uroporphyrinogen III methylase) (UROM)	[MISSING]
+O31752	1	cdsA BSU16540	Phosphatidate cytidylyltransferase (EC 2.7.7.41) (CDP-DAG synthase) (CDP-DG synthase) (CDP-diacylglycerol synthase) (CDS) (CDP-diglyceride pyrophosphorylase) (CDP-diglyceride synthase) (CTP:phosphatidate cytidylyltransferase)	[MISSING]
+O34966	1	znuA adcA ycdH BSU02850	High-affinity zinc uptake system binding-protein ZnuA	SUBUNIT: The complex is composed of two ATP-binding proteins (ZnuC), two transmembrane proteins (ZnuB) and a solute-binding protein (ZnuA). {ECO:0000305}.
+O31753	1	dxr yluB BSU16550	1-deoxy-D-xylulose 5-phosphate reductoisomerase (DXP reductoisomerase) (EC 1.1.1.267) (1-deoxyxylulose-5-phosphate reductoisomerase) (2-C-methyl-D-erythritol 4-phosphate synthase)	[MISSING]
+O31502	1	dagK dgkB yerQ BSU06720	Diacylglycerol kinase (DAG kinase) (DAGK) (EC 2.7.1.107)	[MISSING]
+P80886	1	sucC BSU16090	Succinate--CoA ligase [ADP-forming] subunit beta (EC 6.2.1.5) (Succinyl-CoA synthetase subunit beta) (SCS-beta)	SUBUNIT: Heterotetramer of two alpha and two beta subunits. {ECO:0000255|HAMAP-Rule:MF_00558}.
+P12039	1	purD BSU06530	Phosphoribosylamine--glycine ligase (EC 6.3.4.13) (GARS) (Glycinamide ribonucleotide synthetase) (Phosphoribosylglycinamide synthetase)	[MISSING]
+P42175	1	narG BSU37280	Nitrate reductase alpha chain (EC 1.7.99.4)	[MISSING]
+P24009	1	ctaB2 BSU14880	Protoheme IX farnesyltransferase 2 (EC 2.5.1.-) (Heme B farnesyltransferase 2) (Heme O synthase 2)	SUBUNIT: Interacts with CtaA. {ECO:0000269|PubMed:15491161}.
+P28823	1	folB folA yacE BSU00780	Dihydroneopterin aldolase (DHNA) (EC 4.1.2.25) (7,8-dihydroneopterin aldolase)	[MISSING]
+O34338	1	mntB ytgB BSU30760	Manganese transport system ATP-binding protein MntB	[MISSING]
+P38493	1	cmk jofC ypfC BSU22890	Cytidylate kinase (CK) (EC 2.7.4.25) (Cytidine monophosphate kinase) (CMP kinase)	[MISSING]
+O34328	1	gmk yloD BSU15680	Guanylate kinase (EC 2.7.4.8) (GMP kinase)	[MISSING]
+P96738	1	capA pgsA ywtB BSU35880	PGA biosynthesis protein CapA	[MISSING]
+P94367	1	cydD yxkN BSU38730	ATP-binding/permease protein CydD	[MISSING]
+Q9K2S2	1	mrpA ntrA shaA yufT BSU31600	Na(+)/H(+) antiporter subunit A (Mrp complex subunit A) (Multiple resistance and pH homeostasis protein A)	SUBUNIT: Forms a heterooligomeric complex that consists of seven subunits: MrpA, MrpB, MrpC, MrpD, MrpE, MrpF and MrpG. {ECO:0000269|PubMed:17693497}.
+O32143	1	pucE yurB BSU32470	Probable xanthine dehydrogenase subunit E (XDHase subunit E) (EC 1.17.1.4)	SUBUNIT: Could be composed of four subunits: PucA, PucC, PucD and PucE.
+O34385	1	mntA ytgA BSU30770	Manganese-binding lipoprotein MntA	[MISSING]
+P13484	1	tagE gtaA rodD BSU35730	Poly(glycerol-phosphate) alpha-glucosyltransferase (EC 2.4.1.52) (Major teichoic acid biosynthesis protein E)	[MISSING]
+P20166	1	ptsG crr ptsX BSU13890	PTS system glucose-specific EIICBA component (EC 2.7.1.199) (EII-Glc/EIII-Glc) (EIICBA-Glc) (EIICBA-Glc 1) [Includes: Glucose permease IIC component (PTS system glucose-specific EIIC component); Glucose-specific phosphotransferase enzyme IIB component (PTS system glucose-specific EIIB component); Glucose-specific phosphotransferase enzyme IIA component (PTS system glucose-specific EIIA component)]	[MISSING]
+P49814	1	mdh citH BSU29120	Malate dehydrogenase (EC 1.1.1.37) (Vegetative protein 69) (VEG69)	[MISSING]
+P54166	1	ugtP ypfP BSU21920	Processive diacylglycerol beta-glucosyltransferase (EC 2.4.1.315) (Beta-diglucosyldiacylglycerol synthase) (Beta-DGS) (DGlcDAG synthase) (Glc2-DAG synthase) (Beta-gentiobiosyldiacylglycerol synthase) (Beta-monoglucosyldiacylglycerol synthase) (Beta-MGS) (MGlcDAG synthase) (Beta-triglucosyldiacylglycerol synthase) (TGlcDAG synthase) (Diglucosyl diacylglycerol synthase (1,6-linking)) (Glucosyl-beta-1,6-glucosyldiacylglycerol synthase) (UDP glucosyltransferase) (UDP-glucose:1,2-diacylglycerol-3-beta-D-glucosyltransferase)	[MISSING]
+O34677	1	glnQ BSU27430	Glutamine transport ATP-binding protein GlnQ (EC 3.6.3.-)	SUBUNIT: The complex is composed of two ATP-binding proteins (GlnQ), two transmembrane proteins (GlnM and GlnP) and a solute-binding protein (GlnH). {ECO:0000305}.
+P94507	1	uppP bacA upk yubB BSU31150	Undecaprenyl-diphosphatase (EC 3.6.1.27) (Bacitracin resistance protein) (Undecaprenyl pyrophosphate phosphatase)	[MISSING]
+P80643	1	acpA acpP BSU15920	Acyl carrier protein (ACP)	[MISSING]
+O34406	1	tcyJ ytmJ BSU29380	L-cystine-binding protein TcyJ	SUBUNIT: The complex is composed of two ATP-binding proteins (TcyN), two transmembrane proteins (TcyL and TcyM) and two solute-binding proteins (TcyJ and TcyK). {ECO:0000305}.
+P07819	1	sacA BSU38040 ipa-50d	Sucrose-6-phosphate hydrolase (Sucrase) (EC 3.2.1.26) (Invertase)	[MISSING]
+P36946	1	rbsD BSU35930	D-ribose pyranase (EC 5.4.99.62)	SUBUNIT: Homodecamer; dimer of pentamers. {ECO:0000269|PubMed:12738765}.
+P36843	1	argJ BSU11200	Arginine biosynthesis bifunctional protein ArgJ [Cleaved into: Arginine biosynthesis bifunctional protein ArgJ alpha chain; Arginine biosynthesis bifunctional protein ArgJ beta chain] [Includes: Glutamate N-acetyltransferase (EC 2.3.1.35) (Ornithine acetyltransferase) (OATase) (Ornithine transacetylase); Amino-acid acetyltransferase (EC 2.3.1.1) (N-acetylglutamate synthase) (AGSase)]	SUBUNIT: Heterotetramer of two alpha and two beta chains. {ECO:0000255|HAMAP-Rule:MF_01106}.
+P39141	1	nupC BSU39410	Nucleoside permease NupC	[MISSING]
+P39456	1	tcyC yckI BSU03590	L-cystine import ATP-binding protein TcyC (EC 3.6.3.-)	SUBUNIT: The complex is composed of two ATP-binding proteins (TcyC), two transmembrane proteins (TcyB) and a solute-binding protein (TcyA). {ECO:0000305}.
+P16263	1	odhB citM BSU19360	Dihydrolipoyllysine-residue succinyltransferase component of 2-oxoglutarate dehydrogenase complex (EC 2.3.1.61) (2-oxoglutarate dehydrogenase complex component E2) (OGDC-E2) (Dihydrolipoamide succinyltransferase component of 2-oxoglutarate dehydrogenase complex)	SUBUNIT: Forms a 24-polypeptide structural core with octahedral symmetry.
+P37940	1	bfmBAA bfmB1a BSU24050	2-oxoisovalerate dehydrogenase subunit alpha (EC 1.2.4.4) (Branched-chain alpha-keto acid dehydrogenase E1 component alpha chain) (BCKDH E1-alpha)	SUBUNIT: Heterotetramer of two alpha and two beta chains. Directly associated with ODBB in the E1 complex.
+P19669	1	tal ywjH BSU37110	Transaldolase (EC 2.2.1.2) (20 kDa phosphoprotein OrfU) (CSI9)	[MISSING]
+O05393	1	mccA yrhA BSU27260	O-acetylserine dependent cystathionine beta-synthase (EC 2.5.1.134)	[MISSING]
+P46912	1	qcrB bfcB BSU22550	Menaquinol-cytochrome c reductase cytochrome b subunit	SUBUNIT: The main subunits of the menaquinone:cytochrome c complex are: cytochrome b, the Rieske protein and a cytochrome b/c subunit.
+P46339	1	yqgH yzmC BSU24980	Probable ABC transporter permease protein YqgH	[MISSING]
+P45740	1	thiC thiA BSU08790	Phosphomethylpyrimidine synthase (EC 4.1.99.17) (Hydroxymethylpyrimidine phosphate synthase) (HMP-P synthase) (HMP-phosphate synthase) (HMPP synthase) (Thiamine biosynthesis protein ThiC)	[MISSING]
+P40871	1	dhbE entE BSU31980	2,3-dihydroxybenzoate-AMP ligase (EC 6.3.2.-) (Dihydroxybenzoic acid-activating enzyme)	[MISSING]
+P28822	1	sul BSU00770	Dihydropteroate synthase (DHPS) (EC 2.5.1.15) (Dihydropteroate pyrophosphorylase)	[MISSING]
+O06745	1	yitJ BSU11010	Bifunctional homocysteine S-methyltransferase/5,10-methylenetetrahydrofolate reductase [Includes: Homocysteine S-methyltransferase (EC 2.1.1.10) (S-methylmethionine:homocysteine methyltransferase); 5,10-methylenetetrahydrofolate reductase (EC 1.5.1.20)]	[MISSING]
+P42437	1	nasF nasBE BSU03280	Uroporphyrinogen-III C-methyltransferase (Urogen III methylase) (EC 2.1.1.107) (SUMT) (Uroporphyrinogen III methylase) (UROM)	[MISSING]
+P42308	1	citN citH yxiQ BSU39060 N15CR	Citrate transporter	[MISSING]
+P42086	1	pbuX ypaQ BSU22060	Xanthine permease	[MISSING]
+P21885	1	speA cad BSU14630	Arginine decarboxylase (EC 4.1.1.19)	[MISSING]
+P71035	1	ureB BSU36650	Urease subunit beta (EC 3.5.1.5) (Urea amidohydrolase subunit beta)	SUBUNIT: Heterotrimer of UreA (gamma), UreB (beta) and UreC (alpha) subunits. Three heterotrimers associate to form the active enzyme. {ECO:0000255|HAMAP-Rule:MF_01954}.
+O32213	1	cysI yvgQ BSU33430	Sulfite reductase [NADPH] hemoprotein beta-component (SiR-HP) (SiRHP) (EC 1.8.1.2)	SUBUNIT: Alpha(8)-beta(8). The alpha component is a flavoprotein, the beta component is a hemoprotein (By similarity). {ECO:0000250}.
+P07601	1	trpA BSU22630	Tryptophan synthase alpha chain (EC 4.2.1.20)	SUBUNIT: Tetramer of two alpha and two beta chains. {ECO:0000255|HAMAP-Rule:MF_00131}.
+P37550	1	ispE ipk yabH BSU00460	4-diphosphocytidyl-2-C-methyl-D-erythritol kinase (CMK) (EC 2.7.1.148) (4-(cytidine-5'-diphospho)-2-C-methyl-D-erythritol kinase)	[MISSING]
+Q03522	1	murD BSU15200	UDP-N-acetylmuramoylalanine--D-glutamate ligase (EC 6.3.2.9) (D-glutamic acid-adding enzyme) (UDP-N-acetylmuramoyl-L-alanyl-D-glutamate synthetase)	[MISSING]
+P46919	1	gpsA glyC BSU22830	Glycerol-3-phosphate dehydrogenase [NAD(P)+] (EC 1.1.1.94) (NAD(P)H-dependent dihydroxyacetone-phosphate reductase) (NAD(P)H-dependent glycerol-3-phosphate dehydrogenase)	[MISSING]
+P34958	1	qoxC BSU38150 ipa-39d	Quinol oxidase subunit 3 (EC 1.10.3.-) (Oxidase aa(3)-600 subunit 3) (Quinol oxidase aa3-600, subunit QoxC) (Quinol oxidase polypeptide III)	[MISSING]
+P37813	1	atpB BSU36870	ATP synthase subunit a (ATP synthase F0 sector subunit a) (F-ATPase subunit 6)	SUBUNIT: F-type ATPases have 2 components, CF(1) - the catalytic core - and CF(0) - the membrane proton channel. CF(1) has five subunits: alpha(3), beta(3), gamma(1), delta(1), epsilon(1). CF(0) has three main subunits: a(1), b(2) and c(9-12). The alpha and beta chains form an alternating ring which encloses part of the gamma chain. CF(1) is attached to CF(0) by a central stalk formed by the gamma and epsilon chains, while a peripheral stalk is formed by the delta and b chains (Probable). The F(1)F(0) complex interacts with SpoIIIJ and YqjG; YqgA is found in the same complex. {ECO:0000255|HAMAP-Rule:MF_01393, ECO:0000269|PubMed:19717609, ECO:0000305}.
+P08877	1	ptsH BSU13900	Phosphocarrier protein HPr (EC 2.7.11.-) (Histidine-containing protein)	[MISSING]
+P54572	1	yqkJ BSU23550	Probable NAD-dependent malic enzyme 1 (NAD-ME 1) (EC 1.1.1.38)	[MISSING]
+Q795M6	1	yugH alaT BSU31400	Putative aminotransferase YugH (EC 2.6.1.-)	[MISSING]
+P21203	1	pheA BSU27900	Prephenate dehydratase (PDT) (EC 4.2.1.51)	[MISSING]
+P24013	1	ctaF BSU14920	Cytochrome c oxidase subunit 4B (EC 1.9.3.1) (Caa-3605 subunit 4B) (Cytochrome aa3 subunit 4B) (Cytochrome c oxidase polypeptide IVB)	[MISSING]
+P12040	1	purN BSU06510	Phosphoribosylglycinamide formyltransferase (EC 2.1.2.2) (5'-phosphoribosylglycinamide transformylase) (GAR transformylase) (GART)	[MISSING]
+O34738	1	ykoE BSU13230	Putative HMP/thiamine permease protein YkoE	SUBUNIT: The complex is composed of two ATP-binding proteins (YkoD), two transmembrane proteins (YkoC and YkoE) and a solute-binding protein (YkoF). {ECO:0000305}.
+O32214	1	cysJ yvgR BSU33440	Sulfite reductase [NADPH] flavoprotein alpha-component (SiR-FP) (EC 1.8.1.2)	SUBUNIT: Alpha(8)-beta(8). The alpha component is a flavoprotein, the beta component is a hemoprotein (By similarity). {ECO:0000250}.
+P12011	1	gntK BSU40060	Gluconokinase (EC 2.7.1.12) (Gluconate kinase)	[MISSING]
+O31617	1	thiS yjbS BSU11680	Sulfur carrier protein ThiS (Thiamine biosynthesis protein ThiS)	SUBUNIT: Forms heterodimers with ThiG. {ECO:0000269|PubMed:15362849}.
+P36949	1	rbsB BSU35960	Ribose import binding protein RbsB	SUBUNIT: The complex is composed of an ATP-binding protein (RbsA), two transmembrane proteins (RbsC) and a solute-binding protein (RbsB). {ECO:0000250|UniProtKB:P02925}.
+P39577	1	dltE BSU38540 ipa-1r	Uncharacterized oxidoreductase DltE (EC 1.-.-.-)	[MISSING]
+P31113	1	menG gerC2 gerCB menH BSU22750	Demethylmenaquinone methyltransferase (EC 2.1.1.163)	[MISSING]
+O34978	1	pbuO ytiP BSU29990	Guanine/hypoxanthine permease PbuO	[MISSING]
+P37585	1	murG BSU15220	UDP-N-acetylglucosamine--N-acetylmuramyl-(pentapeptide) pyrophosphoryl-undecaprenol N-acetylglucosamine transferase (EC 2.4.1.227) (Undecaprenyl-PP-MurNAc-pentapeptide-UDPGlcNAc GlcNAc transferase)	[MISSING]
+P39062	1	acsA BSU29680	Acetyl-coenzyme A synthetase (AcCoA synthetase) (Acs) (EC 6.2.1.1) (Acetate--CoA ligase) (Acyl-activating enzyme)	[MISSING]
+P10944	1	hutH BSU39350	Histidine ammonia-lyase (Histidase) (EC 4.3.1.3)	[MISSING]
+P34957	1	qoxA BSU38170 ipa-37d	Quinol oxidase subunit 2 (EC 1.10.3.-) (Oxidase aa(3)-600 subunit 2) (Quinol oxidase aa3-600, subunit QoxA) (Quinol oxidase polypeptide II)	[MISSING]
+O34767	1	oxdD yoaN BSU18670	Oxalate decarboxylase OxdD (EC 4.1.1.2)	[MISSING]
+P37811	1	atpH BSU36840	ATP synthase subunit delta (ATP synthase F(1) sector subunit delta) (F-type ATPase subunit delta) (F-ATPase subunit delta)	SUBUNIT: F-type ATPases have 2 components, F(1) - the catalytic core - and F(0) - the membrane proton channel. F(1) has five subunits: alpha(3), beta(3), gamma(1), delta(1), epsilon(1). F(0) has three main subunits: a(1), b(2) and c(10-14). The alpha and beta chains form an alternating ring which encloses part of the gamma chain. F(1) is attached to F(0) by a central stalk formed by the gamma and epsilon chains, while a peripheral stalk is formed by the delta and b chains (Probable). The F(1)F(0) complex interacts with SpoIIIJ and YqjG; YqgA is found in the same complex. {ECO:0000255|HAMAP-Rule:MF_01416, ECO:0000269|PubMed:19717609, ECO:0000305}.
+O31619	1	thiF yjbU BSU11700	Sulfur carrier protein ThiS adenylyltransferase (EC 2.7.7.73)	[MISSING]
+O34734	1	cysP ylnA BSU15580	Sulfate permease CysP	[MISSING]
+P70965	1	murAA murA BSU36760	UDP-N-acetylglucosamine 1-carboxyvinyltransferase 1 (EC 2.5.1.7) (Enoylpyruvate transferase 1) (UDP-N-acetylglucosamine enolpyruvyl transferase 1) (EPT 1)	[MISSING]
+O34329	1	ctaG BSU14930	Protein CtaG	[MISSING]
+P42414	1	iolC yxdC BSU39740 E83C	5-dehydro-2-deoxygluconokinase (EC 2.7.1.92) (2-deoxy-5-keto-D-gluconate kinase) (DKG kinase)	[MISSING]
+P35136	1	serA BSU23070	D-3-phosphoglycerate dehydrogenase (PGDH) (EC 1.1.1.95) (2-oxoglutarate reductase) (EC 1.1.1.399)	[MISSING]
+P46319	1	licA celC BSU38570	Lichenan-specific phosphotransferase enzyme IIA component (EC 2.7.1.-) (EIIA-Lic) (EIII-Lic) (PTS system lichenan-specific EIIA component)	[MISSING]
+P50740	1	fni idi ypgA BSU22870	Isopentenyl-diphosphate delta-isomerase (IPP isomerase) (EC 5.3.3.2) (Isopentenyl diphosphate:dimethylallyl diphosphate isomerase) (Isopentenyl pyrophosphate isomerase) (Type 2 isopentenyl diphosphate isomerase) (IDI-2)	SUBUNIT: Homooctamer. Dimer of tetramers. {ECO:0000255|HAMAP-Rule:MF_00354, ECO:0000269|PubMed:12798687}.
+P12048	1	purH purHJ BSU06520	Bifunctional purine biosynthesis protein PurH [Includes: Phosphoribosylaminoimidazolecarboxamide formyltransferase (EC 2.1.2.3) (AICAR transformylase); IMP cyclohydrolase (EC 3.5.4.10) (ATIC) (IMP synthase) (Inosinicase)]	[MISSING]
+O05505	1	gmuB ydhM BSU05810	PTS system oligo-beta-mannoside-specific EIIB component (Glucomannan utilization protein B) (Oligo-beta-mannoside-specific phosphotransferase enzyme IIB component) (EC 2.7.1.205)	[MISSING]
+O34931	1	tcyM ytmM BSU29350	L-cystine transport system permease protein TcyM	SUBUNIT: The complex is composed of two ATP-binding proteins (TcyN), two transmembrane proteins (TcyL and TcyM) and two solute-binding proteins (TcyJ and TcyK). {ECO:0000305}.
+Q03224	1	glpX ywjI BSU37090	Fructose-1,6-bisphosphatase class 2 (FBPase class 2) (EC 3.1.3.11) (D-fructose-1,6-bisphosphate 1-phosphohydrolase class 2)	[MISSING]
+P42068	1	hutG BSU39380 EE57C	Formimidoylglutamase (EC 3.5.3.8) (Formiminoglutamase) (Formiminoglutamate hydrolase) (N-formimino-L-glutamate formiminohydrolase)	[MISSING]
+P20167	1	trpF BSU22650	N-(5'-phosphoribosyl)anthranilate isomerase (PRAI) (EC 5.3.1.24)	[MISSING]
+P46318	1	licB celA BSU38590	Lichenan-specific phosphotransferase enzyme IIB component (EC 2.7.1.-) (EIIB-Lic) (PTS system lichenan-specific EIIB component)	[MISSING]
+P94390	1	putB ycgM BSU03200	Proline dehydrogenase 2 (PRODH 2) (EC 1.5.5.2) (Proline oxidase 2)	[MISSING]
+O34521	1	nagP BSU07700	PTS system N-acetylglucosamine-specific EIICB component (EIICB-Nag) [Includes: N-acetylglucosamine permease IIC component (PTS system N-acetylglucosamine-specific EIIC component); N-acetylglucosamine-specific phosphotransferase enzyme IIB component (EC 2.7.1.-) (PTS system N-acetylglucosamine-specific EIIB component)]	[MISSING]
+P36430	1	leuS BSU30320	Leucine--tRNA ligase (EC 6.1.1.4) (Leucyl-tRNA synthetase) (LeuRS)	[MISSING]
+P28820	1	pabB pab BSU00740	Aminodeoxychorismate synthase component 1 (ADC synthase) (ADCS) (EC 2.6.1.85) (4-amino-4-deoxychorismate synthase component 1)	SUBUNIT: Monomer. Heterodimer consisting of two non-identical subunits: a glutamine amidotransferase subunit (PabA) and a aminodeoxychorismate synthase subunit (PabB). {ECO:0000269|PubMed:19275258}.
+P18158	1	glpD BSU09300	Aerobic glycerol-3-phosphate dehydrogenase (EC 1.1.5.3)	[MISSING]
+O32149	1	pucF yurH BSU32530	Allantoate amidohydrolase (AAH) (EC 3.5.3.9) (Allantoate deiminase)	SUBUNIT: Homodimer. {ECO:0000250|UniProtKB:P77425}.
+P14192	1	glmU gcaD tms tms-26 BSU00500	Bifunctional protein GlmU [Includes: UDP-N-acetylglucosamine pyrophosphorylase (EC 2.7.7.23) (N-acetylglucosamine-1-phosphate uridyltransferase); Glucosamine-1-phosphate N-acetyltransferase (EC 2.3.1.157)]	SUBUNIT: Homotrimer. {ECO:0000255|HAMAP-Rule:MF_01631}.
+P27623	1	tagD BSU35740	Glycerol-3-phosphate cytidylyltransferase (GCT) (GCTase) (Gro-PCT) (EC 2.7.7.39) (CDP-glycerol pyrophosphorylase) (Teichoic acid biosynthesis protein D)	SUBUNIT: Homodimer. {ECO:0000269|PubMed:14506262, ECO:0000269|PubMed:8393871}.
+P20691	1	aroA aroE BSU22600	3-phosphoshikimate 1-carboxyvinyltransferase (EC 2.5.1.19) (5-enolpyruvylshikimate-3-phosphate synthase) (EPSP synthase) (EPSPS)	SUBUNIT: Monomer. {ECO:0000255|HAMAP-Rule:MF_00210}.
+P36839	1	argD BSU11220	Acetylornithine aminotransferase (ACOAT) (EC 2.6.1.11)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_01107}.
+P54455	1	nadD yqeJ BSU25640	Nicotinate-nucleotide adenylyltransferase (EC 2.7.7.18) (Deamido-NAD(+) diphosphorylase) (Deamido-NAD(+) pyrophosphorylase) (Nicotinate mononucleotide adenylyltransferase) (NaMN adenylyltransferase)	SUBUNIT: Homodimer.
+P42412	1	iolA mmsA yxdA BSU39760 E83A	Malonate-semialdehyde dehydrogenase (MSA dehydrogenase) (EC 1.2.1.-) (Methylmalonate-semialdehyde dehydrogenase) (MMSA dehydrogenase) (MMSDH) (MSDH) (EC 1.2.1.27)	SUBUNIT: Homotetramer. {ECO:0000255|HAMAP-Rule:MF_01670, ECO:0000269|PubMed:15272169}.
+O31631	1	metI yjcI BSU11870	Cystathionine gamma-synthase/O-acetylhomoserine (thiol)-lyase (CGS/OAH thiolyase) (EC 2.5.1.-) (O-acetylhomoserine sulfhydrylase) (OAH sulfhydrylase)	SUBUNIT: Homotetramer. {ECO:0000250}.
+O32039	1	hisS BSU27560	Histidine--tRNA ligase (EC 6.1.1.21) (Histidyl-tRNA synthetase) (HisRS)	SUBUNIT: Homodimer. {ECO:0000250}.
+P39594	1	thiE thiC ywbK BSU38290 ipa-26d	Thiamine-phosphate synthase (TP synthase) (TPS) (EC 2.5.1.3) (Thiamine-phosphate pyrophosphorylase) (TMP pyrophosphorylase) (TMP-PPase)	SUBUNIT: Monomer. {ECO:0000269|PubMed:10350464}.
+P16304	1	adk BSU01370	Adenylate kinase (AK) (EC 2.7.4.3) (ATP-AMP transphosphorylase) (ATP:AMP phosphotransferase) (Adenylate monophosphate kinase) (Superoxide-inducible protein 16) (SOI16)	SUBUNIT: Monomer. {ECO:0000255|HAMAP-Rule:MF_00235, ECO:0000269|PubMed:16713575}.
+P39142	1	pdp BSU39400	Pyrimidine-nucleoside phosphorylase (PYNP) (Py-NPase) (EC 2.4.2.2)	SUBUNIT: Homodimer. {ECO:0000250|UniProtKB:P77836}.
+P19079	1	cdd BSU25300	Cytidine deaminase (CDA) (EC 3.5.4.5) (Cytidine aminohydrolase)	SUBUNIT: Homotetramer. {ECO:0000269|PubMed:11851403, ECO:0000269|PubMed:15147186}.
+O31668	1	mtnB ykrY BSU13610	Methylthioribulose-1-phosphate dehydratase (MTRu-1-P dehydratase) (EC 4.2.1.109)	SUBUNIT: Homotetramer. {ECO:0000269|PubMed:18391471}.
+P46906	1	argS BSU37330	Arginine--tRNA ligase (EC 6.1.1.19) (Arginyl-tRNA synthetase) (ArgRS)	SUBUNIT: Monomer. {ECO:0000250}.
+Q06004	1	gutB BSU06150	Sorbitol dehydrogenase (EC 1.1.1.14) (Glucitol dehydrogenase) (L-iditol 2-dehydrogenase)	SUBUNIT: Homotetramer.
+P25971	1	pyrF BSU15550	Orotidine 5'-phosphate decarboxylase (EC 4.1.1.23) (OMP decarboxylase) (OMPDCase) (OMPdecase)	SUBUNIT: Homodimer. {ECO:0000269|PubMed:10681442}.
+P39126	1	icd citC BSU29130	Isocitrate dehydrogenase [NADP] (IDH) (EC 1.1.1.42) (IDP) (NADP(+)-specific ICDH) (Oxalosuccinate decarboxylase)	SUBUNIT: Homodimer. {ECO:0000269|PubMed:11290745}.
+P29726	1	purA BSU40420	Adenylosuccinate synthetase (AMPSase) (AdSS) (EC 6.3.4.4) (IMP--aspartate ligase)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00011}.
+O34425	1	gapB BSU29020	Glyceraldehyde-3-phosphate dehydrogenase 2 (GAPDH) (EC 1.2.1.59) (NAD(P)-dependent glyceraldehyde-3-phosphate dehydrogenase)	SUBUNIT: Homotetramer. {ECO:0000250|UniProtKB:P00362}.
+O32148	1	pucG yurG BSU32520	(S)-ureidoglycine--glyoxylate transaminase (UGXT) (EC 2.6.1.112) ((S)-ureidoglycine--glyoxylate aminotransferase) (Purine catabolism protein PucG)	SUBUNIT: Homodimer. {ECO:0000269|PubMed:20852637}.
+O31465	1	glsA1 glsA ybgJ BSU02430	Glutaminase 1 (EC 3.5.1.2)	SUBUNIT: Homotetramer. {ECO:0000269|PubMed:18459799}.
+P18255	1	thrS thrSV BSU28950	Threonine--tRNA ligase 1 (EC 6.1.1.3) (Threonyl-tRNA synthetase 1) (ThrRS 1)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00184}.
+P00497	1	purF BSU06490	Amidophosphoribosyltransferase (ATase) (EC 2.4.2.14) (Glutamine phosphoribosylpyrophosphate amidotransferase) (GPATase)	SUBUNIT: Homotetramer. {ECO:0000269|PubMed:8197456}.
+P12045	1	purK BSU06430	N5-carboxyaminoimidazole ribonucleotide synthase (N5-CAIR synthase) (EC 6.3.4.18) (5-(carboxyamino)imidazole ribonucleotide synthetase)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_01928}.
+P37887	1	cysK BSU00730	Cysteine synthase (CSase) (EC 2.5.1.47) (O-acetylserine (thiol)-lyase) (OAS-TL) (Superoxide-inducible protein 11) (SOI11)	SUBUNIT: Homodimer. Forms CymR(2):CysK(2) or CymR(4):CysK(4) complexes in the absence of O-acetylserine. {ECO:0000269|PubMed:18974048}.
+P39773	1	gpmI pgm BSU33910	2,3-bisphosphoglycerate-independent phosphoglycerate mutase (BPG-independent PGAM) (Phosphoglyceromutase) (iPGM) (EC 5.4.2.12) (Vegetative protein 107) (VEG107)	SUBUNIT: Monomer. {ECO:0000255|HAMAP-Rule:MF_01038}.
+P54374	1	aroE aroD BSU25660	Shikimate dehydrogenase (NADP(+)) (SDH) (EC 1.1.1.25)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00222}.
+P32397	1	hemY hemG BSU10140	Protoporphyrinogen oxidase (PPO) (EC 1.3.3.4)	SUBUNIT: Monomer. {ECO:0000269|PubMed:19944166, ECO:0000269|PubMed:8288631}.
+P54533	1	bfmBC yqiV BSU24060	Dihydrolipoyl dehydrogenase (EC 1.8.1.4) (Dihydrolipoamide dehydrogenase) (E3 component of branched-chain alpha-keto acid dehydrogenase complex) (LPD-Val)	SUBUNIT: Homodimer. {ECO:0000250}.
+P31114	1	hepT gerC3 gerCC hepB BSU22740	Heptaprenyl diphosphate synthase component 2 (HepPP synthase subunit 2) (EC 2.5.1.30) (Spore germination protein C3)	SUBUNIT: Heterodimer of component I and II.
+P29727	1	guaA BSU06360	GMP synthase [glutamine-hydrolyzing] (EC 6.3.5.2) (GMP synthetase) (Glutamine amidotransferase)	SUBUNIT: Homodimer. {ECO:0000250}.
+P49786	1	accB fabE yqhW BSU24350	Biotin carboxyl carrier protein of acetyl-CoA carboxylase (BCCP)	SUBUNIT: Homodimer. {ECO:0000250}.
+O34727	1	hisF BSU34870	Imidazole glycerol phosphate synthase subunit HisF (EC 4.1.3.-) (IGP synthase cyclase subunit) (IGP synthase subunit HisF) (ImGP synthase subunit HisF) (IGPS subunit HisF)	SUBUNIT: Heterodimer of HisH and HisF. {ECO:0000250}.
+P53559	1	bioW BSU30240	6-carboxyhexanoate--CoA ligase (EC 6.2.1.14) (Pimeloyl-CoA synthase)	SUBUNIT: Homodimer. {ECO:0000250}.
+P16616	1	hemC BSU28150	Porphobilinogen deaminase (PBG) (EC 2.5.1.61) (Hydroxymethylbilane synthase) (HMBS) (Pre-uroporphyrinogen synthase)	SUBUNIT: Monomer.
+P27876	1	tpiA tpi BSU33920	Triosephosphate isomerase (TIM) (TPI) (EC 5.3.1.1) (Triose-phosphate isomerase)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00147}.
+O07600	6	fabHB fabH2 yhfB BSU10170	3-oxoacyl-[acyl-carrier-protein] synthase 3 protein 2 (EC 2.3.1.180) (3-oxoacyl-[acyl-carrier-protein] synthase III protein 2) (Beta-ketoacyl-ACP synthase III 2) (KAS III 2) (bFabH2)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_01815}.
+O07605	1	gltT yhfG BSU10220	Proton/sodium-glutamate symport protein (Glutamate-aspartate carrier protein)	SUBUNIT: Homotrimer. {ECO:0000250}.
+P80860	1	pgi yugL BSU31350	Glucose-6-phosphate isomerase (GPI) (EC 5.3.1.9) (Phosphoglucose isomerase) (PGI) (Phosphohexose isomerase) (PHI) (Vegetative protein 54) (VEG54)	SUBUNIT: Homodimer. {ECO:0000250}.
+P30949	1	hemL hemK BSU28120	Glutamate-1-semialdehyde 2,1-aminomutase (GSA) (EC 5.4.3.8) (Glutamate-1-semialdehyde aminotransferase) (GSA-AT)	SUBUNIT: Homodimer. {ECO:0000250}.
+P53556	1	bioF BSU30220	8-amino-7-oxononanoate synthase 2 (AONS) (EC 2.3.1.47) (7-keto-8-amino-pelargonic acid synthase) (7-KAP synthase) (8-amino-7-ketopelargonate synthase)	SUBUNIT: Homodimer. {ECO:0000305}.
+P80885	1	pyk pykA BSU29180	Pyruvate kinase (PK) (EC 2.7.1.40) (Vegetative protein 17) (VEG17)	SUBUNIT: Homotetramer. {ECO:0000250}.
+P25995	1	pyrC BSU15500	Dihydroorotase (DHOase) (EC 3.5.2.3)	SUBUNIT: Homodimer.
+P16618	1	hemA BSU28170	Glutamyl-tRNA reductase (GluTR) (EC 1.2.1.70)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00087}.
+O31662	1	mtnA ykrS BSU13550	Methylthioribose-1-phosphate isomerase (M1Pi) (MTR-1-P isomerase) (EC 5.3.1.23) (S-methyl-5-thioribose-1-phosphate isomerase)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_01678, ECO:0000269|PubMed:17690466, ECO:0000269|PubMed:18156470}.
+O34797	1	coaD ylbI BSU15020	Phosphopantetheine adenylyltransferase (EC 2.7.7.3) (Dephospho-CoA pyrophosphorylase) (Pantetheine-phosphate adenylyltransferase) (PPAT)	SUBUNIT: Homohexamer. {ECO:0000255|HAMAP-Rule:MF_00151}.
+P08164	1	nadE outB BSU03130	NH(3)-dependent NAD(+) synthetase (EC 6.3.1.5) (General stress protein 38) (GSP38) (Spore outgrowth factor B) (Sporulation protein OutB)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00193, ECO:0000269|PubMed:11375500, ECO:0000269|PubMed:12077433, ECO:0000269|PubMed:7890752, ECO:0000269|PubMed:8895556, ECO:0000269|PubMed:9753692}.
+P94364	1	cydA yxkK BSU38760	Cytochrome bd ubiquinol oxidase subunit 1 (EC 1.10.3.-) (Cytochrome d ubiquinol oxidase subunit I)	SUBUNIT: Heterodimer of subunits I and II. {ECO:0000250}.
+P37944	1	aroK aroI BSU03150	Shikimate kinase (SK) (EC 2.7.1.71)	SUBUNIT: Monomer. {ECO:0000255|HAMAP-Rule:MF_00109}.
+P80859	1	gndA yqjI BSU23860	6-phosphogluconate dehydrogenase, NADP(+)-dependent, decarboxylating (EC 1.1.1.44) (GNTZII)	SUBUNIT: Homodimer. {ECO:0000250}.
+P13242	1	pyrG ctrA BSU37150	CTP synthase (EC 6.3.4.2) (Cytidine 5'-triphosphate synthase) (Cytidine triphosphate synthetase) (CTP synthetase) (CTPS) (UTP--ammonia ligase)	SUBUNIT: Homotetramer. {ECO:0000255|HAMAP-Rule:MF_01227}.
+P42956	1	mtlA BSU03981 BSU03980	PTS system mannitol-specific EIICB component (EIICB-Mtl) (EII-Mtl) [Includes: Mannitol permease IIC component (PTS system mannitol-specific EIIC component); Mannitol-specific phosphotransferase enzyme IIB component (EC 2.7.1.197) (PTS system mannitol-specific EIIB component)]	SUBUNIT: Homodimer. {ECO:0000250|UniProtKB:P28008}.
+P19406	1	phoA phoAIV BSU09410	Alkaline phosphatase 4 (EC 3.1.3.1) (Alkaline phosphatase IV) (APase IV)	SUBUNIT: Monomer.
+P53557	1	bioB BSU30200	Biotin synthase (EC 2.8.1.6)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_01694}.
+O34450	1	nagA BSU35010	N-acetylglucosamine-6-phosphate deacetylase (GlcNAc 6-P deacetylase) (EC 3.5.1.25)	SUBUNIT: Homodimer. {ECO:0000269|PubMed:14557261}.
+Q05873	1	valS BSU28090	Valine--tRNA ligase (EC 6.1.1.9) (Valyl-tRNA synthetase) (ValRS)	SUBUNIT: Monomer. {ECO:0000255|HAMAP-Rule:MF_02004}.
+P31104	1	aroC aroF BSU22710	Chorismate synthase (CS) (EC 4.2.3.5) (5-enolpyruvylshikimate-3-phosphate phospholyase)	SUBUNIT: Homotetramer. {ECO:0000255|HAMAP-Rule:MF_00300}.
+Q45477	1	ileS BSU15430	Isoleucine--tRNA ligase (EC 6.1.1.5) (Isoleucyl-tRNA synthetase) (IleRS)	SUBUNIT: Monomer. {ECO:0000255|HAMAP-Rule:MF_02002}.
+O32038	1	aspS BSU27550	Aspartate--tRNA(Asp/Asn) ligase (EC 6.1.1.23) (Aspartyl-tRNA synthetase) (AspRS) (Non-discriminating aspartyl-tRNA synthetase) (ND-AspRS)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00044}.
+P22250	1	gltX BSU00920	Glutamate--tRNA ligase (EC 6.1.1.17) (Glutamyl-tRNA synthetase) (GluRS)	SUBUNIT: Monomer. {ECO:0000255|HAMAP-Rule:MF_00022}.
+P37564	1	coaX coaA yacB BSU00700	Type III pantothenate kinase (EC 2.7.1.33) (PanK-III) (Pantothenic acid kinase)	SUBUNIT: Homodimer. {ECO:0000250}.
+P42084	1	hutI BSU39370 EE57B	Imidazolonepropionase (EC 3.5.2.7) (Imidazolone-5-propionate hydrolase)	SUBUNIT: Homodimer. {ECO:0000269|PubMed:16990261}.
+P21879	1	guaB gnaB BSU00090	Inosine-5'-monophosphate dehydrogenase (IMP dehydrogenase) (IMPD) (IMPDH) (EC 1.1.1.205) (Superoxide-inducible protein 12) (SOI12)	SUBUNIT: Homotetramer. {ECO:0000255|HAMAP-Rule:MF_01964}.
+P80862	1	serC yhaF BSU10020	Phosphoserine aminotransferase (EC 2.6.1.52) (Phosphohydroxythreonine aminotransferase) (PSAT) (Vegetative protein 234) (VEG234)	SUBUNIT: Homodimer. {ECO:0000250}.
+P23630	1	lysA lys BSU23380	Diaminopimelate decarboxylase (DAP decarboxylase) (DAPDC) (EC 4.1.1.20)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_02120}.
+Q9KWU4	1	pyc pycA ylaP BSU14860	Pyruvate carboxylase (EC 6.4.1.1) (Pyruvic carboxylase) (PYC)	SUBUNIT: Homotetramer. {ECO:0000250}.
+O32164	1	sufS csd yurW BSU32690	Cysteine desulfurase SufS (EC 2.8.1.7)	SUBUNIT: Homodimer. Interacts with SufU; the complex is more stable in the presence of L-cysteine. An N-terminal His-tag destabilizes this interaction. {ECO:0000269|PubMed:20822158, ECO:0000269|PubMed:21236255}.
+O31475	1	ycgT BSU03270	Ferredoxin--NADP reductase 1 (FNR 1) (Fd-NADP(+) reductase 1) (EC 1.18.1.2)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_01685}.
+O31618	1	thiG yjbT BSU11690	Thiazole synthase (EC 2.8.1.10)	SUBUNIT: Homotetramer. Forms heterodimers with either ThiH or ThiS. {ECO:0000269|PubMed:15362849}.
+P53555	1	bioK bioA BSU30230	L-Lysine--8-amino-7-oxononanoate transaminase (EC 2.6.1.105) (7,8-diamino-pelargonic acid aminotransferase) (DAPA AT) (DAPA aminotransferase) (7,8-diaminononanoate synthase) (DANS) (Diaminopelargonic acid synthase) (L-Lysine--8-amino-7-oxononanoate aminotransferase)	SUBUNIT: Homodimer. {ECO:0000250}.
+P71079	6	fabL yfhR ygaA BSU08650	Enoyl-[acyl-carrier-protein] reductase [NADPH] FabL (ENR) (EC 1.3.1.104) (Enoyl-acyl carrier protein reductase III) (NADPH-dependent enoyl-ACP reductase)	SUBUNIT: Homotetramer. {ECO:0000269|PubMed:21185310}.
+P71018	1	plsX ylpD BSU15890	Phosphate acyltransferase (EC 2.3.1.n2) (Acyl-ACP phosphotransacylase) (Acyl-[acyl-carrier-protein]--phosphate acyltransferase) (Phosphate-acyl-ACP acyltransferase)	SUBUNIT: Homodimer (By similarity). Probably interacts with PlsY. {ECO:0000255|HAMAP-Rule:MF_00019, ECO:0000269|PubMed:19282621}.
+P42435	1	nasD nasBC nirB BSU03300	Nitrite reductase [NAD(P)H] (EC 1.7.1.4)	SUBUNIT: Homodimer. {ECO:0000250}.
+P08838	1	ptsI BSU13910	Phosphoenolpyruvate-protein phosphotransferase (EC 2.7.3.9) (Phosphotransferase system, enzyme I)	SUBUNIT: Homodimer. {ECO:0000250|UniProtKB:P08839}.
+P54523	1	dxs yqiE BSU24270	1-deoxy-D-xylulose-5-phosphate synthase (EC 2.2.1.7) (1-deoxyxylulose-5-phosphate synthase) (DXP synthase) (DXPS)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00315}.
+O34635	1	sdaAB yloW BSU15850	Probable L-serine dehydratase, beta chain (SDH) (EC 4.3.1.17) (L-serine deaminase) (L-SD)	SUBUNIT: Heterodimer of an alpha chain and a beta chain. {ECO:0000250}.
+P37529	1	dck dak yaaF BSU00140	Deoxyadenosine/deoxycytidine kinase (dAK/dCK) (EC 2.7.1.74) (EC 2.7.1.76)	SUBUNIT: Homodimer. {ECO:0000269|PubMed:11078735}.
+O34840	1	chaA yfkE BSU07920	Ca(2+)/H(+) antiporter ChaA	SUBUNIT: Homotrimer. {ECO:0000269|PubMed:23798403}.
+P09124	1	gapA gap BSU33940	Glyceraldehyde-3-phosphate dehydrogenase 1 (GAPDH) (EC 1.2.1.12) (NAD-dependent glyceraldehyde-3-phosphate dehydrogenase)	SUBUNIT: Homotetramer. {ECO:0000250|UniProtKB:P00362}.
+P39120	1	citZ citA2 BSU29140	Citrate synthase 2 (EC 2.3.3.16) (Citrate synthase II)	SUBUNIT: Homodimer. {ECO:0000305}.
+P52998	1	panC BSU22420	Pantothenate synthetase (PS) (EC 6.3.2.1) (Pantoate--beta-alanine ligase) (Pantoate-activating enzyme)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00158}.
+P26899	1	ansB BSU23570	Aspartate ammonia-lyase (Aspartase) (EC 4.3.1.1)	SUBUNIT: Homotetramer.
+Q05865	1	folC BSU28080	Dihydrofolate synthase/folylpolyglutamate synthase (DHFS / FPGS) (EC 6.3.2.12) (EC 6.3.2.17) (Folylpoly-gamma-glutamate synthetase-dihydrofolate synthetase) (Folylpolyglutamate synthetase) (Tetrahydrofolylpolyglutamate synthase)	SUBUNIT: Monomer. {ECO:0000250|UniProtKB:P08192}.
+P51831	6	fabG ylpF BSU15910	3-oxoacyl-[acyl-carrier-protein] reductase FabG (EC 1.1.1.100) (3-ketoacyl-acyl carrier protein reductase) (Beta-Ketoacyl-acyl carrier protein reductase) (Beta-ketoacyl-ACP reductase)	SUBUNIT: Homotetramer. {ECO:0000250}.
+P21882	1	pdhB aceB BSU14590	Pyruvate dehydrogenase E1 component subunit beta (EC 1.2.4.1) (S complex, 36 kDa subunit)	SUBUNIT: Heterodimer of an alpha and a beta chain.
+P40924	1	pgk BSU33930	Phosphoglycerate kinase (EC 2.7.2.3)	SUBUNIT: Monomer. {ECO:0000250}.
+P39633	1	rocG gudA yweB BSU37790 ipa-75d	Catabolic NAD-specific glutamate dehydrogenase RocG (NAD-GDH) (EC 1.4.1.2) (Glutamate dehydrogenase) (GlutDH) (Trigger enzyme RocG)	SUBUNIT: Homohexamer. {ECO:0000269|PubMed:16244435, ECO:0000269|PubMed:20630473}.
+P39148	1	glyA glyC BSU36900 ipc-34d	Serine hydroxymethyltransferase (SHMT) (Serine methylase) (EC 2.1.2.1)	SUBUNIT: Homodimer. {ECO:0000269|PubMed:12356312}.
+P30950	1	hemB BSU28130	Delta-aminolevulinic acid dehydratase (ALAD) (ALADH) (EC 4.2.1.24) (Porphobilinogen synthase)	SUBUNIT: Homooctamer. {ECO:0000250}.
+P39822	1	psd BSU02290	Phosphatidylserine decarboxylase proenzyme (EC 4.1.1.65) [Cleaved into: Phosphatidylserine decarboxylase alpha chain; Phosphatidylserine decarboxylase beta chain]	SUBUNIT: Heterodimer of a large membrane-associated beta subunit and a small pyruvoyl-containing alpha subunit. {ECO:0000255|HAMAP-Rule:MF_00662}.
+P23970	1	menD BSU30820	2-succinyl-5-enolpyruvyl-6-hydroxy-3-cyclohexene-1-carboxylate synthase (SEPHCHC synthase) (EC 2.2.1.9) (Menaquinone biosynthesis protein MenD)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_01659}.
+P19080	1	aroH BSU22690	Chorismate mutase AroH (CM) (EC 5.4.99.5)	SUBUNIT: Homotrimer. {ECO:0000269|PubMed:10818343, ECO:0000269|PubMed:8046752, ECO:0000269|PubMed:8378335}.
+P46354	1	punA deoD pnp yqkO BSU23490	Purine nucleoside phosphorylase 1 (PNP 1) (EC 2.4.2.1) (Inosine phosphorylase) (Inosine-guanosine phosphorylase) (Purine nucleoside phosphorylase I) (PNP I) (Pu-NPase I)	SUBUNIT: Homotrimer. {ECO:0000250|UniProtKB:P77834}.
+P36945	1	rbsK BSU35920	Ribokinase (RK) (EC 2.7.1.15)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_01987}.
+P94565	1	leuA BSU28280	2-isopropylmalate synthase (EC 2.3.3.13) (Alpha-IPM synthase) (Alpha-isopropylmalate synthase)	SUBUNIT: Homotetramer. {ECO:0000250}.
+O31749	1	pyrH smbA BSU16510	Uridylate kinase (UK) (EC 2.7.4.22) (Uridine monophosphate kinase) (UMP kinase) (UMPK)	SUBUNIT: Homohexamer. {ECO:0000269|PubMed:12869195}.
+O34824	1	glmM ybbT BSU01770	Phosphoglucosamine mutase (EC 5.4.2.10)	SUBUNIT: Homodimer, may form a complex with CdaA. {ECO:0000269|PubMed:26240071}.
+P09339	1	citB BSU18000	Aconitate hydratase A (ACN) (Aconitase) (EC 4.2.1.3) ((2R,3S)-2-methylisocitrate dehydratase) ((2S,3R)-3-hydroxybutane-1,2,3-tricarboxylate dehydratase) (Iron-responsive protein-like) (IRP-like) (Probable 2-methyl-cis-aconitate hydratase) (EC 4.2.1.99) (RNA-binding protein)	SUBUNIT: Monomer. {ECO:0000269|PubMed:3110133}.
+P94365	1	cydB yxkL BSU38750	Cytochrome bd ubiquinol oxidase subunit 2 (EC 1.10.3.-) (Cytochrome d ubiquinol oxidase subunit II)	SUBUNIT: Heterodimer of subunits I and II. {ECO:0000250}.
+O34324	1	acoL yfjH BSU08090	Dihydrolipoyl dehydrogenase (EC 1.8.1.4) (Dihydrolipoamide dehydrogenase) (E3 component of acetoin cleaving system)	SUBUNIT: Homodimer. {ECO:0000250}.
+P37465	1	metG metS BSU00380	Methionine--tRNA ligase (EC 6.1.1.10) (Methionyl-tRNA synthetase) (MetRS)	SUBUNIT: Homodimer. {ECO:0000250}.
+P54716	1	glvA glv-1 glvG malA BSU08180	Maltose-6'-phosphate glucosidase (EC 3.2.1.122) (6-phospho-alpha-D-glucosidase) (6-phosphoryl-O-alpha-D-glucopyranosyl:phosphoglucohydrolase)	SUBUNIT: Homotetramer.
+O31632	1	metC yjcJ BSU11880	Cystathionine beta-lyase MetC (CBL) (EC 4.4.1.8) (Beta-cystathionase) (Cysteine lyase)	SUBUNIT: Homotetramer. {ECO:0000250}.
+P17618	1	ribD ribG BSU23280	Riboflavin biosynthesis protein RibD [Includes: Diaminohydroxyphosphoribosylaminopyrimidine deaminase (DRAP deaminase) (EC 3.5.4.26) (Riboflavin-specific deaminase); 5-amino-6-(5-phosphoribosylamino)uracil reductase (EC 1.1.1.193) (HTP reductase)]	SUBUNIT: Homotetramer. {ECO:0000269|PubMed:16308316}.
+P21881	1	pdhA aceA BSU14580	Pyruvate dehydrogenase E1 component subunit alpha (EC 1.2.4.1) (S complex, 42 kDa subunit) (Vegetative protein 220) (VEG220)	SUBUNIT: Heterodimer of an alpha and a beta chain.
+O31666	1	mtnW ykrW BSU13590	2,3-diketo-5-methylthiopentyl-1-phosphate enolase (DK-MTP-1-P enolase) (EC 5.3.2.5) (RuBisCO-like protein) (RLP)	SUBUNIT: Homodimer. {ECO:0000250}.
+P12047	1	purB purE BSU06440	Adenylosuccinate lyase (ASL) (EC 4.3.2.2) (Adenylosuccinase) (ASase) (Glutamyl--tRNA ligase regulatory factor)	SUBUNIT: Homotetramer. Residues from neighboring subunits contribute catalytic and substrate-binding residues to each active site. {ECO:0000269|PubMed:15182182, ECO:0000269|PubMed:18237141}.
+P26900	1	ansA BSU23580	L-asparaginase 1 (L-ASNase 1) (EC 3.5.1.1) (L-asparagine amidohydrolase 1)	SUBUNIT: Homotetramer.
+P53001	1	aspB BSU22370	Aspartate aminotransferase (AspAT) (EC 2.6.1.1) (Transaminase A)	SUBUNIT: Homodimer. {ECO:0000250}.
+O32114	1	dapF yutL BSU32170	Diaminopimelate epimerase (DAP epimerase) (EC 5.1.1.7) (PLP-independent amino acid racemase)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00197}.
+P37877	1	ackA BSU29470	Acetate kinase (EC 2.7.2.1) (Acetokinase)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00020}.
+Q03221	1	tdk BSU37060	Thymidine kinase (EC 2.7.1.21)	SUBUNIT: Homotetramer. {ECO:0000255|HAMAP-Rule:MF_00124}.
+P23129	1	odhA citK BSU19370	2-oxoglutarate dehydrogenase E1 component (EC 1.2.4.2) (Alpha-ketoglutarate dehydrogenase)	SUBUNIT: Homodimer.
+P0CI73	1	glmS gcaA ybxD BSU01780	Glutamine--fructose-6-phosphate aminotransferase [isomerizing] (EC 2.6.1.16) (D-fructose-6-phosphate amidotransferase) (GFAT) (Glucosamine-6-phosphate synthase) (Hexosephosphate aminotransferase) (L-glutamine--D-fructose-6-phosphate amidotransferase)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00164}.
+P31112	1	hepS gerC1 gerCA hepA BSU22760	Heptaprenyl diphosphate synthase component 1 (HepPP synthase subunit 1) (EC 2.5.1.30) (Spore germination protein C1)	SUBUNIT: Heterodimer of component I and II.
+O32137	1	allB pucH yunH BSU32410	Allantoinase (EC 3.5.2.5) (Allantoin-utilizing enzyme)	SUBUNIT: Homotetramer. {ECO:0000255|HAMAP-Rule:MF_01645}.
+O31612	1	ppnKA nadF yjbN BSU11610	NAD kinase 1 (EC 2.7.1.23) (ATP-dependent NAD kinase) (Poly(P)-dependent NAD kinase) (PPNK)	SUBUNIT: Homodimer. {ECO:0000269|PubMed:12897004}.
+O31755	1	proS BSU16570	Proline--tRNA ligase (EC 6.1.1.15) (Prolyl-tRNA synthetase) (ProRS)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_01569}.
+Q04797	1	asd BSU16750	Aspartate-semialdehyde dehydrogenase (ASA dehydrogenase) (ASADH) (EC 1.2.1.11) (Aspartate-beta-semialdehyde dehydrogenase)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_02121}.
+P45694	1	tkt tktA BSU17890	Transketolase (TK) (EC 2.2.1.1)	SUBUNIT: Homodimer. {ECO:0000250}.
+P16524	1	patA uat BSU14000	Putative N-acetyl-LL-diaminopimelate aminotransferase (EC 2.6.1.-) (Putative aminotransferase A)	SUBUNIT: Homodimer. {ECO:0000250}.
+P05654	1	pyrB BSU15490	Aspartate carbamoyltransferase (EC 2.1.3.2) (Aspartate transcarbamylase) (ATCase)	SUBUNIT: Homotrimer.
+P54375	1	sodA yqgD BSU25020	Superoxide dismutase [Mn] (EC 1.15.1.1) (General stress protein 24) (GSP24)	SUBUNIT: Homodimer. {ECO:0000269|PubMed:18084079}.
+P42085	1	xpt BSU22070	Xanthine phosphoribosyltransferase (XPRTase) (EC 2.4.2.22)	SUBUNIT: Homodimer. {ECO:0000269|PubMed:16716072, ECO:0000269|Ref.4}.
+O34347	1	argG BSU29450	Argininosuccinate synthase (EC 6.3.4.5) (Citrulline--aspartate ligase)	SUBUNIT: Homotetramer. {ECO:0000255|HAMAP-Rule:MF_00005}.
+O34442	1	mgtE ykoK BSU13300	Magnesium transporter MgtE	SUBUNIT: Homodimer. {ECO:0000250}.
+O34667	1	luxS ytjB BSU30670	S-ribosylhomocysteine lyase (EC 4.4.1.21) (AI-2 synthesis protein) (Autoinducer-2 production protein LuxS)	SUBUNIT: Homodimer.
+Q06752	1	cysS spnA BSU00940	Cysteine--tRNA ligase (EC 6.1.1.16) (Cysteinyl-tRNA synthetase) (CysRS)	SUBUNIT: Monomer.
+P54382	1	folD yqiA BSU24310	Bifunctional protein FolD [Includes: Methylenetetrahydrofolate dehydrogenase (EC 1.5.1.5); Methenyltetrahydrofolate cyclohydrolase (EC 3.5.4.9)]	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_01576}.
+O31616	1	thiO goxB yjbR BSU11670	Glycine oxidase (GO) (EC 1.4.3.19)	SUBUNIT: Homotetramer. {ECO:0000269|PubMed:12627963, ECO:0000269|PubMed:15105420, ECO:0000269|PubMed:19864430, ECO:0000269|PubMed:9827558}.
+P37530	1	dgk yaaG BSU00150	Deoxyguanosine kinase (DGUO kinase) (dGK) (EC 2.7.1.113)	SUBUNIT: Homodimer. {ECO:0000269|PubMed:11078735}.
+Q06756	1	ispF yacN BSU00910	2-C-methyl-D-erythritol 2,4-cyclodiphosphate synthase (MECDP-synthase) (MECPP-synthase) (MECPS) (EC 4.6.1.12)	SUBUNIT: Homotrimer. {ECO:0000250}.
+P37869	1	eno BSU33900	Enolase (EC 4.2.1.11) (2-phospho-D-glycerate hydro-lyase) (2-phosphoglycerate dehydratase)	SUBUNIT: Homooctamer. Component of a possible RNA degradosome complex composed of rny, rnjA, rnjB, pnp, pfkA and eno (PubMed:19193632) (although rnjA and rnjB's presence is unclear). {ECO:0000269|PubMed:19193632, ECO:0000269|PubMed:21803996, ECO:0000269|PubMed:22198292, ECO:0000269|PubMed:9988532}.
+P31103	1	ndk BSU22730	Nucleoside diphosphate kinase (NDK) (NDP kinase) (EC 2.7.4.6) (Nucleoside-2-P kinase)	SUBUNIT: Homotetramer. {ECO:0000250}.
+P12042	1	purL BSU06480	Phosphoribosylformylglycinamidine synthase subunit PurL (FGAM synthase) (EC 6.3.5.3) (Formylglycinamide ribonucleotide amidotransferase subunit II) (FGAR amidotransferase II) (FGAR-AT II) (Glutamine amidotransferase PurL) (Phosphoribosylformylglycinamidine synthase subunit II)	SUBUNIT: Monomer. Part of the FGAM synthase complex composed of 1 PurL, 1 PurQ and 2 PurS subunits. {ECO:0000255|HAMAP-Rule:MF_00420, ECO:0000269|PubMed:15301530}.
+Q45582	1	murQ ybbI BSU01700	N-acetylmuramic acid 6-phosphate etherase (MurNAc-6-P etherase) (EC 4.2.1.126) (N-acetylmuramic acid 6-phosphate hydrolase) (N-acetylmuramic acid 6-phosphate lyase)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00068}.
+O32142	1	pucM yunM BSU32460	5-hydroxyisourate hydrolase (HIU hydrolase) (HIUHase) (EC 3.5.2.17) (Transthyretin-related protein) (TRP)	SUBUNIT: Homotetramer. {ECO:0000269|PubMed:16782815}.
+O31777	1	kbl BSU17000	8-amino-7-oxononanoate synthase 1 (AONS) (EC 2.3.1.47) (7-keto-8-amino-pelargonic acid synthase) (7-KAP synthase) (KAPA synthase) (8-amino-7-ketopelargonate synthase) (Alpha-oxoamine synthase)	SUBUNIT: Homodimer. {ECO:0000250}.
+P03947	1	trpD BSU22670	Anthranilate phosphoribosyltransferase (EC 2.4.2.18)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00211}.
+P39772	1	asnS BSU22360	Asparagine--tRNA ligase (EC 6.1.1.22) (Asparaginyl-tRNA synthetase) (AsnRS)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00534}.
+P07343	1	fumC citG BSU33040	Fumarate hydratase class II (Fumarase C) (EC 4.2.1.2) (Aerobic fumarase) (Iron-independent fumarase)	SUBUNIT: Homotetramer. {ECO:0000255|HAMAP-Rule:MF_00743}.
+P19465	1	folE mtrA BSU22780	GTP cyclohydrolase 1 (EC 3.5.4.16) (GTP cyclohydrolase I) (GTP-CH-I)	SUBUNIT: Toroid-shaped homodecamer, composed of two pentamers of five dimers. {ECO:0000250}.
+O31751	1	uppS yluA BSU16530	Isoprenyl transferase (EC 2.5.1.-)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_01139}.
+P21248	1	hemD BSU28140	Uroporphyrinogen-III synthase (UROS) (EC 4.2.1.75) (Hydroxymethylbilane hydrolyase [cyclizing]) (Uroporphyrinogen-III cosynthase)	SUBUNIT: Monomer. {ECO:0000250}.
+P28821	1	pabC BSU00760	Aminodeoxychorismate lyase (EC 4.1.3.38) (4-amino-4-deoxychorismate lyase) (ADC lyase) (ADCL)	SUBUNIT: Homodimer. {ECO:0000250}.
+P13714	1	ldh lctE BSU03050	L-lactate dehydrogenase (L-LDH) (EC 1.1.1.27)	SUBUNIT: Homotetramer.
+O34607	1	sdaAA ylpA BSU15860	Probable L-serine dehydratase, alpha chain (SDH) (EC 4.3.1.17) (L-serine deaminase) (L-SD)	SUBUNIT: Heterodimer of an alpha chain and a beta chain. {ECO:0000250}.
+P21880	1	pdhD aceD citL BSU14610	Dihydrolipoyl dehydrogenase (EC 1.8.1.4) (Dihydrolipoamide dehydrogenase) (E3 component of pyruvate complex) (S complex, 50 kDa subunit)	SUBUNIT: Homodimer. Component of two multienzyme complexes: pyruvate dehydrogenase complex and oxoglutarate dehydrogenase complex.
+P37946	1	ilvA BSU21770	L-threonine dehydratase biosynthetic IlvA (EC 4.3.1.19) (Threonine deaminase)	SUBUNIT: Homotetramer. {ECO:0000250}.
+P05645	1	leuB leuC BSU28270	3-isopropylmalate dehydrogenase (EC 1.1.1.85) (3-IPM-DH) (Beta-IPM dehydrogenase) (IMDH)	SUBUNIT: Homodimer.
+O34746	5	fabHA fabH fabH1 yjaX BSU11330	3-oxoacyl-[acyl-carrier-protein] synthase 3 protein 1 (EC 2.3.1.180) (3-oxoacyl-[acyl-carrier-protein] synthase III protein 1) (Beta-ketoacyl-ACP synthase III 1) (KAS III 1) (bFabH1)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_01815}.
+P25972	1	pyrE pyrX BSU15560	Orotate phosphoribosyltransferase (OPRT) (OPRTase) (EC 2.4.2.10)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_01208}.
+P80858	1	leuC BSU28260	3-isopropylmalate dehydratase large subunit (EC 4.2.1.33) (Alpha-IPM isomerase) (IPMI) (Isopropylmalate isomerase) (Superoxide-inducible protein 10) (SOI10)	SUBUNIT: Heterodimer of LeuC and LeuD. {ECO:0000255|HAMAP-Rule:MF_01026}.
+O34565	1	hisH BSU34890	Imidazole glycerol phosphate synthase subunit HisH (EC 2.4.2.-) (IGP synthase glutamine amidotransferase subunit) (IGP synthase subunit HisH) (ImGP synthase subunit HisH) (IGPS subunit HisH)	SUBUNIT: Heterodimer of HisH and HisF. {ECO:0000250}.
+O34529	1	pfkA pfk BSU29190	ATP-dependent 6-phosphofructokinase (ATP-PFK) (Phosphofructokinase) (EC 2.7.1.11) (Phosphohexokinase)	SUBUNIT: Homotetramer. Component of a possible RNA degradosome complex composed of rny, rnjA, rnjB, pnp, pfkA and eno (PubMed:19193632) (although rnjA and rnjB's presence is unclear). Specifically interacts with RNase Y (rny, PubMed:21803996) and enolase (eno, PubMed:22198292). {ECO:0000255|HAMAP-Rule:MF_00339, ECO:0000269|PubMed:19193632, ECO:0000269|PubMed:21803996, ECO:0000269|PubMed:22198292}.
+P21656	1	trpS BSU11420	Tryptophan--tRNA ligase (EC 6.1.1.2) (Tryptophanyl-tRNA synthetase) (TrpRS)	SUBUNIT: Homodimer.
+P37487	1	ppaC BSU40550	Manganese-dependent inorganic pyrophosphatase (EC 3.6.1.1) (Pyrophosphate phospho-hydrolase) (PPase)	SUBUNIT: Homodimer.
+O31776	1	tdh BSU16990	L-threonine 3-dehydrogenase (TDH) (EC 1.1.1.103)	SUBUNIT: Homotetramer. {ECO:0000255|HAMAP-Rule:MF_00627}.
+O34443	1	apt BSU27610	Adenine phosphoribosyltransferase (APRT) (EC 2.4.2.7)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00004}.
+P22326	1	tyrS1 BSU29670	Tyrosine--tRNA ligase 1 (EC 6.1.1.1) (Tyrosyl-tRNA synthetase 1) (TyrRS 1)	SUBUNIT: Homodimer.
+P11044	1	thyA2 thyB BSU21820	Thymidylate synthase 2 (TS 2) (TSase 2) (EC 2.1.1.45) (Thymidylate synthase A) (TS A) (TSase A)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00008}.
+P96618	1	acpS ydcB BSU04620	Holo-[acyl-carrier-protein] synthase (Holo-ACP synthase) (EC 2.7.8.7) (4'-phosphopantetheinyl transferase AcpS)	SUBUNIT: Homotrimer. {ECO:0000269|PubMed:10997907}.
+P35146	1	aroD aroC BSU23080	3-dehydroquinate dehydratase (3-dehydroquinase) (EC 4.2.1.10) (Type I DHQase) (Type I dehydroquinase) (DHQ1)	SUBUNIT: Homodimer. {ECO:0000255|HAMAP-Rule:MF_00214}.
+P23974	1	menH ytfB ytxM BSU30810	Putative 2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase (SHCHC synthase) (EC 4.2.99.20)	SUBUNIT: Monomer. {ECO:0000255|HAMAP-Rule:MF_01660}.
+P17731	1	hisC hisH BSU22620	Histidinol-phosphate aminotransferase (EC 2.6.1.9) (Imidazole acetol-phosphate transaminase)	SUBUNIT: Homodimer. {ECO:0000250}.
+O31669	1	mtnD ykrZ BSU13620	Acireductone dioxygenase (1,2-dihydroxy-3-keto-5-methylthiopentene dioxygenase) (DHK-MTPene dioxygenase) (Acireductone dioxygenase (Fe(2+)-requiring)) (ARD') (Fe-ARD) (EC 1.13.11.54) (Acireductone dioxygenase (Ni(2+)-requiring)) (ARD) (Ni-ARD) (EC 1.13.11.53)	SUBUNIT: Monomer. {ECO:0000250}.
+O34925	1	deoD punB BSU19630	Purine nucleoside phosphorylase DeoD-type (PNP) (EC 2.4.2.1) (Purine nucleoside phosphorylase II) (PU-NPase II)	SUBUNIT: Homohexamer. {ECO:0000250}.
+P26935	1	iolG idh BSU39700 E83G	Inositol 2-dehydrogenase/D-chiro-inositol 3-dehydrogenase (EC 1.1.1.18) (EC 1.1.1.369) (Myo-inositol 2-dehydrogenase/D-chiro-inositol 3-dehydrogenase) (MI 2-dehydrogenase/DCI 3-dehydrogenase)	SUBUNIT: Homotetramer. {ECO:0000269|PubMed:112095}.
+O34911	1	ykoF BSU13240	Putative HMP/thiamine-binding protein YkoF	SUBUNIT: Homodimer in vitro. In vivo, may be a part of an ABC transporter complex which is composed of two ATP-binding proteins (YkoD), two transmembrane proteins (YkoC and YkoE) and a solute-binding protein (YkoF) (Probable). {ECO:0000305|PubMed:15451668, ECO:0000305|Ref.6}.
+O31663	1	mtnK ykrT BSU13560	Methylthioribose kinase (MTR kinase) (EC 2.7.1.100)	SUBUNIT: Homodimer. {ECO:0000269|PubMed:17372354, ECO:0000269|PubMed:17522047}.
+P37477	1	lysS BSU00820	Lysine--tRNA ligase (EC 6.1.1.6) (Lysyl-tRNA synthetase) (LysRS)	SUBUNIT: Homodimer. {ECO:0000250}.
+P94568	1	leuD BSU28250	3-isopropylmalate dehydratase small subunit (EC 4.2.1.33) (Alpha-IPM isomerase) (IPMI) (Isopropylmalate isomerase)	SUBUNIT: Heterodimer of LeuC and LeuD. {ECO:0000250}.
