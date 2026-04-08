@@ -36,28 +36,3 @@ class CliTestCase(unittest.TestCase):
         parameters_file = os.path.join(os.path.dirname(__file__), '..', 'sample_input', 'params.in')
         with unittest.mock.patch('sys.argv', ['', parameters_file, '--model-dir', self.tmp_dirname, '--verbose']):
             rba.cli.generate_rba_model.main()
-
-        """
-
-        # simulation
-        if (
-            solver.is_cplex_available()
-            or solver.is_glpk_available()
-            or solver.is_swiglpk_available()
-            or solver.is_gurobi_available()
-        ):
-            with unittest.mock.patch('sys.argv', ['', self.tmp_dirname, '--bissection-tol', '1e-2', '--verbose']):
-                results = rba.cli.solve_rba_model.main()
-
-            with unittest.mock.patch('sys.argv', ['', self.tmp_dirname, '--bissection-tol', '1e-2']):
-                results = rba.cli.solve_rba_model.main()
-
-        with unittest.mock.patch('sys.argv', ['',
-                                              self.tmp_dirname,
-                                              '--lp-solver', 'glpk',
-                                              '--bissection-tol', '1e-2',
-                                              '--output-dir', os.path.join(self.tmp_dirname, 'results'),
-                                              '--verbose',
-                                              ]):
-            results = rba.cli.solve_rba_model.main()
-        """
